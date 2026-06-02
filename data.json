@@ -1,0 +1,1153 @@
+{
+  "title": "TASTE Score Samples",
+  "source": {
+    "dataset": "purvanshi/TASTE",
+    "split": "train",
+    "repo": "https://github.com/purvanshi-lica/taste"
+  },
+  "dimension_labels": {
+    "color_accuracy": "Color accuracy",
+    "color_harmony": "Color harmony",
+    "mood_and_color_tone": "Mood & color tone",
+    "preference": "Preference",
+    "spatial_accuracy": "Spatial accuracy",
+    "typography": "Typography",
+    "visual_hierarchy": "Visual hierarchy"
+  },
+  "summary": {
+    "prompts": 3,
+    "candidates": 12,
+    "pairs": 18,
+    "taste_scored": true
+  },
+  "prompts": [
+    {
+      "id": "209",
+      "title": "Travel mood board",
+      "track": "aesthetics",
+      "dimension": "preference",
+      "focus_dimension": "preference",
+      "dimension_label": "Preference",
+      "prompt": "User Intent: Create a structured visual narrative or a thematic mood board for social media or a portfolio, showcasing a collection of travel or lifestyle images interspersed with short, evocative text prompts or calls to action. Aesthetics: The design exhibits a clean, structured, and organized aesthetic with a strong minimalist influence. The typography for the text elements (\"VE\", \"RÍE\", \"OTRA\") is a classic serif font, capitalized and centrally aligned within its white square, lending an elegant and timeless feel. Generous negative space is effectively utilized through the light blue background and the internal padding within each white square, providing ample breathing room for all visual and textual components. The grid composition ensures a balanced and harmonious layout, guiding the viewer's eye systematically across the collection of images and text. The color palette is soft and inviting, primarily featuring a calming light blue background, crisp white frames, and subtle dark gray text, which allows the varied and vibrant colors within the photographs to stand out effectively without visual clutter.",
+      "candidates": [
+        {
+          "id": "c1",
+          "asset_id": 134,
+          "label": "Candidate 1",
+          "model": "Nano Banana 2",
+          "asset": "assets/209/candidate-1.png",
+          "human_mean_rank": 1.0,
+          "human_first_place_votes": 5,
+          "taste_scores": {
+            "color_accuracy": 0.5590680241584778,
+            "color_harmony": 0.558126429716746,
+            "mood_and_color_tone": 0.5980929334958395,
+            "preference": 0.49600160121917725,
+            "spatial_accuracy": 0.5193322598934174,
+            "typography": 0.5180137058099111,
+            "visual_hierarchy": 0.525176485379537
+          },
+          "taste_overall": 0.5391159199533009
+        },
+        {
+          "id": "c2",
+          "asset_id": 133,
+          "label": "Candidate 2",
+          "model": "GPT Image 1.5",
+          "asset": "assets/209/candidate-2.png",
+          "human_mean_rank": 2.8,
+          "human_first_place_votes": 0,
+          "taste_scores": {
+            "color_accuracy": 0.40437732140223187,
+            "color_harmony": 0.5150873064994812,
+            "mood_and_color_tone": 0.4939430157343547,
+            "preference": 0.48385490973790485,
+            "spatial_accuracy": 0.5087112188339233,
+            "typography": 0.575848271449407,
+            "visual_hierarchy": 0.49169788757960003
+          },
+          "taste_overall": 0.4962171330338433
+        },
+        {
+          "id": "c3",
+          "asset_id": 99,
+          "label": "Candidate 3",
+          "model": "FLUX.2 [max]",
+          "asset": "assets/209/candidate-3.jpg",
+          "human_mean_rank": 3.0,
+          "human_first_place_votes": 0,
+          "taste_scores": {
+            "color_accuracy": 0.5422979692618052,
+            "color_harmony": 0.4511541227499644,
+            "mood_and_color_tone": 0.5064917405446371,
+            "preference": 0.5222828189531962,
+            "spatial_accuracy": 0.502642552057902,
+            "typography": 0.4735555052757263,
+            "visual_hierarchy": 0.5351310968399048
+          },
+          "taste_overall": 0.5047936865261623
+        },
+        {
+          "id": "c4",
+          "asset_id": 340,
+          "label": "Candidate 4",
+          "model": "Seedream 5.0 Lite",
+          "asset": "assets/209/candidate-4.png",
+          "human_mean_rank": 3.2,
+          "human_first_place_votes": 0,
+          "taste_scores": {
+            "color_accuracy": 0.49425668517748517,
+            "color_harmony": 0.4756321410338084,
+            "mood_and_color_tone": 0.4014723102251689,
+            "preference": 0.4978606700897217,
+            "spatial_accuracy": 0.46931396921475727,
+            "typography": 0.43258251746495563,
+            "visual_hierarchy": 0.44799453020095825
+          },
+          "taste_overall": 0.4598732604866936
+        }
+      ],
+      "human_pair_votes": [
+        {
+          "asset_id_a": 134,
+          "asset_id_b": 133,
+          "votes_a": 5,
+          "votes_b": 0,
+          "majority_winner": 134
+        },
+        {
+          "asset_id_a": 134,
+          "asset_id_b": 99,
+          "votes_a": 5,
+          "votes_b": 0,
+          "majority_winner": 134
+        },
+        {
+          "asset_id_a": 134,
+          "asset_id_b": 340,
+          "votes_a": 5,
+          "votes_b": 0,
+          "majority_winner": 134
+        },
+        {
+          "asset_id_a": 133,
+          "asset_id_b": 99,
+          "votes_a": 3,
+          "votes_b": 2,
+          "majority_winner": 133
+        },
+        {
+          "asset_id_a": 133,
+          "asset_id_b": 340,
+          "votes_a": 3,
+          "votes_b": 2,
+          "majority_winner": 133
+        },
+        {
+          "asset_id_a": 99,
+          "asset_id_b": 340,
+          "votes_a": 3,
+          "votes_b": 2,
+          "majority_winner": 99
+        }
+      ],
+      "taste_pair_scores": [
+        {
+          "candidate_a": "c1",
+          "candidate_b": "c2",
+          "probabilities": {
+            "color_accuracy": 0.5714880228042603,
+            "color_harmony": 0.5422632098197937,
+            "mood_and_color_tone": 0.5604336261749268,
+            "preference": 0.48759880661964417,
+            "spatial_accuracy": 0.5223668813705444,
+            "typography": 0.4784707725048065,
+            "visual_hierarchy": 0.5307660102844238
+          }
+        },
+        {
+          "candidate_a": "c1",
+          "candidate_b": "c3",
+          "probabilities": {
+            "color_accuracy": 0.5009717345237732,
+            "color_harmony": 0.5685319900512695,
+            "mood_and_color_tone": 0.5721214413642883,
+            "preference": 0.4831647574901581,
+            "spatial_accuracy": 0.4873879849910736,
+            "typography": 0.5603179335594177,
+            "visual_hierarchy": 0.4789550304412842
+          }
+        },
+        {
+          "candidate_a": "c1",
+          "candidate_b": "c4",
+          "probabilities": {
+            "color_accuracy": 0.6047443151473999,
+            "color_harmony": 0.5635840892791748,
+            "mood_and_color_tone": 0.6617237329483032,
+            "preference": 0.5172412395477295,
+            "spatial_accuracy": 0.548241913318634,
+            "typography": 0.515252411365509,
+            "visual_hierarchy": 0.5658084154129028
+          }
+        },
+        {
+          "candidate_a": "c2",
+          "candidate_b": "c3",
+          "probabilities": {
+            "color_accuracy": 0.3432174026966095,
+            "color_harmony": 0.5461466908454895,
+            "mood_and_color_tone": 0.5039405822753906,
+            "preference": 0.4443734288215637,
+            "spatial_accuracy": 0.49809056520462036,
+            "typography": 0.4739747643470764,
+            "visual_hierarchy": 0.48164862394332886
+          }
+        },
+        {
+          "candidate_a": "c2",
+          "candidate_b": "c4",
+          "probabilities": {
+            "color_accuracy": 0.4414025843143463,
+            "color_harmony": 0.5413784384727478,
+            "mood_and_color_tone": 0.5383220911026001,
+            "preference": 0.49479010701179504,
+            "spatial_accuracy": 0.5504099726676941,
+            "typography": 0.7320408225059509,
+            "visual_hierarchy": 0.524211049079895
+          }
+        },
+        {
+          "candidate_a": "c3",
+          "candidate_b": "c4",
+          "probabilities": {
+            "color_accuracy": 0.47108304500579834,
+            "color_harmony": 0.4681410491466522,
+            "mood_and_color_tone": 0.5955372452735901,
+            "preference": 0.4943866431713104,
+            "spatial_accuracy": 0.4934062063694,
+            "typography": 0.4549592137336731,
+            "visual_hierarchy": 0.5659969449043274
+          }
+        }
+      ],
+      "taste_dimensions": [
+        "color_accuracy",
+        "color_harmony",
+        "mood_and_color_tone",
+        "preference",
+        "spatial_accuracy",
+        "typography",
+        "visual_hierarchy"
+      ],
+      "taste_rankings": {
+        "color_accuracy": [
+          {
+            "id": "c1",
+            "label": "Candidate 1",
+            "score": 0.5590680241584778
+          },
+          {
+            "id": "c3",
+            "label": "Candidate 3",
+            "score": 0.5422979692618052
+          },
+          {
+            "id": "c4",
+            "label": "Candidate 4",
+            "score": 0.49425668517748517
+          },
+          {
+            "id": "c2",
+            "label": "Candidate 2",
+            "score": 0.40437732140223187
+          }
+        ],
+        "color_harmony": [
+          {
+            "id": "c1",
+            "label": "Candidate 1",
+            "score": 0.558126429716746
+          },
+          {
+            "id": "c2",
+            "label": "Candidate 2",
+            "score": 0.5150873064994812
+          },
+          {
+            "id": "c4",
+            "label": "Candidate 4",
+            "score": 0.4756321410338084
+          },
+          {
+            "id": "c3",
+            "label": "Candidate 3",
+            "score": 0.4511541227499644
+          }
+        ],
+        "mood_and_color_tone": [
+          {
+            "id": "c1",
+            "label": "Candidate 1",
+            "score": 0.5980929334958395
+          },
+          {
+            "id": "c3",
+            "label": "Candidate 3",
+            "score": 0.5064917405446371
+          },
+          {
+            "id": "c2",
+            "label": "Candidate 2",
+            "score": 0.4939430157343547
+          },
+          {
+            "id": "c4",
+            "label": "Candidate 4",
+            "score": 0.4014723102251689
+          }
+        ],
+        "preference": [
+          {
+            "id": "c3",
+            "label": "Candidate 3",
+            "score": 0.5222828189531962
+          },
+          {
+            "id": "c4",
+            "label": "Candidate 4",
+            "score": 0.4978606700897217
+          },
+          {
+            "id": "c1",
+            "label": "Candidate 1",
+            "score": 0.49600160121917725
+          },
+          {
+            "id": "c2",
+            "label": "Candidate 2",
+            "score": 0.48385490973790485
+          }
+        ],
+        "spatial_accuracy": [
+          {
+            "id": "c1",
+            "label": "Candidate 1",
+            "score": 0.5193322598934174
+          },
+          {
+            "id": "c2",
+            "label": "Candidate 2",
+            "score": 0.5087112188339233
+          },
+          {
+            "id": "c3",
+            "label": "Candidate 3",
+            "score": 0.502642552057902
+          },
+          {
+            "id": "c4",
+            "label": "Candidate 4",
+            "score": 0.46931396921475727
+          }
+        ],
+        "typography": [
+          {
+            "id": "c2",
+            "label": "Candidate 2",
+            "score": 0.575848271449407
+          },
+          {
+            "id": "c1",
+            "label": "Candidate 1",
+            "score": 0.5180137058099111
+          },
+          {
+            "id": "c3",
+            "label": "Candidate 3",
+            "score": 0.4735555052757263
+          },
+          {
+            "id": "c4",
+            "label": "Candidate 4",
+            "score": 0.43258251746495563
+          }
+        ],
+        "visual_hierarchy": [
+          {
+            "id": "c3",
+            "label": "Candidate 3",
+            "score": 0.5351310968399048
+          },
+          {
+            "id": "c1",
+            "label": "Candidate 1",
+            "score": 0.525176485379537
+          },
+          {
+            "id": "c2",
+            "label": "Candidate 2",
+            "score": 0.49169788757960003
+          },
+          {
+            "id": "c4",
+            "label": "Candidate 4",
+            "score": 0.44799453020095825
+          }
+        ]
+      }
+    },
+    {
+      "id": "315",
+      "title": "Gardening Q&A post",
+      "track": "aesthetics",
+      "dimension": "typography",
+      "focus_dimension": "typography",
+      "dimension_label": "Typography",
+      "prompt": "User Intent: Create an inviting and user-friendly social media post or a section for a website/app aimed at encouraging users to submit gardening-related questions, showcasing an expert, and featuring a clean, nature-inspired design. Aesthetics: The design style is modern, clean, and organic, exuding a calm and inviting educational aesthetic. The typography employs a clear hierarchy, combining a strong sans-serif for the call to action \"ASK\" and an elegant, decorative serif for the theme \"GARDENING QUESTIONS,\" both center-aligned for balance. Spacing is generous throughout, providing ample breathing room around the central card and its internal elements, which contributes to an uncluttered and sophisticated look. The composition is largely symmetrical with the central card and its embedded elements acting as the primary focal point, further emphasized by the circular profile image. The stylized leaves at the bottom offer an organic, asymmetrical counterpoint, guiding the eye through the design. The color harmony is excellent, utilizing an earthy palette of various greens, off-whites, and muted grays, creating a natural, soothing, and sophisticated feel that strongly reinforces the gardening theme. The subtle background texture and clean illustrative elements enhance visual integration.",
+      "candidates": [
+        {
+          "id": "c1",
+          "asset_id": 168,
+          "label": "Candidate 1",
+          "model": "Seedream 5.0 Lite",
+          "asset": "assets/315/candidate-1.png",
+          "human_mean_rank": 1.0,
+          "human_first_place_votes": 5,
+          "taste_scores": {
+            "color_accuracy": 0.519609272480011,
+            "color_harmony": 0.6097706158955892,
+            "mood_and_color_tone": 0.7562739253044128,
+            "preference": 0.9827226201693217,
+            "spatial_accuracy": 0.7006349960962931,
+            "typography": 0.9998196363449097,
+            "visual_hierarchy": 0.46568798646330833
+          },
+          "taste_overall": 0.7192170075362637
+        },
+        {
+          "id": "c2",
+          "asset_id": 525,
+          "label": "Candidate 2",
+          "model": "GPT Image 1.5",
+          "asset": "assets/315/candidate-2.png",
+          "human_mean_rank": 2.8,
+          "human_first_place_votes": 0,
+          "taste_scores": {
+            "color_accuracy": 0.5020072162151337,
+            "color_harmony": 0.4744279682636261,
+            "mood_and_color_tone": 0.3692279060681661,
+            "preference": 0.6630483865737915,
+            "spatial_accuracy": 0.6008578737576803,
+            "typography": 0.3748584985733032,
+            "visual_hierarchy": 0.6737625996271769
+          },
+          "taste_overall": 0.5225986355826968
+        },
+        {
+          "id": "c3",
+          "asset_id": 511,
+          "label": "Candidate 3",
+          "model": "Nano Banana 2",
+          "asset": "assets/315/candidate-3.png",
+          "human_mean_rank": 3.0,
+          "human_first_place_votes": 0,
+          "taste_scores": {
+            "color_accuracy": 0.5851593911647797,
+            "color_harmony": 0.26546049414901063,
+            "mood_and_color_tone": 0.29096055030822754,
+            "preference": 0.13689594467480978,
+            "spatial_accuracy": 0.5801071723302206,
+            "typography": 0.3027031521002452,
+            "visual_hierarchy": 0.3313359094305876
+          },
+          "taste_overall": 0.3560889448796973
+        },
+        {
+          "id": "c4",
+          "asset_id": 30,
+          "label": "Candidate 4",
+          "model": "FLUX.2 [max]",
+          "asset": "assets/315/candidate-4.jpg",
+          "human_mean_rank": 3.2,
+          "human_first_place_votes": 0,
+          "taste_scores": {
+            "color_accuracy": 0.3932241201400757,
+            "color_harmony": 0.650340921691774,
+            "mood_and_color_tone": 0.5835376183191935,
+            "preference": 0.21733304858207703,
+            "spatial_accuracy": 0.11839995781580608,
+            "typography": 0.32261871298154193,
+            "visual_hierarchy": 0.5292135044789271
+          },
+          "taste_overall": 0.4020954120013422
+        }
+      ],
+      "human_pair_votes": [
+        {
+          "asset_id_a": 168,
+          "asset_id_b": 525,
+          "votes_a": 5,
+          "votes_b": 0,
+          "majority_winner": 168
+        },
+        {
+          "asset_id_a": 168,
+          "asset_id_b": 511,
+          "votes_a": 5,
+          "votes_b": 0,
+          "majority_winner": 168
+        },
+        {
+          "asset_id_a": 168,
+          "asset_id_b": 30,
+          "votes_a": 5,
+          "votes_b": 0,
+          "majority_winner": 168
+        },
+        {
+          "asset_id_a": 525,
+          "asset_id_b": 511,
+          "votes_a": 3,
+          "votes_b": 2,
+          "majority_winner": 525
+        },
+        {
+          "asset_id_a": 525,
+          "asset_id_b": 30,
+          "votes_a": 3,
+          "votes_b": 2,
+          "majority_winner": 525
+        },
+        {
+          "asset_id_a": 511,
+          "asset_id_b": 30,
+          "votes_a": 3,
+          "votes_b": 2,
+          "majority_winner": 511
+        }
+      ],
+      "taste_pair_scores": [
+        {
+          "candidate_a": "c1",
+          "candidate_b": "c2",
+          "probabilities": {
+            "color_accuracy": 0.46448951959609985,
+            "color_harmony": 0.6492403149604797,
+            "mood_and_color_tone": 0.6660670042037964,
+            "preference": 0.9531170129776001,
+            "spatial_accuracy": 0.7095696330070496,
+            "typography": 0.9998101592063904,
+            "visual_hierarchy": 0.5578617453575134
+          }
+        },
+        {
+          "candidate_a": "c1",
+          "candidate_b": "c3",
+          "probabilities": {
+            "color_accuracy": 0.4837498664855957,
+            "color_harmony": 0.6212193369865417,
+            "mood_and_color_tone": 0.615002453327179,
+            "preference": 0.9973594546318054,
+            "spatial_accuracy": 0.5698403716087341,
+            "typography": 0.9997660517692566,
+            "visual_hierarchy": 0.008281875401735306
+          }
+        },
+        {
+          "candidate_a": "c1",
+          "candidate_b": "c4",
+          "probabilities": {
+            "color_accuracy": 0.6105884313583374,
+            "color_harmony": 0.5588521957397461,
+            "mood_and_color_tone": 0.9877523183822632,
+            "preference": 0.9976913928985596,
+            "spatial_accuracy": 0.8224949836730957,
+            "typography": 0.999882698059082,
+            "visual_hierarchy": 0.8309203386306763
+          }
+        },
+        {
+          "candidate_a": "c2",
+          "candidate_b": "c3",
+          "probabilities": {
+            "color_accuracy": 0.3853488266468048,
+            "color_harmony": 0.5831701159477234,
+            "mood_and_color_tone": 0.6182937026023865,
+            "preference": 0.9947615265846252,
+            "spatial_accuracy": 0.595891535282135,
+            "typography": 0.5647100806236267,
+            "visual_hierarchy": 0.9977608919143677
+          }
+        },
+        {
+          "candidate_a": "c2",
+          "candidate_b": "c4",
+          "probabilities": {
+            "color_accuracy": 0.585162341594696,
+            "color_harmony": 0.48935410380363464,
+            "mood_and_color_tone": 0.1554570198059082,
+            "preference": 0.9475006461143494,
+            "spatial_accuracy": 0.9162517189979553,
+            "typography": 0.5596755743026733,
+            "visual_hierarchy": 0.5813886523246765
+          }
+        },
+        {
+          "candidate_a": "c3",
+          "candidate_b": "c4",
+          "probabilities": {
+            "color_accuracy": 0.6245768666267395,
+            "color_harmony": 0.0007709353812970221,
+            "mood_and_color_tone": 0.10617780685424805,
+            "preference": 0.40280881524086,
+            "spatial_accuracy": 0.9060534238815308,
+            "typography": 0.4725855886936188,
+            "visual_hierarchy": 5.0495607865741476e-05
+          }
+        }
+      ],
+      "taste_dimensions": [
+        "color_accuracy",
+        "color_harmony",
+        "mood_and_color_tone",
+        "preference",
+        "spatial_accuracy",
+        "typography",
+        "visual_hierarchy"
+      ],
+      "taste_rankings": {
+        "color_accuracy": [
+          {
+            "id": "c3",
+            "label": "Candidate 3",
+            "score": 0.5851593911647797
+          },
+          {
+            "id": "c1",
+            "label": "Candidate 1",
+            "score": 0.519609272480011
+          },
+          {
+            "id": "c2",
+            "label": "Candidate 2",
+            "score": 0.5020072162151337
+          },
+          {
+            "id": "c4",
+            "label": "Candidate 4",
+            "score": 0.3932241201400757
+          }
+        ],
+        "color_harmony": [
+          {
+            "id": "c4",
+            "label": "Candidate 4",
+            "score": 0.650340921691774
+          },
+          {
+            "id": "c1",
+            "label": "Candidate 1",
+            "score": 0.6097706158955892
+          },
+          {
+            "id": "c2",
+            "label": "Candidate 2",
+            "score": 0.4744279682636261
+          },
+          {
+            "id": "c3",
+            "label": "Candidate 3",
+            "score": 0.26546049414901063
+          }
+        ],
+        "mood_and_color_tone": [
+          {
+            "id": "c1",
+            "label": "Candidate 1",
+            "score": 0.7562739253044128
+          },
+          {
+            "id": "c4",
+            "label": "Candidate 4",
+            "score": 0.5835376183191935
+          },
+          {
+            "id": "c2",
+            "label": "Candidate 2",
+            "score": 0.3692279060681661
+          },
+          {
+            "id": "c3",
+            "label": "Candidate 3",
+            "score": 0.29096055030822754
+          }
+        ],
+        "preference": [
+          {
+            "id": "c1",
+            "label": "Candidate 1",
+            "score": 0.9827226201693217
+          },
+          {
+            "id": "c2",
+            "label": "Candidate 2",
+            "score": 0.6630483865737915
+          },
+          {
+            "id": "c4",
+            "label": "Candidate 4",
+            "score": 0.21733304858207703
+          },
+          {
+            "id": "c3",
+            "label": "Candidate 3",
+            "score": 0.13689594467480978
+          }
+        ],
+        "spatial_accuracy": [
+          {
+            "id": "c1",
+            "label": "Candidate 1",
+            "score": 0.7006349960962931
+          },
+          {
+            "id": "c2",
+            "label": "Candidate 2",
+            "score": 0.6008578737576803
+          },
+          {
+            "id": "c3",
+            "label": "Candidate 3",
+            "score": 0.5801071723302206
+          },
+          {
+            "id": "c4",
+            "label": "Candidate 4",
+            "score": 0.11839995781580608
+          }
+        ],
+        "typography": [
+          {
+            "id": "c1",
+            "label": "Candidate 1",
+            "score": 0.9998196363449097
+          },
+          {
+            "id": "c2",
+            "label": "Candidate 2",
+            "score": 0.3748584985733032
+          },
+          {
+            "id": "c4",
+            "label": "Candidate 4",
+            "score": 0.32261871298154193
+          },
+          {
+            "id": "c3",
+            "label": "Candidate 3",
+            "score": 0.3027031521002452
+          }
+        ],
+        "visual_hierarchy": [
+          {
+            "id": "c2",
+            "label": "Candidate 2",
+            "score": 0.6737625996271769
+          },
+          {
+            "id": "c4",
+            "label": "Candidate 4",
+            "score": 0.5292135044789271
+          },
+          {
+            "id": "c1",
+            "label": "Candidate 1",
+            "score": 0.46568798646330833
+          },
+          {
+            "id": "c3",
+            "label": "Candidate 3",
+            "score": 0.3313359094305876
+          }
+        ]
+      }
+    },
+    {
+      "id": "628",
+      "title": "Travel editorial layout",
+      "track": "descriptions",
+      "dimension": "spatial_accuracy",
+      "focus_dimension": "spatial_accuracy",
+      "dimension_label": "Spatial accuracy",
+      "prompt": "User Intent: Create an engaging editorial layout for a blog post or website article about travel experiences, combining a prominent lifestyle image with supporting imagery and a clear title and descriptive text. Description: The image displays a clean, modern layout featuring two photographs and a text block on a white background. On the left side, there is a large, vertically oriented photograph depicting three women in floral dresses walking on a cobblestone street in front of a peach-colored building with dark green shutters and a large wooden arched door. On the right side, there's a smaller, square-shaped photograph positioned above a text section. This photograph shows two cardboard boxes filled with vinyl records, with a hand reaching for one. Below the right photograph, a bold, all-caps title \"TRIP TALES\" is displayed, followed by a paragraph of Latin placeholder text. The overall arrangement uses a two-column structure, with the left image taking up the majority of the left column and the right image and text occupying the right column.",
+      "candidates": [
+        {
+          "id": "c1",
+          "asset_id": 2,
+          "label": "Candidate 1",
+          "model": "Nano Banana 2",
+          "asset": "assets/628/candidate-1.png",
+          "human_mean_rank": 1.0,
+          "human_first_place_votes": 5,
+          "taste_scores": {
+            "color_accuracy": 0.5267291367053986,
+            "color_harmony": 0.5263851483662924,
+            "mood_and_color_tone": 0.48777517676353455,
+            "preference": 0.9998388489087423,
+            "spatial_accuracy": 0.9991758664449056,
+            "typography": 0.700584610303243,
+            "visual_hierarchy": 0.5363452037175497
+          },
+          "taste_overall": 0.6824048558870952
+        },
+        {
+          "id": "c2",
+          "asset_id": 158,
+          "label": "Candidate 2",
+          "model": "GPT Image 1.5",
+          "asset": "assets/628/candidate-2.png",
+          "human_mean_rank": 2.8,
+          "human_first_place_votes": 0,
+          "taste_scores": {
+            "color_accuracy": 0.6721465984980265,
+            "color_harmony": 0.512958824634552,
+            "mood_and_color_tone": 0.5379029512405396,
+            "preference": 0.47879310448964435,
+            "spatial_accuracy": 0.47583919763565063,
+            "typography": 0.6205447912216187,
+            "visual_hierarchy": 0.4828006724516551
+          },
+          "taste_overall": 0.5401408771673838
+        },
+        {
+          "id": "c3",
+          "asset_id": 548,
+          "label": "Candidate 3",
+          "model": "Seedream 5.0 Lite",
+          "asset": "assets/628/candidate-3.png",
+          "human_mean_rank": 2.8,
+          "human_first_place_votes": 0,
+          "taste_scores": {
+            "color_accuracy": 0.3340998813509941,
+            "color_harmony": 0.49484588702519733,
+            "mood_and_color_tone": 0.5074304044246674,
+            "preference": 0.5182822744051615,
+            "spatial_accuracy": 0.3960386912027995,
+            "typography": 0.42181990544001263,
+            "visual_hierarchy": 0.5302393734455109
+          },
+          "taste_overall": 0.45753663104204906
+        },
+        {
+          "id": "c4",
+          "asset_id": 171,
+          "label": "Candidate 4",
+          "model": "FLUX.2 [max]",
+          "asset": "assets/628/candidate-4.jpg",
+          "human_mean_rank": 3.4,
+          "human_first_place_votes": 0,
+          "taste_scores": {
+            "color_accuracy": 0.4670243834455808,
+            "color_harmony": 0.4658101399739583,
+            "mood_and_color_tone": 0.46689146757125854,
+            "preference": 0.0030857721964518228,
+            "spatial_accuracy": 0.1289462447166443,
+            "typography": 0.25705069303512573,
+            "visual_hierarchy": 0.4506147503852844
+          },
+          "taste_overall": 0.319917635903472
+        }
+      ],
+      "human_pair_votes": [
+        {
+          "asset_id_a": 2,
+          "asset_id_b": 158,
+          "votes_a": 5,
+          "votes_b": 0,
+          "majority_winner": 2
+        },
+        {
+          "asset_id_a": 2,
+          "asset_id_b": 548,
+          "votes_a": 5,
+          "votes_b": 0,
+          "majority_winner": 2
+        },
+        {
+          "asset_id_a": 2,
+          "asset_id_b": 171,
+          "votes_a": 5,
+          "votes_b": 0,
+          "majority_winner": 2
+        },
+        {
+          "asset_id_a": 158,
+          "asset_id_b": 548,
+          "votes_a": 3,
+          "votes_b": 2,
+          "majority_winner": 158
+        },
+        {
+          "asset_id_a": 158,
+          "asset_id_b": 171,
+          "votes_a": 3,
+          "votes_b": 2,
+          "majority_winner": 158
+        },
+        {
+          "asset_id_a": 548,
+          "asset_id_b": 171,
+          "votes_a": 4,
+          "votes_b": 1,
+          "majority_winner": 548
+        }
+      ],
+      "taste_pair_scores": [
+        {
+          "candidate_a": "c1",
+          "candidate_b": "c2",
+          "probabilities": {
+            "color_accuracy": 0.5600489377975464,
+            "color_harmony": 0.5266473293304443,
+            "mood_and_color_tone": 0.46838057041168213,
+            "preference": 0.9998513460159302,
+            "spatial_accuracy": 0.9992406368255615,
+            "typography": 0.4544273018836975,
+            "visual_hierarchy": 0.5309804081916809
+          }
+        },
+        {
+          "candidate_a": "c1",
+          "candidate_b": "c3",
+          "probabilities": {
+            "color_accuracy": 0.4732029139995575,
+            "color_harmony": 0.5204015970230103,
+            "mood_and_color_tone": 0.4900764524936676,
+            "preference": 0.9997155070304871,
+            "spatial_accuracy": 0.9983512163162231,
+            "typography": 0.6776811480522156,
+            "visual_hierarchy": 0.5112449526786804
+          }
+        },
+        {
+          "candidate_a": "c1",
+          "candidate_b": "c4",
+          "probabilities": {
+            "color_accuracy": 0.5469355583190918,
+            "color_harmony": 0.5321065187454224,
+            "mood_and_color_tone": 0.5048685073852539,
+            "preference": 0.9999496936798096,
+            "spatial_accuracy": 0.9999357461929321,
+            "typography": 0.9696453809738159,
+            "visual_hierarchy": 0.5668102502822876
+          }
+        },
+        {
+          "candidate_a": "c2",
+          "candidate_b": "c3",
+          "probabilities": {
+            "color_accuracy": 0.5879520177841187,
+            "color_harmony": 0.5311808586120605,
+            "mood_and_color_tone": 0.5335263013839722,
+            "preference": 0.44019991159439087,
+            "spatial_accuracy": 0.43127697706222534,
+            "typography": 0.615746796131134,
+            "visual_hierarchy": 0.4552411139011383
+          }
+        },
+        {
+          "candidate_a": "c2",
+          "candidate_b": "c4",
+          "probabilities": {
+            "color_accuracy": 0.9885367155075073,
+            "color_harmony": 0.5343429446220398,
+            "mood_and_color_tone": 0.5485631227493286,
+            "preference": 0.9960307478904724,
+            "spatial_accuracy": 0.9954812526702881,
+            "typography": 0.7003148794174194,
+            "visual_hierarchy": 0.5241413116455078
+          }
+        },
+        {
+          "candidate_a": "c3",
+          "candidate_b": "c4",
+          "probabilities": {
+            "color_accuracy": 0.06345457583665848,
+            "color_harmony": 0.5361201167106628,
+            "mood_and_color_tone": 0.5458939671516418,
+            "preference": 0.9947622418403625,
+            "spatial_accuracy": 0.6177442669868469,
+            "typography": 0.5588876605033875,
+            "visual_hierarchy": 0.5572041869163513
+          }
+        }
+      ],
+      "taste_dimensions": [
+        "color_accuracy",
+        "color_harmony",
+        "mood_and_color_tone",
+        "preference",
+        "spatial_accuracy",
+        "typography",
+        "visual_hierarchy"
+      ],
+      "taste_rankings": {
+        "color_accuracy": [
+          {
+            "id": "c2",
+            "label": "Candidate 2",
+            "score": 0.6721465984980265
+          },
+          {
+            "id": "c1",
+            "label": "Candidate 1",
+            "score": 0.5267291367053986
+          },
+          {
+            "id": "c4",
+            "label": "Candidate 4",
+            "score": 0.4670243834455808
+          },
+          {
+            "id": "c3",
+            "label": "Candidate 3",
+            "score": 0.3340998813509941
+          }
+        ],
+        "color_harmony": [
+          {
+            "id": "c1",
+            "label": "Candidate 1",
+            "score": 0.5263851483662924
+          },
+          {
+            "id": "c2",
+            "label": "Candidate 2",
+            "score": 0.512958824634552
+          },
+          {
+            "id": "c3",
+            "label": "Candidate 3",
+            "score": 0.49484588702519733
+          },
+          {
+            "id": "c4",
+            "label": "Candidate 4",
+            "score": 0.4658101399739583
+          }
+        ],
+        "mood_and_color_tone": [
+          {
+            "id": "c2",
+            "label": "Candidate 2",
+            "score": 0.5379029512405396
+          },
+          {
+            "id": "c3",
+            "label": "Candidate 3",
+            "score": 0.5074304044246674
+          },
+          {
+            "id": "c1",
+            "label": "Candidate 1",
+            "score": 0.48777517676353455
+          },
+          {
+            "id": "c4",
+            "label": "Candidate 4",
+            "score": 0.46689146757125854
+          }
+        ],
+        "preference": [
+          {
+            "id": "c1",
+            "label": "Candidate 1",
+            "score": 0.9998388489087423
+          },
+          {
+            "id": "c3",
+            "label": "Candidate 3",
+            "score": 0.5182822744051615
+          },
+          {
+            "id": "c2",
+            "label": "Candidate 2",
+            "score": 0.47879310448964435
+          },
+          {
+            "id": "c4",
+            "label": "Candidate 4",
+            "score": 0.0030857721964518228
+          }
+        ],
+        "spatial_accuracy": [
+          {
+            "id": "c1",
+            "label": "Candidate 1",
+            "score": 0.9991758664449056
+          },
+          {
+            "id": "c2",
+            "label": "Candidate 2",
+            "score": 0.47583919763565063
+          },
+          {
+            "id": "c3",
+            "label": "Candidate 3",
+            "score": 0.3960386912027995
+          },
+          {
+            "id": "c4",
+            "label": "Candidate 4",
+            "score": 0.1289462447166443
+          }
+        ],
+        "typography": [
+          {
+            "id": "c1",
+            "label": "Candidate 1",
+            "score": 0.700584610303243
+          },
+          {
+            "id": "c2",
+            "label": "Candidate 2",
+            "score": 0.6205447912216187
+          },
+          {
+            "id": "c3",
+            "label": "Candidate 3",
+            "score": 0.42181990544001263
+          },
+          {
+            "id": "c4",
+            "label": "Candidate 4",
+            "score": 0.25705069303512573
+          }
+        ],
+        "visual_hierarchy": [
+          {
+            "id": "c1",
+            "label": "Candidate 1",
+            "score": 0.5363452037175497
+          },
+          {
+            "id": "c3",
+            "label": "Candidate 3",
+            "score": 0.5302393734455109
+          },
+          {
+            "id": "c2",
+            "label": "Candidate 2",
+            "score": 0.4828006724516551
+          },
+          {
+            "id": "c4",
+            "label": "Candidate 4",
+            "score": 0.4506147503852844
+          }
+        ]
+      }
+    }
+  ]
+}

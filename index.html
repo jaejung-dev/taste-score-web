@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TASTE Score Samples</title>
+    <link rel="stylesheet" href="styles.css?v=20260603-draft-1" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero">
+        <p class="eyebrow">TASTE train split prototype</p>
+        <h1>TASTE score visualization draft</h1>
+        <p class="lede">
+          A small, reproducible snapshot from the public TASTE train split.
+          Each prompt shows four generated design candidates, human ranking
+          signals, and TASTE pairwise preference scores when available.
+        </p>
+        <div class="notice">
+          The public dataset currently exposes only a train split. This page is
+          a visualization draft, not an official validation report.
+        </div>
+        <div id="summary" class="summary"></div>
+      </section>
+
+      <section id="prompts" class="prompts" aria-live="polite"></section>
+    </main>
+    <script src="app.js?v=20260603-draft-1"></script>
+  </body>
+</html>
