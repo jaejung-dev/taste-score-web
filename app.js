@@ -1,4 +1,4 @@
-const DATA_URL = "data.json?v=20260603-test-1";
+const DATA_URL = "data.json?v=20260603-eval-1";
 
 const fmt = (value, digits = 3) =>
   value === null || value === undefined || Number.isNaN(Number(value))
@@ -6,6 +6,11 @@ const fmt = (value, digits = 3) =>
     : Number(value).toFixed(digits);
 
 const byId = (id) => document.getElementById(id);
+
+const pct = (value, digits = 1) =>
+  value === null || value === undefined || Number.isNaN(Number(value))
+    ? "pending"
+    : `${(Number(value) * 100).toFixed(digits)}%`;
 
 function createEl(tag, className, text) {
   const el = document.createElement(tag);
@@ -29,6 +34,69 @@ function renderSummary(data) {
     card.append(createEl("span", "summary-label", label));
     el.append(card);
   });
+}
+
+function renderEvaluation(data) {
+  const el = byId("evaluation");
+  if (!el || !data.evaluation?.overview) return;
+  const overview = data.evaluation.overview;
+  el.innerHTML = "";
+  el.append(createEl("h2", "", "Human Agreement Check"));
+  el.append(
+    createEl(
+      "p",
+      "score-note",
+      "Full battles_test.csv evaluation. These numbers compare model pairwise outputs against the 5-rater human majority on the manifest, and should be read as manifest-level evidence rather than a new official validation split claim.",
+    ),
+  );
+
+  const cards = createEl("div", "metric-grid");
+  [
+    ["Pairwise accuracy", pct(overview.pairwise_accuracy), `${overview.n_pairs} unique pairs`],
+    ["Vote-share Spearman", fmt(overview.vote_share_spearman), "model probability vs human vote share"],
+    ["Top-1 image match", pct(overview.prompt_top1_accuracy), `${overview.n_prompt_groups} prompt groups`],
+    ["Image-rank Spearman", fmt(overview.image_rank_spearman), "aggregate score vs inverse human rank"],
+  ].forEach(([label, value, detail]) => {
+    const card = createEl("div", "metric-card");
+    card.append(createEl("span", "metric-value", value));
+    card.append(createEl("span", "metric-label", label));
+    card.append(createEl("span", "metric-detail", detail));
+    cards.append(card);
+  });
+  el.append(cards);
+
+  const tableWrap = createEl("div", "table-wrap compact-table");
+  const table = createEl("table", "score-table eval-table");
+  const thead = document.createElement("thead");
+  const head = document.createElement("tr");
+  ["Dimension", "Pairs", "Pairwise Acc.", "Vote Spearman", "Top-1 Match", "Rank Spearman"].forEach((label) =>
+    head.append(createEl("th", "", label)),
+  );
+  thead.append(head);
+  const tbody = document.createElement("tbody");
+  data.evaluation.by_dimension.forEach((row) => {
+    const tr = document.createElement("tr");
+    [
+      row.label,
+      row.n_pairs,
+      pct(row.pairwise_accuracy),
+      fmt(row.vote_share_spearman),
+      pct(row.prompt_top1_accuracy),
+      fmt(row.image_rank_spearman),
+    ].forEach((value, index) => tr.append(createEl(index === 0 ? "th" : "td", "", value)));
+    tbody.append(tr);
+  });
+  table.append(thead, tbody);
+  tableWrap.append(table);
+  el.append(tableWrap);
+}
+
+function renderSelection(data) {
+  const el = byId("selection");
+  if (!el || !data.sample_selection) return;
+  el.innerHTML = "";
+  el.append(createEl("h3", "", "Sample selection"));
+  el.append(createEl("p", "", data.sample_selection.method));
 }
 
 function focusScore(candidate, prompt) {
@@ -241,6 +309,8 @@ async function main() {
   window.__dimensionLabels = data.dimension_labels || {};
   window.__dimensionOrder = data.dimension_order || data.taste_dimensions || [];
   renderSummary(data);
+  renderEvaluation(data);
+  renderSelection(data);
   const lede = document.querySelector(".lede");
   if (lede && data.score_explanation) {
     lede.textContent = data.score_explanation;

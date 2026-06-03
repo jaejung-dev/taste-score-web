@@ -64,6 +64,14 @@ def copy_image(image_path: str, target: Path) -> None:
     target.write_bytes(Path(source).read_bytes())
 
 
+def resolve_hf_image(image_path: str) -> str:
+    return hf_hub_download(
+        repo_id=HF_REPO_ID,
+        repo_type="dataset",
+        filename=image_path,
+    )
+
+
 def select_test_groups(battles: pd.DataFrame, max_per_dimension: int) -> pd.DataFrame:
     group_cols = ["dimension", "prompt_id", "scene_id"]
     stats = (
@@ -211,16 +219,28 @@ def build_pair_csv(prompt_entries: list[dict[str, Any]]) -> pd.DataFrame:
     return df
 
 
-def run_taste_scorer(checkpoint: Path) -> pd.DataFrame:
+def load_taste_scorer(checkpoint: Path):
     scorer_src = Path("/home/ubuntu/taste/taste-scorer/src")
     if str(scorer_src) not in sys.path:
         sys.path.insert(0, str(scorer_src))
     from taste_scorer import PreferenceScorer
 
+    return PreferenceScorer.from_checkpoint(checkpoint, device="cuda")
+
+
+def run_taste_scorer(checkpoint: Path) -> pd.DataFrame:
     df = pd.read_csv(INPUT_CSV)
-    scorer = PreferenceScorer.from_checkpoint(checkpoint, device="cuda")
+    scorer = load_taste_scorer(checkpoint)
     scored = scorer.score_pairs(df, image_dir=ROOT, batch_size=16)
     scored.to_csv(SCORED_CSV, index=False)
+    return scored
+
+
+def score_dataframe(df: pd.DataFrame, checkpoint: Path, output_csv: Path | None = None) -> pd.DataFrame:
+    scorer = load_taste_scorer(checkpoint)
+    scored = scorer.score_pairs(df, image_dir=None, batch_size=32)
+    if output_csv is not None:
+        scored.to_csv(output_csv, index=False)
     return scored
 
 
@@ -299,6 +319,191 @@ def attach_model_outputs(prompt_entries: list[dict[str, Any]], scored: pd.DataFr
     return dimensions
 
 
+def pair_key_frame(battles: pd.DataFrame) -> pd.Series:
+    return battles.apply(
+        lambda row: (
+            row["dimension"],
+            int(row["prompt_id"]),
+            str(row["scene_id"]),
+            tuple(sorted([str(row["image_a"]), str(row["image_b"])])),
+        ),
+        axis=1,
+    )
+
+
+def full_eval_input(battles: pd.DataFrame, assets: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
+    asset_by_filename = assets.set_index("filename")
+    rows: list[dict[str, Any]] = []
+    meta_rows: list[dict[str, Any]] = []
+    work = battles.copy()
+    work["_pair_key"] = pair_key_frame(work)
+
+    for index, (pair_key, pair_rows) in enumerate(work.groupby("_pair_key"), start=1):
+        dimension, prompt_id, scene_id, image_pair = pair_key
+        image_a, image_b = image_pair
+        first = pair_rows.iloc[0]
+        votes_a = 0
+        for _, row in pair_rows.iterrows():
+            winner_file = row["image_a"] if row["winner"] == "A" else row["image_b"]
+            if str(winner_file) == image_a:
+                votes_a += 1
+        n_votes = int(len(pair_rows))
+        image_path_a = str(asset_by_filename.loc[image_a, "image_path"])
+        image_path_b = str(asset_by_filename.loc[image_b, "image_path"])
+        pair_id = f"eval-{index:04d}"
+        rows.append(
+            {
+                "pair_id": pair_id,
+                "prompt": str(first["prompt"]),
+                "image_a": resolve_hf_image(image_path_a),
+                "image_b": resolve_hf_image(image_path_b),
+                "model_a": str(asset_by_filename.loc[image_a, "model"]),
+                "model_b": str(asset_by_filename.loc[image_b, "model"]),
+            }
+        )
+        meta_rows.append(
+            {
+                "pair_id": pair_id,
+                "dimension": str(dimension),
+                "prompt_id": int(prompt_id),
+                "scene_id": str(scene_id),
+                "image_a_filename": image_a,
+                "image_b_filename": image_b,
+                "human_votes_a": votes_a,
+                "human_votes_b": n_votes - votes_a,
+                "human_vote_share_a": float(votes_a / n_votes),
+                "human_majority_a": bool(votes_a > n_votes / 2),
+                "human_agreement": float(max(votes_a, n_votes - votes_a) / n_votes),
+                "n_votes": n_votes,
+            }
+        )
+    return pd.DataFrame(rows), pd.DataFrame(meta_rows)
+
+
+def corr_or_none(left: pd.Series, right: pd.Series, method: str = "pearson") -> float | None:
+    value = left.astype(float).corr(right.astype(float), method=method)
+    if pd.isna(value):
+        return None
+    return float(value)
+
+
+def evaluate_full_test(battles: pd.DataFrame, assets: pd.DataFrame, checkpoint: Path) -> dict[str, Any]:
+    eval_input, eval_meta = full_eval_input(battles, assets)
+    scored = score_dataframe(eval_input, checkpoint=checkpoint)
+    scored = scored.merge(eval_meta, on="pair_id", how="left")
+    scored["model_prob_a"] = scored.apply(
+        lambda row: float(row[f"prob_a_wins_{row['dimension']}"]),
+        axis=1,
+    )
+    scored["model_majority_a"] = scored["model_prob_a"] >= 0.5
+    scored["pairwise_correct"] = scored["model_majority_a"] == scored["human_majority_a"]
+
+    prompt_rows: list[dict[str, Any]] = []
+    image_rank_rows: list[dict[str, Any]] = []
+    for group_key, group in battles.groupby(["dimension", "prompt_id", "scene_id"]):
+        dimension, prompt_id, scene_id = group_key
+        score_values: dict[str, list[float]] = {}
+        human_ranks: dict[str, list[float]] = {}
+        for _, row in group.iterrows():
+            human_ranks.setdefault(str(row["image_a"]), []).append(float(row["mean_rank_a"]))
+            human_ranks.setdefault(str(row["image_b"]), []).append(float(row["mean_rank_b"]))
+        for _, row in scored[
+            (scored["dimension"] == dimension)
+            & (scored["prompt_id"] == prompt_id)
+            & (scored["scene_id"] == scene_id)
+        ].iterrows():
+            score_values.setdefault(row["image_a_filename"], []).append(float(row["model_prob_a"]))
+            score_values.setdefault(row["image_b_filename"], []).append(1.0 - float(row["model_prob_a"]))
+        candidates = sorted(human_ranks)
+        if not candidates:
+            continue
+        summary = pd.DataFrame(
+            {
+                "filename": candidates,
+                "human_rank": [sum(human_ranks[c]) / len(human_ranks[c]) for c in candidates],
+                "model_score": [sum(score_values[c]) / len(score_values[c]) for c in candidates],
+            }
+        )
+        human_best = str(summary.sort_values(["human_rank", "filename"]).iloc[0]["filename"])
+        model_best = str(summary.sort_values(["model_score", "filename"], ascending=[False, True]).iloc[0]["filename"])
+        spearman = corr_or_none(summary["model_score"], -summary["human_rank"], method="spearman")
+        prompt_rows.append(
+            {
+                "dimension": str(dimension),
+                "prompt_id": int(prompt_id),
+                "scene_id": str(scene_id),
+                "human_best": human_best,
+                "model_best": model_best,
+                "top1_correct": human_best == model_best,
+                "rank_spearman": spearman,
+            }
+        )
+        for row in summary.itertuples(index=False):
+            image_rank_rows.append(
+                {
+                    "dimension": str(dimension),
+                    "prompt_id": int(prompt_id),
+                    "filename": str(row.filename),
+                    "human_rank": float(row.human_rank),
+                    "model_score": float(row.model_score),
+                }
+            )
+
+    prompt_eval = pd.DataFrame(prompt_rows)
+    image_eval = pd.DataFrame(image_rank_rows)
+    by_dimension: list[dict[str, Any]] = []
+    for dimension in DIMENSION_ORDER:
+        pair_dim = scored[scored["dimension"] == dimension]
+        prompt_dim = prompt_eval[prompt_eval["dimension"] == dimension]
+        image_dim = image_eval[image_eval["dimension"] == dimension]
+        if pair_dim.empty:
+            continue
+        by_dimension.append(
+            {
+                "dimension": dimension,
+                "label": DIMENSION_LABELS.get(dimension, dimension),
+                "n_pairs": int(len(pair_dim)),
+                "pairwise_accuracy": float(pair_dim["pairwise_correct"].mean()),
+                "vote_share_spearman": corr_or_none(
+                    pair_dim["model_prob_a"], pair_dim["human_vote_share_a"], method="spearman"
+                ),
+                "vote_share_pearson": corr_or_none(
+                    pair_dim["model_prob_a"], pair_dim["human_vote_share_a"], method="pearson"
+                ),
+                "prompt_top1_accuracy": float(prompt_dim["top1_correct"].mean()) if not prompt_dim.empty else None,
+                "image_rank_spearman": corr_or_none(
+                    image_dim["model_score"], -image_dim["human_rank"], method="spearman"
+                ) if not image_dim.empty else None,
+            }
+        )
+
+    overview = {
+        "n_pairs": int(len(scored)),
+        "n_prompt_groups": int(len(prompt_eval)),
+        "pairwise_accuracy": float(scored["pairwise_correct"].mean()),
+        "vote_share_spearman": corr_or_none(
+            scored["model_prob_a"], scored["human_vote_share_a"], method="spearman"
+        ),
+        "vote_share_pearson": corr_or_none(
+            scored["model_prob_a"], scored["human_vote_share_a"], method="pearson"
+        ),
+        "prompt_top1_accuracy": float(prompt_eval["top1_correct"].mean()),
+        "prompt_rank_spearman_mean": float(prompt_eval["rank_spearman"].dropna().mean()),
+        "image_rank_spearman": corr_or_none(
+            image_eval["model_score"], -image_eval["human_rank"], method="spearman"
+        ),
+    }
+    return {
+        "overview": overview,
+        "by_dimension": by_dimension,
+        "notes": [
+            "Pairwise accuracy compares P(A wins B) >= 0.5 with the 5-rater human majority winner.",
+            "Vote-share correlation compares model P(A wins B) with the fraction of humans choosing A.",
+            "Top-1 accuracy aggregates pairwise probabilities within each 4-image prompt and compares the model-best image with the lowest human mean rank.",
+        ],
+    }
+
+
 def build_snapshot(battle_csv: Path, checkpoint: Path, max_per_dimension: int) -> dict[str, Any]:
     battles = pd.read_csv(battle_csv)
     assets = load_assets()
@@ -339,6 +544,7 @@ def build_snapshot(battle_csv: Path, checkpoint: Path, max_per_dimension: int) -
     build_pair_csv(prompt_entries)
     scored = run_taste_scorer(checkpoint)
     dimensions = attach_model_outputs(prompt_entries, scored)
+    evaluation = evaluate_full_test(battles, assets, checkpoint)
 
     data = {
         "title": "TASTE Test Score Samples",
@@ -373,6 +579,26 @@ def build_snapshot(battle_csv: Path, checkpoint: Path, max_per_dimension: int) -
             "score shown here is the mean win probability for that image "
             "against the other candidates in the same prompt."
         ),
+        "sample_selection": {
+            "method": (
+                "For the visual examples, the builder selects one prompt group per dimension "
+                "from battles_test.csv, sorted by highest mean human agreement, then highest "
+                "unanimous-pair rate, while avoiding duplicate scenes when possible."
+            ),
+            "max_per_dimension": max_per_dimension,
+            "selected": [
+                {
+                    "dimension": prompt["dimension"],
+                    "label": prompt["dimension_label"],
+                    "prompt_id": prompt["prompt_id"],
+                    "scene_id": prompt["scene_id"],
+                    "mean_human_agreement": prompt["mean_human_agreement"],
+                    "unanimous_rate": prompt["unanimous_rate"],
+                }
+                for prompt in prompt_entries
+            ],
+        },
+        "evaluation": evaluation,
         "taste_dimensions": dimensions,
         "prompts": prompt_entries,
     }

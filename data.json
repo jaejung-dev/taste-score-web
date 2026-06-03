@@ -35,6 +35,157 @@
     "taste_scored": true
   },
   "score_explanation": "TASTE is a pairwise preference scorer. Raw model outputs are P(image A wins over image B) for each dimension. The per-image score shown here is the mean win probability for that image against the other candidates in the same prompt.",
+  "sample_selection": {
+    "method": "For the visual examples, the builder selects one prompt group per dimension from battles_test.csv, sorted by highest mean human agreement, then highest unanimous-pair rate, while avoiding duplicate scenes when possible.",
+    "max_per_dimension": 1,
+    "selected": [
+      {
+        "dimension": "preference",
+        "label": "Preference",
+        "prompt_id": 548,
+        "scene_id": "scene_147",
+        "mean_human_agreement": 0.9,
+        "unanimous_rate": 0.5
+      },
+      {
+        "dimension": "typography",
+        "label": "Typography",
+        "prompt_id": 318,
+        "scene_id": "scene_077",
+        "mean_human_agreement": 0.9333333333333333,
+        "unanimous_rate": 0.6666666666666666
+      },
+      {
+        "dimension": "visual_hierarchy",
+        "label": "Visual hierarchy",
+        "prompt_id": 397,
+        "scene_id": "scene_076",
+        "mean_human_agreement": 0.8333333333333334,
+        "unanimous_rate": 0.5
+      },
+      {
+        "dimension": "color_harmony",
+        "label": "Color harmony",
+        "prompt_id": 39,
+        "scene_id": "scene_039",
+        "mean_human_agreement": 0.8333333333333334,
+        "unanimous_rate": 0.3333333333333333
+      },
+      {
+        "dimension": "mood_and_color_tone",
+        "label": "Mood & color tone",
+        "prompt_id": 107,
+        "scene_id": "scene_027",
+        "mean_human_agreement": 0.9333333333333333,
+        "unanimous_rate": 0.8333333333333334
+      },
+      {
+        "dimension": "spatial_accuracy",
+        "label": "Spatial accuracy",
+        "prompt_id": 570,
+        "scene_id": "scene_089",
+        "mean_human_agreement": 0.8333333333333334,
+        "unanimous_rate": 0.5
+      },
+      {
+        "dimension": "color_accuracy",
+        "label": "Color accuracy",
+        "prompt_id": 421,
+        "scene_id": "scene_100",
+        "mean_human_agreement": 0.8333333333333334,
+        "unanimous_rate": 0.3333333333333333
+      }
+    ]
+  },
+  "evaluation": {
+    "overview": {
+      "n_pairs": 738,
+      "n_prompt_groups": 123,
+      "pairwise_accuracy": 0.8157181571815718,
+      "vote_share_spearman": 0.7761710684384185,
+      "vote_share_pearson": 0.7696348729835818,
+      "prompt_top1_accuracy": 0.7235772357723578,
+      "prompt_rank_spearman_mean": 0.761494633863909,
+      "image_rank_spearman": 0.8424329770774034
+    },
+    "by_dimension": [
+      {
+        "dimension": "preference",
+        "label": "Preference",
+        "n_pairs": 162,
+        "pairwise_accuracy": 0.8271604938271605,
+        "vote_share_spearman": 0.8091215921591254,
+        "vote_share_pearson": 0.810192504511533,
+        "prompt_top1_accuracy": 0.7407407407407407,
+        "image_rank_spearman": 0.8756260684799282
+      },
+      {
+        "dimension": "typography",
+        "label": "Typography",
+        "n_pairs": 162,
+        "pairwise_accuracy": 0.8580246913580247,
+        "vote_share_spearman": 0.8113361561877103,
+        "vote_share_pearson": 0.7907806087720869,
+        "prompt_top1_accuracy": 0.7407407407407407,
+        "image_rank_spearman": 0.8667667837412746
+      },
+      {
+        "dimension": "visual_hierarchy",
+        "label": "Visual hierarchy",
+        "n_pairs": 90,
+        "pairwise_accuracy": 0.7777777777777778,
+        "vote_share_spearman": 0.7713994178944985,
+        "vote_share_pearson": 0.7749266080074179,
+        "prompt_top1_accuracy": 0.8666666666666667,
+        "image_rank_spearman": 0.8202639425530975
+      },
+      {
+        "dimension": "color_harmony",
+        "label": "Color harmony",
+        "n_pairs": 90,
+        "pairwise_accuracy": 0.8222222222222222,
+        "vote_share_spearman": 0.7756070210761791,
+        "vote_share_pearson": 0.7673486102529476,
+        "prompt_top1_accuracy": 0.5333333333333333,
+        "image_rank_spearman": 0.8348691305027738
+      },
+      {
+        "dimension": "mood_and_color_tone",
+        "label": "Mood & color tone",
+        "n_pairs": 90,
+        "pairwise_accuracy": 0.7666666666666667,
+        "vote_share_spearman": 0.695202880134513,
+        "vote_share_pearson": 0.6994383603750874,
+        "prompt_top1_accuracy": 0.8,
+        "image_rank_spearman": 0.7566284178151301
+      },
+      {
+        "dimension": "spatial_accuracy",
+        "label": "Spatial accuracy",
+        "n_pairs": 72,
+        "pairwise_accuracy": 0.7777777777777778,
+        "vote_share_spearman": 0.7527395855486368,
+        "vote_share_pearson": 0.7260267507388295,
+        "prompt_top1_accuracy": 0.8333333333333334,
+        "image_rank_spearman": 0.8092638286067381
+      },
+      {
+        "dimension": "color_accuracy",
+        "label": "Color accuracy",
+        "n_pairs": 72,
+        "pairwise_accuracy": 0.8333333333333334,
+        "vote_share_spearman": 0.7848301085112321,
+        "vote_share_pearson": 0.7829289418045596,
+        "prompt_top1_accuracy": 0.5,
+        "image_rank_spearman": 0.8735308803082434
+      }
+    ],
+    "notes": [
+      "Pairwise accuracy compares P(A wins B) >= 0.5 with the 5-rater human majority winner.",
+      "Vote-share correlation compares model P(A wins B) with the fraction of humans choosing A.",
+      "Top-1 accuracy aggregates pairwise probabilities within each 4-image prompt and compares the model-best image with the lowest human mean rank."
+    ]
+  },
   "taste_dimensions": [
     "color_accuracy",
     "color_harmony",

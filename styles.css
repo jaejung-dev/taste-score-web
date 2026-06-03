@@ -100,6 +100,9 @@ h3 {
 
 .summary-card,
 .prompt-card,
+.evaluation,
+.selection-note,
+.metric-card,
 .rank-box,
 .score-table-section,
 .matrix-section {
@@ -124,6 +127,58 @@ h3 {
   color: var(--muted);
   font-size: 0.88rem;
   font-weight: 700;
+}
+
+.evaluation,
+.selection-note {
+  display: grid;
+  gap: 14px;
+  padding: clamp(18px, 3vw, 26px);
+  border-radius: 26px;
+  box-shadow: none;
+}
+
+.evaluation h2,
+.selection-note h3 {
+  margin-bottom: 0;
+}
+
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.metric-card {
+  display: grid;
+  gap: 4px;
+  padding: 16px;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: none;
+}
+
+.metric-value {
+  color: var(--accent);
+  font-size: 1.8rem;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+}
+
+.metric-label {
+  font-weight: 850;
+}
+
+.metric-detail {
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.35;
+}
+
+.selection-note p {
+  margin-bottom: 0;
+  color: var(--muted);
+  line-height: 1.6;
 }
 
 .prompts {
@@ -289,6 +344,10 @@ h3 {
   background: #fff;
 }
 
+.compact-table .score-table {
+  min-width: 760px;
+}
+
 .score-table th,
 .score-table td {
   padding: 12px 13px;
@@ -367,6 +426,7 @@ h3 {
 
 @media (max-width: 920px) {
   .summary,
+  .metric-grid,
   .candidate-grid,
   .rank-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -380,6 +440,7 @@ h3 {
   }
 
   .summary,
+  .metric-grid,
   .candidate-grid,
   .rank-grid {
     grid-template-columns: 1fr;
