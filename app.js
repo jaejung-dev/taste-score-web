@@ -1,4 +1,4 @@
-const DATA_URL = "data.json?v=20260603-precision-1";
+const DATA_URL = "data.json?v=20260603-rankmetric-1";
 
 const fmt = (value, digits = 5) =>
   value === null || value === undefined || Number.isNaN(Number(value))
@@ -41,23 +41,21 @@ function renderEvaluation(data) {
   if (!el || !data.evaluation?.overview) return;
   const overview = data.evaluation.overview;
   el.innerHTML = "";
-  el.append(createEl("h2", "", "Human Agreement Check"));
+  el.append(createEl("h2", "", "Human Ranking Alignment"));
   el.append(
     createEl(
       "p",
       "score-note",
-      "Full battles_test.csv evaluation. These numbers compare model pairwise outputs against the 5-rater human majority on the manifest, and should be read as manifest-level evidence rather than a new official validation split claim.",
+      "Primary metric: Spearman correlation between the model's per-image aggregate score and human mean rank across battles_test.csv. Human rank is inverted because rank 1 is best, so higher means the model orders images more like the human panel.",
     ),
   );
 
   const cards = createEl("div", "metric-grid");
   [
-    ["Pairwise accuracy", pct(overview.pairwise_accuracy), `${overview.n_pairs} unique pairs`],
-    ["Vote-share Spearman", fmt(overview.vote_share_spearman), "model probability vs human vote share"],
-    ["Top-1 image match", pct(overview.prompt_top1_accuracy), `${overview.n_prompt_groups} prompt groups`],
-    ["Image-rank Spearman", fmt(overview.image_rank_spearman), "aggregate score vs inverse human rank"],
-  ].forEach(([label, value, detail]) => {
-    const card = createEl("div", "metric-card");
+    ["Human-rank Spearman", fmt(overview.image_rank_spearman), "model image score vs human ranking across all test images", "primary"],
+    ["Pairwise accuracy", pct(overview.pairwise_accuracy), `${overview.n_pairs} pair comparisons vs human majority`, ""],
+  ].forEach(([label, value, detail, kind]) => {
+    const card = createEl("div", `metric-card ${kind}`.trim());
     card.append(createEl("span", "metric-value", value));
     card.append(createEl("span", "metric-label", label));
     card.append(createEl("span", "metric-detail", detail));
@@ -69,7 +67,7 @@ function renderEvaluation(data) {
   const table = createEl("table", "score-table eval-table");
   const thead = document.createElement("thead");
   const head = document.createElement("tr");
-  ["Dimension", "Pairs", "Pairwise Acc.", "Vote Spearman", "Top-1 Match", "Rank Spearman"].forEach((label) =>
+  ["Dimension", "Images", "Human-rank Spearman", "Pairwise Acc.", "Pairs"].forEach((label) =>
     head.append(createEl("th", "", label)),
   );
   thead.append(head);
@@ -78,11 +76,10 @@ function renderEvaluation(data) {
     const tr = document.createElement("tr");
     [
       row.label,
-      row.n_pairs,
-      pct(row.pairwise_accuracy),
-      fmt(row.vote_share_spearman),
-      pct(row.prompt_top1_accuracy),
+      Math.round((row.n_pairs / 6) * 4),
       fmt(row.image_rank_spearman),
+      pct(row.pairwise_accuracy),
+      row.n_pairs,
     ].forEach((value, index) => tr.append(createEl(index === 0 ? "th" : "td", "", value)));
     tbody.append(tr);
   });

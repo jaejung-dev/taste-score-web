@@ -131,7 +131,7 @@ h3 {
 
 .metric-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: 1.4fr 1fr;
   gap: 12px;
 }
 
@@ -144,9 +144,13 @@ h3 {
   box-shadow: none;
 }
 
+.metric-card.primary {
+  background: linear-gradient(135deg, #ffffff 0%, #f1e9ff 100%);
+}
+
 .metric-value {
   color: var(--accent);
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: 900;
   letter-spacing: -0.05em;
 }
