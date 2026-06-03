@@ -1,4 +1,4 @@
-const DATA_URL = "data.json?v=20260603-svg2-1";
+const DATA_URL = "data.json?v=20260603-clarity-1";
 
 const fmt = (value, digits = 5) =>
   value === null || value === undefined || Number.isNaN(Number(value))
@@ -44,19 +44,20 @@ function renderEvaluation(data) {
   if (!el || !data.evaluation?.overview) return;
   const overview = data.evaluation.overview;
   el.innerHTML = "";
-  el.append(createEl("h2", "", "Human Ranking Alignment"));
+  el.append(createEl("h2", "", "TASTE vs Aggregated Human Ranking"));
   el.append(
     createEl(
       "p",
       "score-note",
-      "Higher Spearman means TASTE ranks candidate images more similarly to human judgments.",
+      "This is not annotator-to-annotator agreement. It compares TASTE's per-image score with the aggregated human mean rank; rank 1 is best, so human rank is inverted.",
     ),
   );
+  el.append(createEl("p", "score-note formula-note", "Formula: Spearman(TASTE score, -mean human rank). Higher means TASTE ranks images more like the aggregated human preference ranking."));
 
   const cards = createEl("div", "metric-grid");
   [
-    ["Human-rank Spearman", fmt(overview.image_rank_spearman), "model image score vs human ranking across all test images", "primary"],
-    ["Pairwise accuracy", pct(overview.pairwise_accuracy), `${overview.n_pairs} pair comparisons vs human majority`, ""],
+    ["TASTE vs Human Rank Spearman", fmt(overview.image_rank_spearman), "per-image TASTE score vs aggregated human mean rank", "primary"],
+    ["Pairwise accuracy", pct(overview.pairwise_accuracy), `${overview.n_pairs} TASTE pair decisions vs human majority`, ""],
   ].forEach(([label, value, detail, kind]) => {
     const card = createEl("div", `metric-card ${kind}`.trim());
     card.append(createEl("span", "metric-value", value));
@@ -70,7 +71,7 @@ function renderEvaluation(data) {
   const table = createEl("table", "score-table eval-table");
   const thead = document.createElement("thead");
   const head = document.createElement("tr");
-  ["Dimension", "Images", "Human-rank Spearman", "Pairwise Acc.", "Pairs"].forEach((label) =>
+  ["Dimension", "Images", "TASTE vs Human Rank", "Pairwise Acc.", "Pairs"].forEach((label) =>
     head.append(createEl("th", "", label)),
   );
   thead.append(head);
