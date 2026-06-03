@@ -27,8 +27,6 @@ function renderSummary(data) {
     ["Test pairs", data.summary.test_unique_pairs ?? data.summary.pairs],
     ["Selected prompts", data.summary.selected_prompts ?? data.summary.prompts],
     ["Selected images", data.summary.selected_candidates ?? data.summary.candidates],
-    ["TASTE scored", data.summary.taste_scored ? "yes" : "pending"],
-    ["ImScore scored", data.summary.imscore_scored ? "yes" : "pending"],
   ].forEach(([label, value]) => {
     const card = createEl("div", "summary-card");
     card.append(createEl("span", "summary-value", value));
