@@ -99,6 +99,7 @@ def main() -> int:
     scorer = load_scorer(args.checkpoint)
     scored = scorer.score_pairs(df, image_dir=None, batch_size=args.batch_size)
     attach_ordered_outputs(data, scored)
+    data.setdefault("summary", {})["selected_ordered_pairs"] = int(len(scored))
     DATA_PATH.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"scored ordered pairs: {len(scored)}")
     return 0

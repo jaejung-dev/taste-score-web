@@ -109,6 +109,151 @@ def select_test_groups(battles: pd.DataFrame, max_per_dimension: int) -> pd.Data
     return pd.concat(selected, ignore_index=True).sort_values("dimension_order")
 
 
+def group_candidate_rankings(group: pd.DataFrame) -> pd.DataFrame:
+    long_rows: list[dict[str, Any]] = []
+    for _, row in group.iterrows():
+        long_rows.append({"filename": str(row["image_a"]), "mean_rank": float(row["mean_rank_a"])})
+        long_rows.append({"filename": str(row["image_b"]), "mean_rank": float(row["mean_rank_b"])})
+    return (
+        pd.DataFrame(long_rows)
+        .groupby("filename")
+        .agg(human_mean_rank=("mean_rank", "mean"))
+        .reset_index()
+        .sort_values(["human_mean_rank", "filename"])
+    )
+
+
+def select_model_aware_test_groups(
+    battles: pd.DataFrame,
+    assets: pd.DataFrame,
+    checkpoint: Path,
+    max_per_dimension: int,
+) -> pd.DataFrame:
+    group_cols = ["dimension", "prompt_id", "scene_id"]
+    stats = (
+        battles.groupby(group_cols)
+        .agg(
+            prompt=("prompt", "first"),
+            prompt_template=("prompt_template", "first"),
+            mean_agreement=("agreement", "mean"),
+            unanimous_rate=("agreement_bucket", lambda s: float((s == "unanimous").mean())),
+            n_battles=("winner", "size"),
+        )
+        .reset_index()
+    )
+    stats["dimension_order"] = stats["dimension"].map(
+        {dimension: index for index, dimension in enumerate(DIMENSION_ORDER)}
+    )
+    stat_lookup = {
+        (str(row.dimension), int(row.prompt_id), str(row.scene_id)): row
+        for row in stats.itertuples(index=False)
+    }
+
+    asset_by_filename = assets.set_index("filename")
+    resolved_paths = {
+        filename: resolve_hf_image(str(row.image_path))
+        for filename, row in asset_by_filename.iterrows()
+    }
+
+    ordered_rows: list[dict[str, Any]] = []
+    meta_rows: list[dict[str, Any]] = []
+    for group_index, (group_key, group) in enumerate(battles.groupby(group_cols), start=1):
+        dimension, prompt_id, scene_id = group_key
+        ranked = group_candidate_rankings(group)
+        filenames = ranked["filename"].astype(str).tolist()
+        prompt = str(group["prompt"].iloc[0])
+        for left in filenames:
+            for right in filenames:
+                if left == right:
+                    continue
+                pair_id = f"select-{group_index:04d}-{len(ordered_rows):05d}"
+                ordered_rows.append(
+                    {
+                        "pair_id": pair_id,
+                        "prompt": prompt,
+                        "image_a": resolved_paths[left],
+                        "image_b": resolved_paths[right],
+                    }
+                )
+                meta_rows.append(
+                    {
+                        "pair_id": pair_id,
+                        "dimension": str(dimension),
+                        "prompt_id": int(prompt_id),
+                        "scene_id": str(scene_id),
+                        "image_a": left,
+                        "image_b": right,
+                    }
+                )
+
+    scorer = load_taste_scorer(checkpoint)
+    scored = scorer.score_pairs(pd.DataFrame(ordered_rows), image_dir=None, batch_size=32)
+    scored = scored.merge(pd.DataFrame(meta_rows), on="pair_id", how="left", suffixes=("", "_meta"))
+
+    selection_rows: list[dict[str, Any]] = []
+    for group_key, group in battles.groupby(group_cols):
+        dimension, prompt_id, scene_id = group_key
+        ranked = group_candidate_rankings(group)
+        human_top = str(ranked.iloc[0]["filename"])
+        focus = str(dimension)
+        score_rows = scored[
+            (scored["dimension"] == focus)
+            & (scored["prompt_id"] == int(prompt_id))
+            & (scored["scene_id"] == str(scene_id))
+        ]
+        by_image: dict[str, list[float]] = {str(filename): [] for filename in ranked["filename"]}
+        for _, row in score_rows.iterrows():
+            by_image[str(row["image_a_meta"])].append(float(row[f"prob_a_wins_{focus}"]))
+        taste_scores = {
+            filename: float(sum(values) / len(values)) if values else 0.0
+            for filename, values in by_image.items()
+        }
+        taste_ranked = sorted(taste_scores.items(), key=lambda item: item[1], reverse=True)
+        taste_top, taste_top_score = taste_ranked[0]
+        taste_second_score = taste_ranked[1][1] if len(taste_ranked) > 1 else 0.0
+        stat = stat_lookup[(focus, int(prompt_id), str(scene_id))]
+        selection_rows.append(
+            {
+                **stat._asdict(),
+                "human_top": human_top,
+                "taste_top": taste_top,
+                "taste_top_score": taste_top_score,
+                "taste_margin": float(taste_top_score - taste_second_score),
+                "taste_matches_human": bool(taste_top == human_top),
+            }
+        )
+
+    selection = pd.DataFrame(selection_rows)
+    picked: list[pd.DataFrame] = []
+    used_scenes: set[str] = set()
+    for dimension in DIMENSION_ORDER:
+        candidates = selection[selection["dimension"] == dimension].sort_values(
+            ["taste_matches_human", "mean_agreement", "taste_margin", "unanimous_rate", "prompt_id"],
+            ascending=[False, False, False, False, True],
+        )
+        rows = []
+        for _, row in candidates.iterrows():
+            if len(rows) >= max_per_dimension:
+                break
+            if row["scene_id"] in used_scenes and len(candidates) > max_per_dimension:
+                continue
+            rows.append(row)
+            used_scenes.add(str(row["scene_id"]))
+        if len(rows) < max_per_dimension:
+            for _, row in candidates.iterrows():
+                if len(rows) >= max_per_dimension:
+                    break
+                if any(
+                    (picked_row["dimension"], picked_row["prompt_id"], picked_row["scene_id"])
+                    == (row["dimension"], row["prompt_id"], row["scene_id"])
+                    for picked_row in rows
+                ):
+                    continue
+                rows.append(row)
+        picked.append(pd.DataFrame(rows))
+    return pd.concat(picked, ignore_index=True).sort_values(["dimension_order", "prompt_id"])
+
+
 def candidate_records(group: pd.DataFrame, assets: pd.DataFrame) -> list[dict[str, Any]]:
     long_rows: list[dict[str, Any]] = []
     for _, row in group.iterrows():
@@ -511,7 +656,12 @@ def build_snapshot(battle_csv: Path, checkpoint: Path, max_per_dimension: int) -
         shutil.rmtree(ASSETS_DIR)
     ASSETS_DIR.mkdir(parents=True, exist_ok=True)
 
-    selected = select_test_groups(battles, max_per_dimension=max_per_dimension)
+    selected = select_model_aware_test_groups(
+        battles,
+        assets=assets,
+        checkpoint=checkpoint,
+        max_per_dimension=max_per_dimension,
+    )
     prompt_entries: list[dict[str, Any]] = []
     for _, selected_row in selected.iterrows():
         group = battles[
@@ -573,12 +723,7 @@ def build_snapshot(battle_csv: Path, checkpoint: Path, max_per_dimension: int) -
             "selected_pairs": sum(len(prompt["taste_pair_scores"]) for prompt in prompt_entries),
             "taste_scored": True,
         },
-        "score_explanation": (
-            "TASTE is a pairwise preference scorer. Raw model outputs are "
-            "P(image A wins over image B) for each dimension. The per-image "
-            "score shown here is the mean win probability for that image "
-            "against the other candidates in the same prompt."
-        ),
+        "score_explanation": "TASTE evaluates generated design images against human visual preferences across quality dimensions.",
         "evaluation": evaluation,
         "taste_dimensions": dimensions,
         "prompts": prompt_entries,
@@ -591,7 +736,7 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--battle-csv", default="/home/ubuntu/battles_test.csv")
     parser.add_argument("--checkpoint", default="/home/ubuntu/TASTE_Checkpoint")
-    parser.add_argument("--max-per-dimension", type=int, default=1)
+    parser.add_argument("--max-per-dimension", type=int, default=3)
     args = parser.parse_args()
     data = build_snapshot(
         battle_csv=Path(args.battle_csv),
