@@ -1,4 +1,4 @@
-const DATA_URL = "data.json?v=20260603-simpletable-1";
+const DATA_URL = "data.json?v=20260603-norankboxes-1";
 
 const fmt = (value, digits = 5) =>
   value === null || value === undefined || Number.isNaN(Number(value))
@@ -155,50 +155,6 @@ function renderImageScores(prompt) {
   return section;
 }
 
-function renderRankList(title, items, scoreFormatter) {
-  const box = createEl("div", "rank-box");
-  box.append(createEl("h3", "", title));
-  const list = createEl("ol", "rank-list");
-  items.forEach((item) => {
-    const li = createEl("li", "");
-    li.append(createEl("span", "", item.label));
-    li.append(createEl("strong", "", scoreFormatter(item)));
-    list.append(li);
-  });
-  box.append(list);
-  return box;
-}
-
-function renderRanks(prompt) {
-  const wrap = createEl("div", "rank-grid");
-  const human = [...prompt.candidates]
-    .sort((a, b) => a.human_mean_rank - b.human_mean_rank)
-    .map((candidate) => ({
-      label: candidate.label,
-      score: candidate.human_mean_rank,
-    }));
-  wrap.append(
-    renderRankList("Human ranking", human, (item) => `rank ${fmt(item.score, 2)}`),
-  );
-
-  const taste = prompt.taste_rankings?.[prompt.focus_dimension];
-  if (taste?.length) {
-    wrap.append(
-      renderRankList(
-        `TASTE ${prompt.dimension_label}`,
-        taste,
-        (item) => fmt(item.score),
-      ),
-    );
-  } else {
-    const pending = createEl("div", "rank-box pending-box");
-    pending.append(createEl("h3", "", `TASTE ${prompt.dimension_label}`));
-    pending.append(createEl("p", "", "Pairwise scores are still pending for this snapshot."));
-    wrap.append(pending);
-  }
-  return wrap;
-}
-
 function renderPairMatrix(prompt) {
   if (!prompt.taste_pair_scores?.length) return null;
   const candidates = prompt.candidates.map((candidate) => candidate.id);
@@ -259,7 +215,7 @@ function renderPrompt(prompt) {
   const candidates = createEl("div", "candidate-grid");
   prompt.candidates.forEach((candidate) => candidates.append(renderCandidate(candidate, prompt)));
 
-  section.append(head, candidates, renderRanks(prompt));
+  section.append(head, candidates);
   section.append(
     renderImageScores(prompt),
   );

@@ -91,7 +91,6 @@ h3 {
 .prompt-card,
 .evaluation,
 .metric-card,
-.rank-box,
 .score-table-section,
 .matrix-section {
   border: 1px solid var(--line);
@@ -256,50 +255,11 @@ h3 {
   line-height: 1.45;
 }
 
-.rank-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
-  margin-top: 18px;
-}
-
-.rank-box,
 .score-table-section,
 .matrix-section {
   padding: 18px;
   border-radius: 24px;
   box-shadow: none;
-}
-
-.rank-list {
-  display: grid;
-  gap: 8px;
-  margin: 0;
-  padding-left: 20px;
-}
-
-.rank-list li {
-  padding-left: 4px;
-}
-
-.rank-list li::marker {
-  color: var(--accent);
-  font-weight: 850;
-}
-
-.rank-list span {
-  display: inline-block;
-  min-width: 120px;
-}
-
-.rank-list strong {
-  color: var(--muted);
-  font-size: 0.9rem;
-}
-
-.pending-box p {
-  margin-bottom: 0;
-  color: var(--muted);
 }
 
 .score-table-section {
@@ -411,8 +371,7 @@ h3 {
 @media (max-width: 920px) {
   .summary,
   .metric-grid,
-  .candidate-grid,
-  .rank-grid {
+  .candidate-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -425,8 +384,7 @@ h3 {
 
   .summary,
   .metric-grid,
-  .candidate-grid,
-  .rank-grid {
+  .candidate-grid {
     grid-template-columns: 1fr;
   }
 }
