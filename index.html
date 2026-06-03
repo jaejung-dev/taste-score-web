@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>TASTE Score Samples</title>
-    <link rel="stylesheet" href="styles.css?v=20260603-eval-1" />
+    <link rel="stylesheet" href="styles.css?v=20260603-clean-1" />
   </head>
   <body>
     <main class="shell">
@@ -16,19 +16,12 @@
           battles_test.csv and shows both raw pairwise probabilities and
           per-image scores aggregated from those pairwise model outputs.
         </p>
-        <div class="notice">
-          Per-image score = mean P(candidate wins) against the other candidates
-          for the same prompt. The model itself is still pairwise, so the table
-          is an aggregation of raw A-vs-B outputs rather than an independent
-          single-image forward pass.
-        </div>
         <div id="summary" class="summary"></div>
         <div id="evaluation" class="evaluation"></div>
-        <div id="selection" class="selection-note"></div>
       </section>
 
       <section id="prompts" class="prompts" aria-live="polite"></section>
     </main>
-    <script src="app.js?v=20260603-eval-1"></script>
+    <script src="app.js?v=20260603-clean-1"></script>
   </body>
 </html>

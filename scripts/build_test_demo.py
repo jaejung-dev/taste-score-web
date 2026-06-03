@@ -579,25 +579,6 @@ def build_snapshot(battle_csv: Path, checkpoint: Path, max_per_dimension: int) -
             "score shown here is the mean win probability for that image "
             "against the other candidates in the same prompt."
         ),
-        "sample_selection": {
-            "method": (
-                "For the visual examples, the builder selects one prompt group per dimension "
-                "from battles_test.csv, sorted by highest mean human agreement, then highest "
-                "unanimous-pair rate, while avoiding duplicate scenes when possible."
-            ),
-            "max_per_dimension": max_per_dimension,
-            "selected": [
-                {
-                    "dimension": prompt["dimension"],
-                    "label": prompt["dimension_label"],
-                    "prompt_id": prompt["prompt_id"],
-                    "scene_id": prompt["scene_id"],
-                    "mean_human_agreement": prompt["mean_human_agreement"],
-                    "unanimous_rate": prompt["unanimous_rate"],
-                }
-                for prompt in prompt_entries
-            ],
-        },
         "evaluation": evaluation,
         "taste_dimensions": dimensions,
         "prompts": prompt_entries,

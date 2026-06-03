@@ -35,68 +35,6 @@
     "taste_scored": true
   },
   "score_explanation": "TASTE is a pairwise preference scorer. Raw model outputs are P(image A wins over image B) for each dimension. The per-image score shown here is the mean win probability for that image against the other candidates in the same prompt.",
-  "sample_selection": {
-    "method": "For the visual examples, the builder selects one prompt group per dimension from battles_test.csv, sorted by highest mean human agreement, then highest unanimous-pair rate, while avoiding duplicate scenes when possible.",
-    "max_per_dimension": 1,
-    "selected": [
-      {
-        "dimension": "preference",
-        "label": "Preference",
-        "prompt_id": 548,
-        "scene_id": "scene_147",
-        "mean_human_agreement": 0.9,
-        "unanimous_rate": 0.5
-      },
-      {
-        "dimension": "typography",
-        "label": "Typography",
-        "prompt_id": 318,
-        "scene_id": "scene_077",
-        "mean_human_agreement": 0.9333333333333333,
-        "unanimous_rate": 0.6666666666666666
-      },
-      {
-        "dimension": "visual_hierarchy",
-        "label": "Visual hierarchy",
-        "prompt_id": 397,
-        "scene_id": "scene_076",
-        "mean_human_agreement": 0.8333333333333334,
-        "unanimous_rate": 0.5
-      },
-      {
-        "dimension": "color_harmony",
-        "label": "Color harmony",
-        "prompt_id": 39,
-        "scene_id": "scene_039",
-        "mean_human_agreement": 0.8333333333333334,
-        "unanimous_rate": 0.3333333333333333
-      },
-      {
-        "dimension": "mood_and_color_tone",
-        "label": "Mood & color tone",
-        "prompt_id": 107,
-        "scene_id": "scene_027",
-        "mean_human_agreement": 0.9333333333333333,
-        "unanimous_rate": 0.8333333333333334
-      },
-      {
-        "dimension": "spatial_accuracy",
-        "label": "Spatial accuracy",
-        "prompt_id": 570,
-        "scene_id": "scene_089",
-        "mean_human_agreement": 0.8333333333333334,
-        "unanimous_rate": 0.5
-      },
-      {
-        "dimension": "color_accuracy",
-        "label": "Color accuracy",
-        "prompt_id": 421,
-        "scene_id": "scene_100",
-        "mean_human_agreement": 0.8333333333333334,
-        "unanimous_rate": 0.3333333333333333
-      }
-    ]
-  },
   "evaluation": {
     "overview": {
       "n_pairs": 738,

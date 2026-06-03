@@ -1,4 +1,4 @@
-const DATA_URL = "data.json?v=20260603-eval-1";
+const DATA_URL = "data.json?v=20260603-clean-1";
 
 const fmt = (value, digits = 3) =>
   value === null || value === undefined || Number.isNaN(Number(value))
@@ -89,14 +89,6 @@ function renderEvaluation(data) {
   table.append(thead, tbody);
   tableWrap.append(table);
   el.append(tableWrap);
-}
-
-function renderSelection(data) {
-  const el = byId("selection");
-  if (!el || !data.sample_selection) return;
-  el.innerHTML = "";
-  el.append(createEl("h3", "", "Sample selection"));
-  el.append(createEl("p", "", data.sample_selection.method));
 }
 
 function focusScore(candidate, prompt) {
@@ -310,7 +302,6 @@ async function main() {
   window.__dimensionOrder = data.dimension_order || data.taste_dimensions || [];
   renderSummary(data);
   renderEvaluation(data);
-  renderSelection(data);
   const lede = document.querySelector(".lede");
   if (lede && data.score_explanation) {
     lede.textContent = data.score_explanation;
