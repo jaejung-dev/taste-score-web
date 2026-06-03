@@ -1,4 +1,4 @@
-const DATA_URL = "data.json?v=20260603-cardonly-1";
+const DATA_URL = "data.json?v=20260603-imscore-1";
 
 const fmt = (value, digits = 5) =>
   value === null || value === undefined || Number.isNaN(Number(value))
@@ -28,6 +28,7 @@ function renderSummary(data) {
     ["Selected prompts", data.summary.selected_prompts ?? data.summary.prompts],
     ["Selected images", data.summary.selected_candidates ?? data.summary.candidates],
     ["TASTE scored", data.summary.taste_scored ? "yes" : "pending"],
+    ["ImScore scored", data.summary.imscore_scored ? "yes" : "pending"],
   ].forEach(([label, value]) => {
     const card = createEl("div", "summary-card");
     card.append(createEl("span", "summary-value", value));
@@ -92,6 +93,16 @@ function focusScore(candidate, prompt) {
   return candidate.taste_scores?.[prompt.focus_dimension];
 }
 
+const IMSCORE_LABELS = {
+  hpsv21: "HPS v2.1",
+  pickscore: "PickScore",
+  clipscore: "CLIPScore",
+  imagereward: "ImageReward",
+  laion_aesthetic: "LAION aesthetic",
+};
+
+const IMSCORE_ORDER = ["hpsv21", "pickscore", "clipscore", "imagereward", "laion_aesthetic"];
+
 function renderCandidate(candidate, prompt) {
   const card = createEl("article", "candidate");
   const imgWrap = createEl("div", "image-wrap");
@@ -103,25 +114,56 @@ function renderCandidate(candidate, prompt) {
 
   const meta = createEl("div", "candidate-meta");
   const title = createEl("div", "candidate-title", candidate.label);
+  meta.append(title);
+
   const score = focusScore(candidate, prompt);
-  const scoreText = score === undefined ? "pending" : `TASTE ${fmt(score)}`;
-  const scoreClass = score === undefined ? "score muted" : "score";
-  title.append(createEl("span", scoreClass, scoreText));
+  const scoreGrid = createEl("div", "candidate-score-grid");
+  const tasteBox = createEl("div", "candidate-score-box taste-box");
+  tasteBox.append(createEl("span", "score-label", `TASTE ${prompt.dimension_label}`));
+  tasteBox.append(createEl("strong", "score-number", fmt(score)));
+  const humanBox = createEl("div", "candidate-score-box human-box");
+  humanBox.append(createEl("span", "score-label", "Human mean rank"));
+  humanBox.append(createEl("strong", "score-number", fmt(candidate.human_mean_rank, 2)));
+  scoreGrid.append(tasteBox, humanBox);
+  meta.append(scoreGrid);
 
   const human = createEl(
     "div",
     "human",
-    `Human mean rank ${fmt(candidate.human_mean_rank, 2)} · first-place votes ${candidate.human_first_place_votes}`,
+    `First-place votes ${candidate.human_first_place_votes}`,
   );
-  meta.append(title, human);
+  meta.append(human);
+
+  if (candidate.imscore_scores) {
+    const imscore = createEl("div", "imscore-list");
+    IMSCORE_ORDER.forEach((metric) => {
+      const value = candidate.imscore_scores[metric];
+      if (value === undefined || value === null) return;
+      const row = createEl("div", "imscore-row");
+      row.append(createEl("span", "", IMSCORE_LABELS[metric] || metric));
+      row.append(createEl("strong", "", fmt(value)));
+      imscore.append(row);
+    });
+    if (imscore.childNodes.length) {
+      meta.append(imscore);
+    }
+  }
 
   card.append(imgWrap, meta);
   return card;
 }
 
-function renderPairMatrix(prompt) {
+function orderedCandidates(prompt) {
+  return [...prompt.candidates].sort((a, b) => {
+    const rankA = Number.isFinite(a.human_mean_rank) ? a.human_mean_rank : Number.POSITIVE_INFINITY;
+    const rankB = Number.isFinite(b.human_mean_rank) ? b.human_mean_rank : Number.POSITIVE_INFINITY;
+    return rankA - rankB;
+  });
+}
+
+function renderPairMatrix(prompt, ordered) {
   if (!prompt.taste_pair_scores?.length) return null;
-  const candidates = prompt.candidates.map((candidate) => candidate.id);
+  const candidates = ordered.map((candidate) => candidate.id);
   const labels = Object.fromEntries(prompt.candidates.map((c) => [c.id, c.label]));
   const probs = new Map();
   prompt.taste_pair_scores.forEach((pair) => {
@@ -176,11 +218,12 @@ function renderPrompt(prompt) {
   );
   head.append(title, promptText, stats);
 
+  const sortedCandidates = orderedCandidates(prompt);
   const candidates = createEl("div", "candidate-grid");
-  prompt.candidates.forEach((candidate) => candidates.append(renderCandidate(candidate, prompt)));
+  sortedCandidates.forEach((candidate) => candidates.append(renderCandidate(candidate, prompt)));
 
   section.append(head, candidates);
-  const matrix = renderPairMatrix(prompt);
+  const matrix = renderPairMatrix(prompt, sortedCandidates);
   if (matrix) section.append(matrix);
   return section;
 }
@@ -190,10 +233,6 @@ async function main() {
   const data = await response.json();
   renderSummary(data);
   renderEvaluation(data);
-  const lede = document.querySelector(".lede");
-  if (lede && data.score_explanation) {
-    lede.textContent = data.score_explanation;
-  }
   const prompts = byId("prompts");
   prompts.innerHTML = "";
   data.prompts.forEach((prompt) => prompts.append(renderPrompt(prompt)));

@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>TASTE Score Samples</title>
-    <link rel="stylesheet" href="styles.css?v=20260603-cardonly-1" />
+    <link rel="stylesheet" href="styles.css?v=20260603-imscore-1" />
   </head>
   <body>
     <main class="shell">
@@ -13,8 +13,8 @@
         <h1>TASTE scorer test demo</h1>
         <p class="lede">
           TASTE is a pairwise preference scorer. This demo uses
-          battles_test.csv and shows both raw pairwise probabilities and
-          per-image scores aggregated from those pairwise model outputs.
+          battles_test.csv and compares human rankings, TASTE outputs, and
+          image/text scorer metrics for the same candidate images.
         </p>
         <div id="summary" class="summary"></div>
         <div id="evaluation" class="evaluation"></div>
@@ -22,6 +22,6 @@
 
       <section id="prompts" class="prompts" aria-live="polite"></section>
     </main>
-    <script src="app.js?v=20260603-cardonly-1"></script>
+    <script src="app.js?v=20260603-imscore-1"></script>
   </body>
 </html>

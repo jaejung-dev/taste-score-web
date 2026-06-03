@@ -32,7 +32,8 @@
     "selected_prompts": 7,
     "selected_candidates": 28,
     "selected_pairs": 42,
-    "taste_scored": true
+    "taste_scored": true,
+    "imscore_scored": true
   },
   "score_explanation": "TASTE is a pairwise preference scorer. Raw model outputs are P(image A wins over image B) for each dimension. The per-image score shown here is the mean win probability for that image against the other candidates in the same prompt.",
   "evaluation": {
@@ -178,7 +179,14 @@
           },
           "model_output_overall": 0.6824048558870952,
           "taste_overall": 0.6824048558870952,
-          "model_output_n_pairs": 3
+          "model_output_n_pairs": 3,
+          "imscore_scores": {
+            "hpsv21": 0.25626590847969055,
+            "pickscore": 21.815258026123047,
+            "clipscore": 22.594865798950195,
+            "imagereward": -0.03891999274492264,
+            "laion_aesthetic": 5.646625995635986
+          }
         },
         {
           "id": "c2",
@@ -210,7 +218,14 @@
           },
           "model_output_overall": 0.47353727601113776,
           "taste_overall": 0.47353727601113776,
-          "model_output_n_pairs": 3
+          "model_output_n_pairs": 3,
+          "imscore_scores": {
+            "hpsv21": 0.24798479676246643,
+            "pickscore": 20.646100997924805,
+            "clipscore": 19.538837432861328,
+            "imagereward": -0.6379360556602478,
+            "laion_aesthetic": 5.9114203453063965
+          }
         },
         {
           "id": "c3",
@@ -242,7 +257,14 @@
           },
           "model_output_overall": 0.5241402321982951,
           "taste_overall": 0.5241402321982951,
-          "model_output_n_pairs": 3
+          "model_output_n_pairs": 3,
+          "imscore_scores": {
+            "hpsv21": 0.2747626006603241,
+            "pickscore": 21.954395294189453,
+            "clipscore": 24.0632266998291,
+            "imagereward": -0.010505054146051407,
+            "laion_aesthetic": 5.880373954772949
+          }
         },
         {
           "id": "c4",
@@ -274,7 +296,14 @@
           },
           "model_output_overall": 0.319917635903472,
           "taste_overall": 0.319917635903472,
-          "model_output_n_pairs": 3
+          "model_output_n_pairs": 3,
+          "imscore_scores": {
+            "hpsv21": 0.2254181206226349,
+            "pickscore": 20.40412139892578,
+            "clipscore": 21.012714385986328,
+            "imagereward": -0.33144256472587585,
+            "laion_aesthetic": 5.768953323364258
+          }
         }
       ],
       "human_pair_votes": [
@@ -618,7 +647,14 @@
           },
           "model_output_overall": 0.711952819001107,
           "taste_overall": 0.711952819001107,
-          "model_output_n_pairs": 3
+          "model_output_n_pairs": 3,
+          "imscore_scores": {
+            "hpsv21": 0.28685325384140015,
+            "pickscore": 22.625659942626953,
+            "clipscore": 32.132022857666016,
+            "imagereward": 1.095550298690796,
+            "laion_aesthetic": 5.5901899337768555
+          }
         },
         {
           "id": "c2",
@@ -650,7 +686,14 @@
           },
           "model_output_overall": 0.6185567414476758,
           "taste_overall": 0.6185567414476758,
-          "model_output_n_pairs": 3
+          "model_output_n_pairs": 3,
+          "imscore_scores": {
+            "hpsv21": 0.27916279435157776,
+            "pickscore": 22.466096878051758,
+            "clipscore": 31.25206184387207,
+            "imagereward": 0.8424356579780579,
+            "laion_aesthetic": 5.637734889984131
+          }
         },
         {
           "id": "c3",
@@ -682,7 +725,14 @@
           },
           "model_output_overall": 0.3925659876494181,
           "taste_overall": 0.3925659876494181,
-          "model_output_n_pairs": 3
+          "model_output_n_pairs": 3,
+          "imscore_scores": {
+            "hpsv21": 0.28392621874809265,
+            "pickscore": 22.399038314819336,
+            "clipscore": 32.6072883605957,
+            "imagereward": 0.7846987843513489,
+            "laion_aesthetic": 5.441699504852295
+          }
         },
         {
           "id": "c4",
@@ -714,7 +764,14 @@
           },
           "model_output_overall": 0.27692445190179915,
           "taste_overall": 0.27692445190179915,
-          "model_output_n_pairs": 3
+          "model_output_n_pairs": 3,
+          "imscore_scores": {
+            "hpsv21": 0.26184386014938354,
+            "pickscore": 21.51508140563965,
+            "clipscore": 27.52741050720215,
+            "imagereward": 0.7748335003852844,
+            "laion_aesthetic": 5.524136066436768
+          }
         }
       ],
       "human_pair_votes": [
@@ -1058,7 +1115,14 @@
           },
           "model_output_overall": 0.48855743354319464,
           "taste_overall": 0.48855743354319464,
-          "model_output_n_pairs": 3
+          "model_output_n_pairs": 3,
+          "imscore_scores": {
+            "hpsv21": 0.2439323365688324,
+            "pickscore": 20.917375564575195,
+            "clipscore": 28.053417205810547,
+            "imagereward": 0.9388997554779053,
+            "laion_aesthetic": 4.735445976257324
+          }
         },
         {
           "id": "c2",
@@ -1090,7 +1154,14 @@
           },
           "model_output_overall": 0.6517991385799611,
           "taste_overall": 0.6517991385799611,
-          "model_output_n_pairs": 3
+          "model_output_n_pairs": 3,
+          "imscore_scores": {
+            "hpsv21": 0.25418752431869507,
+            "pickscore": 20.884851455688477,
+            "clipscore": 29.261451721191406,
+            "imagereward": 0.7856241464614868,
+            "laion_aesthetic": 4.6154022216796875
+          }
         },
         {
           "id": "c3",
@@ -1122,7 +1193,14 @@
           },
           "model_output_overall": 0.4727585425051594,
           "taste_overall": 0.4727585425051594,
-          "model_output_n_pairs": 3
+          "model_output_n_pairs": 3,
+          "imscore_scores": {
+            "hpsv21": 0.26663845777511597,
+            "pickscore": 22.18120765686035,
+            "clipscore": 25.999874114990234,
+            "imagereward": 0.8296274542808533,
+            "laion_aesthetic": 4.972559928894043
+          }
         },
         {
           "id": "c4",
@@ -1154,7 +1232,14 @@
           },
           "model_output_overall": 0.3868848853716848,
           "taste_overall": 0.3868848853716848,
-          "model_output_n_pairs": 3
+          "model_output_n_pairs": 3,
+          "imscore_scores": {
+            "hpsv21": 0.3031059503555298,
+            "pickscore": 22.21475601196289,
+            "clipscore": 28.932401657104492,
+            "imagereward": 0.8174055218696594,
+            "laion_aesthetic": 5.535375595092773
+          }
         }
       ],
       "human_pair_votes": [
@@ -1498,7 +1583,14 @@
           },
           "model_output_overall": 0.4779384081997532,
           "taste_overall": 0.4779384081997532,
-          "model_output_n_pairs": 3
+          "model_output_n_pairs": 3,
+          "imscore_scores": {
+            "hpsv21": 0.24369320273399353,
+            "pickscore": 21.103046417236328,
+            "clipscore": 25.77469253540039,
+            "imagereward": 0.7584266066551208,
+            "laion_aesthetic": 6.292946815490723
+          }
         },
         {
           "id": "c2",
@@ -1530,7 +1622,14 @@
           },
           "model_output_overall": 0.6366589638803687,
           "taste_overall": 0.6366589638803687,
-          "model_output_n_pairs": 3
+          "model_output_n_pairs": 3,
+          "imscore_scores": {
+            "hpsv21": 0.25724053382873535,
+            "pickscore": 21.341796875,
+            "clipscore": 23.432823181152344,
+            "imagereward": 0.8434301018714905,
+            "laion_aesthetic": 5.751770496368408
+          }
         },
         {
           "id": "c3",
@@ -1562,7 +1661,14 @@
           },
           "model_output_overall": 0.5005786275322038,
           "taste_overall": 0.5005786275322038,
-          "model_output_n_pairs": 3
+          "model_output_n_pairs": 3,
+          "imscore_scores": {
+            "hpsv21": 0.28522995114326477,
+            "pickscore": 21.619964599609375,
+            "clipscore": 26.183128356933594,
+            "imagereward": 0.909771740436554,
+            "laion_aesthetic": 6.041154861450195
+          }
         },
         {
           "id": "c4",
@@ -1594,7 +1700,14 @@
           },
           "model_output_overall": 0.3848240003876743,
           "taste_overall": 0.3848240003876743,
-          "model_output_n_pairs": 3
+          "model_output_n_pairs": 3,
+          "imscore_scores": {
+            "hpsv21": 0.2456692010164261,
+            "pickscore": 21.664045333862305,
+            "clipscore": 27.00434684753418,
+            "imagereward": 0.8379795551300049,
+            "laion_aesthetic": 5.893022060394287
+          }
         }
       ],
       "human_pair_votes": [
@@ -1938,7 +2051,14 @@
           },
           "model_output_overall": 0.6310888577496544,
           "taste_overall": 0.6310888577496544,
-          "model_output_n_pairs": 3
+          "model_output_n_pairs": 3,
+          "imscore_scores": {
+            "hpsv21": 0.29336559772491455,
+            "pickscore": 22.574913024902344,
+            "clipscore": 34.246097564697266,
+            "imagereward": 0.9480310082435608,
+            "laion_aesthetic": 5.585884094238281
+          }
         },
         {
           "id": "c2",
@@ -1970,7 +2090,14 @@
           },
           "model_output_overall": 0.5777917068917304,
           "taste_overall": 0.5777917068917304,
-          "model_output_n_pairs": 3
+          "model_output_n_pairs": 3,
+          "imscore_scores": {
+            "hpsv21": 0.3015311062335968,
+            "pickscore": 23.2761173248291,
+            "clipscore": 28.92955207824707,
+            "imagereward": 1.020034909248352,
+            "laion_aesthetic": 5.151808738708496
+          }
         },
         {
           "id": "c3",
@@ -2002,7 +2129,14 @@
           },
           "model_output_overall": 0.4240627397029173,
           "taste_overall": 0.4240627397029173,
-          "model_output_n_pairs": 3
+          "model_output_n_pairs": 3,
+          "imscore_scores": {
+            "hpsv21": 0.2707202732563019,
+            "pickscore": 22.44947624206543,
+            "clipscore": 29.544687271118164,
+            "imagereward": 0.9661056399345398,
+            "laion_aesthetic": 5.3686089515686035
+          }
         },
         {
           "id": "c4",
@@ -2034,7 +2168,14 @@
           },
           "model_output_overall": 0.3670566956556978,
           "taste_overall": 0.3670566956556978,
-          "model_output_n_pairs": 3
+          "model_output_n_pairs": 3,
+          "imscore_scores": {
+            "hpsv21": 0.27452099323272705,
+            "pickscore": 22.94662857055664,
+            "clipscore": 30.83963394165039,
+            "imagereward": 0.9980437159538269,
+            "laion_aesthetic": 5.160209655761719
+          }
         }
       ],
       "human_pair_votes": [
@@ -2378,7 +2519,14 @@
           },
           "model_output_overall": 0.6990798754351479,
           "taste_overall": 0.6990798754351479,
-          "model_output_n_pairs": 3
+          "model_output_n_pairs": 3,
+          "imscore_scores": {
+            "hpsv21": 0.20566049218177795,
+            "pickscore": 20.75792694091797,
+            "clipscore": 26.806753158569336,
+            "imagereward": -0.1393311619758606,
+            "laion_aesthetic": 4.804562568664551
+          }
         },
         {
           "id": "c2",
@@ -2410,7 +2558,14 @@
           },
           "model_output_overall": 0.40144575901684304,
           "taste_overall": 0.40144575901684304,
-          "model_output_n_pairs": 3
+          "model_output_n_pairs": 3,
+          "imscore_scores": {
+            "hpsv21": 0.20167028903961182,
+            "pickscore": 20.586273193359375,
+            "clipscore": 27.782020568847656,
+            "imagereward": 0.026347514241933823,
+            "laion_aesthetic": 4.6348114013671875
+          }
         },
         {
           "id": "c3",
@@ -2442,7 +2597,14 @@
           },
           "model_output_overall": 0.5013355598563239,
           "taste_overall": 0.5013355598563239,
-          "model_output_n_pairs": 3
+          "model_output_n_pairs": 3,
+          "imscore_scores": {
+            "hpsv21": 0.19841524958610535,
+            "pickscore": 20.002273559570312,
+            "clipscore": 27.62873077392578,
+            "imagereward": -0.11689450591802597,
+            "laion_aesthetic": 4.767690658569336
+          }
         },
         {
           "id": "c4",
@@ -2474,7 +2636,14 @@
           },
           "model_output_overall": 0.39813880569168497,
           "taste_overall": 0.39813880569168497,
-          "model_output_n_pairs": 3
+          "model_output_n_pairs": 3,
+          "imscore_scores": {
+            "hpsv21": 0.18716169893741608,
+            "pickscore": 19.374067306518555,
+            "clipscore": 28.114032745361328,
+            "imagereward": -0.20018133521080017,
+            "laion_aesthetic": 4.689866065979004
+          }
         }
       ],
       "human_pair_votes": [
@@ -2818,7 +2987,14 @@
           },
           "model_output_overall": 0.611424996351291,
           "taste_overall": 0.611424996351291,
-          "model_output_n_pairs": 3
+          "model_output_n_pairs": 3,
+          "imscore_scores": {
+            "hpsv21": 0.25273552536964417,
+            "pickscore": 22.73165512084961,
+            "clipscore": 25.15214729309082,
+            "imagereward": 0.2603207528591156,
+            "laion_aesthetic": 5.379149436950684
+          }
         },
         {
           "id": "c2",
@@ -2850,7 +3026,14 @@
           },
           "model_output_overall": 0.532985102271639,
           "taste_overall": 0.532985102271639,
-          "model_output_n_pairs": 3
+          "model_output_n_pairs": 3,
+          "imscore_scores": {
+            "hpsv21": 0.24525293707847595,
+            "pickscore": 22.473012924194336,
+            "clipscore": 23.565196990966797,
+            "imagereward": 0.3487803339958191,
+            "laion_aesthetic": 5.536809921264648
+          }
         },
         {
           "id": "c3",
@@ -2882,7 +3065,14 @@
           },
           "model_output_overall": 0.4241656710704168,
           "taste_overall": 0.4241656710704168,
-          "model_output_n_pairs": 3
+          "model_output_n_pairs": 3,
+          "imscore_scores": {
+            "hpsv21": 0.2445703148841858,
+            "pickscore": 22.482913970947266,
+            "clipscore": 23.408348083496094,
+            "imagereward": 0.2893676459789276,
+            "laion_aesthetic": 5.559357643127441
+          }
         },
         {
           "id": "c4",
@@ -2914,7 +3104,14 @@
           },
           "model_output_overall": 0.4314242303066532,
           "taste_overall": 0.4314242303066532,
-          "model_output_n_pairs": 3
+          "model_output_n_pairs": 3,
+          "imscore_scores": {
+            "hpsv21": 0.24692770838737488,
+            "pickscore": 22.093067169189453,
+            "clipscore": 22.629039764404297,
+            "imagereward": 0.38155558705329895,
+            "laion_aesthetic": 5.509660243988037
+          }
         }
       ],
       "human_pair_votes": [
@@ -3214,5 +3411,19 @@
         ]
       }
     }
-  ]
+  ],
+  "imscore_order": [
+    "hpsv21",
+    "pickscore",
+    "clipscore",
+    "imagereward",
+    "laion_aesthetic"
+  ],
+  "imscore_labels": {
+    "hpsv21": "HPS v2.1",
+    "pickscore": "PickScore",
+    "clipscore": "CLIPScore",
+    "imagereward": "ImageReward",
+    "laion_aesthetic": "LAION aesthetic"
+  }
 }

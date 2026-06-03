@@ -220,16 +220,49 @@ h3 {
 
 .candidate-meta {
   display: grid;
-  gap: 8px;
+  gap: 10px;
   padding: 14px;
 }
 
 .candidate-title {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
   font-weight: 850;
+}
+
+.candidate-score-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.candidate-score-box {
+  display: grid;
+  gap: 4px;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #fff;
+}
+
+.taste-box {
+  background: var(--accent-soft);
+}
+
+.score-label {
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.score-number {
+  color: var(--ink);
+  font-size: 1.05rem;
+  line-height: 1;
+}
+
+.taste-box .score-number {
+  color: var(--accent);
 }
 
 .score {
@@ -252,6 +285,27 @@ h3 {
   color: var(--muted);
   font-size: 0.86rem;
   line-height: 1.45;
+}
+
+.imscore-list {
+  display: grid;
+  gap: 5px;
+  padding-top: 8px;
+  border-top: 1px solid var(--line);
+}
+
+.imscore-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.imscore-row strong {
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
 }
 
 .matrix-section {
