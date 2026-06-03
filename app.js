@@ -1,4 +1,4 @@
-const DATA_URL = "data.json?v=20260603-rankmetric-1";
+const DATA_URL = "data.json?v=20260603-simpletable-1";
 
 const fmt = (value, digits = 5) =>
   value === null || value === undefined || Number.isNaN(Number(value))
@@ -115,39 +115,20 @@ function renderCandidate(candidate, prompt) {
   );
   meta.append(title, human);
 
-  if (candidate.taste_overall !== undefined) {
-    meta.append(createEl("div", "overall", `Model output overall ${fmt(candidate.taste_overall)}`));
-  }
-
   card.append(imgWrap, meta);
   return card;
 }
 
-function renderImageScores(prompt, dimensionLabels, dimensionOrder) {
+function renderImageScores(prompt) {
   const section = createEl("div", "score-table-section");
-  section.append(createEl("h3", "", "Per-image model output scores"));
-  section.append(
-    createEl(
-      "p",
-      "score-note",
-      prompt.model_output_note ||
-        "Per-image scores are derived by averaging pairwise win probabilities.",
-    ),
-  );
+  section.append(createEl("h3", "", "TASTE score vs human rank"));
 
   const tableWrap = createEl("div", "table-wrap");
   const table = createEl("table", "score-table");
   const columns = [
-    { key: "image", label: "Image" },
+    { key: "image", label: "Candidate" },
     { key: "human", label: "Human rank" },
-    { key: prompt.focus_dimension, label: `${prompt.dimension_label} score`, focus: true },
-    { key: "overall", label: "Overall" },
-    ...dimensionOrder
-      .filter((dimension) => dimension !== prompt.focus_dimension)
-      .map((dimension) => ({
-        key: dimension,
-        label: dimensionLabels[dimension] || dimension,
-      })),
+    { key: prompt.focus_dimension, label: `TASTE ${prompt.dimension_label} score`, focus: true },
   ];
   const thead = document.createElement("thead");
   const headRow = document.createElement("tr");
@@ -161,7 +142,6 @@ function renderImageScores(prompt, dimensionLabels, dimensionOrder) {
       let value;
       if (column.key === "image") value = candidate.label;
       else if (column.key === "human") value = fmt(candidate.human_mean_rank, 2);
-      else if (column.key === "overall") value = fmt(candidate.model_output_overall);
       else value = fmt(candidate.model_output_scores?.[column.key]);
       const cell = createEl(index === 0 ? "th" : "td", "", value);
       if (column.focus) cell.classList.add("focus-score");
@@ -281,11 +261,7 @@ function renderPrompt(prompt) {
 
   section.append(head, candidates, renderRanks(prompt));
   section.append(
-    renderImageScores(
-      prompt,
-      window.__dimensionLabels || {},
-      window.__dimensionOrder || prompt.taste_dimensions || [],
-    ),
+    renderImageScores(prompt),
   );
   const matrix = renderPairMatrix(prompt);
   if (matrix) section.append(matrix);
@@ -295,8 +271,6 @@ function renderPrompt(prompt) {
 async function main() {
   const response = await fetch(DATA_URL);
   const data = await response.json();
-  window.__dimensionLabels = data.dimension_labels || {};
-  window.__dimensionOrder = data.dimension_order || data.taste_dimensions || [];
   renderSummary(data);
   renderEvaluation(data);
   const lede = document.querySelector(".lede");
