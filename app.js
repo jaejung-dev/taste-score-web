@@ -1,4 +1,4 @@
-const DATA_URL = "data.json?v=20260603-replace653-1";
+const DATA_URL = "data.json?v=20260603-ood-1";
 
 const fmt = (value, digits = 5) =>
   value === null || value === undefined || Number.isNaN(Number(value))
@@ -22,12 +22,16 @@ function createEl(tag, className, text) {
 function renderSummary(data) {
   const el = byId("summary");
   el.innerHTML = "";
-  [
+  const cards = [
     ["Test rows", data.summary.test_rows ?? data.summary.prompts],
     ["Test pairs", data.summary.test_unique_pairs ?? data.summary.pairs],
     ["Selected prompts", data.summary.selected_prompts ?? data.summary.prompts],
     ["Selected images", data.summary.selected_candidates ?? data.summary.candidates],
-  ].forEach(([label, value]) => {
+  ];
+  if (data.summary.ood_prompts) {
+    cards.push(["OOD probes", data.summary.ood_prompts]);
+  }
+  cards.forEach(([label, value]) => {
     const card = createEl("div", "summary-card");
     card.append(createEl("span", "summary-value", value));
     card.append(createEl("span", "summary-label", label));
@@ -137,22 +141,18 @@ function bestBadge() {
   return createEl("span", "best-badge", "Best");
 }
 
-function renderCandidate(candidate, prompt, best) {
-  const card = createEl("article", "candidate");
+function candidateImage(candidate, prompt) {
   const imgWrap = createEl("div", "image-wrap");
   const img = document.createElement("img");
   img.src = candidate.asset;
   img.alt = `${candidate.label} for ${prompt.title}`;
   img.loading = "lazy";
   imgWrap.append(img);
+  return imgWrap;
+}
 
-  const meta = createEl("div", "candidate-meta");
-  const title = createEl("div", "candidate-title", candidate.label);
-  meta.append(title);
-
-  meta.append(createEl("div", "score-section-label", "TASTE result"));
+function renderTasteScoreBox(candidate, prompt, best) {
   const score = focusScore(candidate, prompt);
-  const scoreGrid = createEl("div", "candidate-score-grid");
   const tasteBox = createEl(
     "div",
     `candidate-score-box taste-box ${isBest(score, best.taste) ? "best-score" : ""}`.trim(),
@@ -162,6 +162,37 @@ function renderCandidate(candidate, prompt, best) {
   tasteValue.append(createEl("strong", "score-number", fmt(score)));
   if (isBest(score, best.taste)) tasteValue.append(bestBadge());
   tasteBox.append(tasteValue);
+  return tasteBox;
+}
+
+function renderImscoreList(candidate, best) {
+  if (!candidate.imscore_scores) return null;
+  const imscore = createEl("div", "imscore-list");
+  imscore.append(createEl("div", "score-section-label", "Image/Text Scores"));
+  IMSCORE_ORDER.forEach((metric) => {
+    const value = candidate.imscore_scores[metric];
+    if (value === undefined || value === null) return;
+    const isWinner = isBest(value, best.imscore[metric]);
+    const row = createEl("div", `imscore-row ${isWinner ? "best-score" : ""}`.trim());
+    row.append(createEl("span", "", IMSCORE_LABELS[metric] || metric));
+    const valueWrap = createEl("div", "imscore-value");
+    valueWrap.append(createEl("strong", "", fmt(value)));
+    if (isWinner) valueWrap.append(bestBadge());
+    row.append(valueWrap);
+    imscore.append(row);
+  });
+  return imscore.childNodes.length > 1 ? imscore : null;
+}
+
+function renderCandidate(candidate, prompt, best) {
+  const card = createEl("article", "candidate");
+  const meta = createEl("div", "candidate-meta");
+  const title = createEl("div", "candidate-title", candidate.label);
+  meta.append(title);
+
+  meta.append(createEl("div", "score-section-label", "TASTE result"));
+  const scoreGrid = createEl("div", "candidate-score-grid");
+  const tasteBox = renderTasteScoreBox(candidate, prompt, best);
   const humanBox = createEl(
     "div",
     `candidate-score-box human-box ${
@@ -183,27 +214,24 @@ function renderCandidate(candidate, prompt, best) {
   );
   meta.append(human);
 
-  if (candidate.imscore_scores) {
-    const imscore = createEl("div", "imscore-list");
-    imscore.append(createEl("div", "score-section-label", "Image/Text Scores"));
-    IMSCORE_ORDER.forEach((metric) => {
-      const value = candidate.imscore_scores[metric];
-      if (value === undefined || value === null) return;
-      const isWinner = isBest(value, best.imscore[metric]);
-      const row = createEl("div", `imscore-row ${isWinner ? "best-score" : ""}`.trim());
-      row.append(createEl("span", "", IMSCORE_LABELS[metric] || metric));
-      const valueWrap = createEl("div", "imscore-value");
-      valueWrap.append(createEl("strong", "", fmt(value)));
-      if (isWinner) valueWrap.append(bestBadge());
-      row.append(valueWrap);
-      imscore.append(row);
-    });
-    if (imscore.childNodes.length) {
-      meta.append(imscore);
-    }
-  }
+  const imscore = renderImscoreList(candidate, best);
+  if (imscore) meta.append(imscore);
 
-  card.append(imgWrap, meta);
+  card.append(candidateImage(candidate, prompt), meta);
+  return card;
+}
+
+function renderOodCandidate(candidate, prompt, best) {
+  const card = createEl("article", "candidate ood-candidate");
+  const meta = createEl("div", "candidate-meta");
+  meta.append(createEl("div", "candidate-title", candidate.label));
+  meta.append(createEl("div", "score-section-label", "TASTE result"));
+  const scoreGrid = createEl("div", "candidate-score-grid single-score");
+  scoreGrid.append(renderTasteScoreBox(candidate, prompt, best));
+  meta.append(scoreGrid);
+  const imscore = renderImscoreList(candidate, best);
+  if (imscore) meta.append(imscore);
+  card.append(candidateImage(candidate, prompt), meta);
   return card;
 }
 
@@ -283,6 +311,42 @@ function renderPrompt(prompt) {
   return section;
 }
 
+function renderOodPrompt(prompt) {
+  const section = createEl("section", "prompt-card ood-card");
+  const head = createEl("div", "prompt-head");
+  const title = createEl("div");
+  title.append(createEl("p", "eyebrow", `OOD probe · ${prompt.ood_type}`));
+  title.append(createEl("h2", "", prompt.title));
+  head.append(title, createEl("p", "prompt-text", prompt.prompt));
+
+  const best = bestValues(prompt);
+  const candidates = createEl("div", "candidate-grid");
+  prompt.candidates.forEach((candidate) => candidates.append(renderOodCandidate(candidate, prompt, best)));
+
+  section.append(head, candidates);
+  const matrix = renderPairMatrix(prompt, prompt.candidates);
+  if (matrix) section.append(matrix);
+  return section;
+}
+
+function renderOodSection(data) {
+  const el = byId("ood-prompts");
+  if (!el || !data.ood_prompts?.length) return;
+  el.innerHTML = "";
+  const head = createEl("div", "section-head");
+  head.append(createEl("p", "eyebrow", "Out-of-distribution probes"));
+  head.append(createEl("h2", "", "TASTE Preference outside the main benchmark"));
+  head.append(
+    createEl(
+      "p",
+      "prompt-text",
+      "These probes use the same prompt format as the benchmark, but have no human ranking labels. They show only TASTE Preference and image/text metrics.",
+    ),
+  );
+  el.append(head);
+  data.ood_prompts.forEach((prompt) => el.append(renderOodPrompt(prompt)));
+}
+
 async function main() {
   const response = await fetch(DATA_URL);
   const data = await response.json();
@@ -291,6 +355,7 @@ async function main() {
   const prompts = byId("prompts");
   prompts.innerHTML = "";
   data.prompts.forEach((prompt) => prompts.append(renderPrompt(prompt)));
+  renderOodSection(data);
 }
 
 main().catch((error) => {

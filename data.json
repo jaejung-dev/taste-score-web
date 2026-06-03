@@ -34,7 +34,9 @@
     "selected_pairs": 126,
     "taste_scored": true,
     "selected_ordered_pairs": 252,
-    "imscore_scored": true
+    "imscore_scored": true,
+    "ood_prompts": 4,
+    "ood_candidates": 16
   },
   "score_explanation": "TASTE evaluates generated design images against human visual preferences across quality dimensions.",
   "evaluation": {
@@ -13296,5 +13298,635 @@
     "clipscore": "CLIPScore",
     "imagereward": "ImageReward",
     "laion_aesthetic": "LAION aesthetic"
-  }
+  },
+  "ood_prompts": [
+    {
+      "id": "ood-chart-infographic",
+      "title": "Technical chart / infographic probe",
+      "track": "ood",
+      "ood_type": "Technical chart / infographic",
+      "focus_dimension": "preference",
+      "dimension_label": "Preference",
+      "prompt": "User Intent: Create a clear, polished technical chart or infographic that communicates data trends, key performance indicators, and structured business insights. Description: The image should use chart elements, labels, legends, and a clean presentation layout rather than a social poster or campaign graphic.",
+      "candidates": [
+        {
+          "id": "c1",
+          "label": "Candidate 1",
+          "asset": "assets/ood/chart-infographic/candidate-1.png",
+          "taste_scores": {
+            "preference": 0.4975458284219106
+          },
+          "imscore_scores": {
+            "hpsv21": 0.1882300227880478,
+            "pickscore": 20.00713348388672,
+            "clipscore": 28.625640869140625,
+            "imagereward": 0.24049587547779083,
+            "laion_aesthetic": 5.640485763549805
+          }
+        },
+        {
+          "id": "c2",
+          "label": "Candidate 2",
+          "asset": "assets/ood/chart-infographic/candidate-2.png",
+          "taste_scores": {
+            "preference": 0.4923367202281952
+          },
+          "imscore_scores": {
+            "hpsv21": 0.20868785679340363,
+            "pickscore": 20.187124252319336,
+            "clipscore": 27.952241897583008,
+            "imagereward": 0.10190926492214203,
+            "laion_aesthetic": 5.6953535079956055
+          }
+        },
+        {
+          "id": "c3",
+          "label": "Candidate 3",
+          "asset": "assets/ood/chart-infographic/candidate-3.png",
+          "taste_scores": {
+            "preference": 0.50108070174853
+          },
+          "imscore_scores": {
+            "hpsv21": 0.20533668994903564,
+            "pickscore": 19.99127769470215,
+            "clipscore": 29.64716911315918,
+            "imagereward": 0.08217616379261017,
+            "laion_aesthetic": 5.5540995597839355
+          }
+        },
+        {
+          "id": "c4",
+          "label": "Candidate 4",
+          "asset": "assets/ood/chart-infographic/candidate-4.png",
+          "taste_scores": {
+            "preference": 0.538201113541921
+          },
+          "imscore_scores": {
+            "hpsv21": 0.19154219329357147,
+            "pickscore": 20.17561912536621,
+            "clipscore": 28.65677833557129,
+            "imagereward": 0.05973399803042412,
+            "laion_aesthetic": 5.392072677612305
+          }
+        }
+      ],
+      "taste_ordered_pair_scores": [
+        {
+          "candidate_a": "c1",
+          "candidate_b": "c2",
+          "probabilities": {
+            "preference": 0.530289351940155
+          }
+        },
+        {
+          "candidate_a": "c1",
+          "candidate_b": "c3",
+          "probabilities": {
+            "preference": 0.5051892399787903
+          }
+        },
+        {
+          "candidate_a": "c1",
+          "candidate_b": "c4",
+          "probabilities": {
+            "preference": 0.4571588933467865
+          }
+        },
+        {
+          "candidate_a": "c2",
+          "candidate_b": "c1",
+          "probabilities": {
+            "preference": 0.4936011731624603
+          }
+        },
+        {
+          "candidate_a": "c2",
+          "candidate_b": "c3",
+          "probabilities": {
+            "preference": 0.4956322908401489
+          }
+        },
+        {
+          "candidate_a": "c2",
+          "candidate_b": "c4",
+          "probabilities": {
+            "preference": 0.4877766966819763
+          }
+        },
+        {
+          "candidate_a": "c3",
+          "candidate_b": "c1",
+          "probabilities": {
+            "preference": 0.5129610896110535
+          }
+        },
+        {
+          "candidate_a": "c3",
+          "candidate_b": "c2",
+          "probabilities": {
+            "preference": 0.5192241072654724
+          }
+        },
+        {
+          "candidate_a": "c3",
+          "candidate_b": "c4",
+          "probabilities": {
+            "preference": 0.47105690836906433
+          }
+        },
+        {
+          "candidate_a": "c4",
+          "candidate_b": "c1",
+          "probabilities": {
+            "preference": 0.5391865372657776
+          }
+        },
+        {
+          "candidate_a": "c4",
+          "candidate_b": "c2",
+          "probabilities": {
+            "preference": 0.5379365682601929
+          }
+        },
+        {
+          "candidate_a": "c4",
+          "candidate_b": "c3",
+          "probabilities": {
+            "preference": 0.5374802350997925
+          }
+        }
+      ]
+    },
+    {
+      "id": "ood-photorealistic",
+      "title": "Photorealistic image probe",
+      "track": "ood",
+      "ood_type": "Photorealistic image",
+      "focus_dimension": "preference",
+      "dimension_label": "Preference",
+      "prompt": "User Intent: Evaluate a pure photorealistic image without typography, poster layout, or graphic design elements. Description: The image should look like a natural camera photograph with realistic lighting, depth, texture, and composition.",
+      "candidates": [
+        {
+          "id": "c1",
+          "label": "Candidate 1",
+          "asset": "assets/ood/photorealistic/candidate-1.jpg",
+          "taste_scores": {
+            "preference": 0.5749912758668264
+          },
+          "imscore_scores": {
+            "hpsv21": 0.19350039958953857,
+            "pickscore": 19.27781867980957,
+            "clipscore": 20.28195571899414,
+            "imagereward": -0.5164110660552979,
+            "laion_aesthetic": 5.514220237731934
+          }
+        },
+        {
+          "id": "c2",
+          "label": "Candidate 2",
+          "asset": "assets/ood/photorealistic/candidate-2.jpg",
+          "taste_scores": {
+            "preference": 0.6564579010009766
+          },
+          "imscore_scores": {
+            "hpsv21": 0.176092728972435,
+            "pickscore": 19.33895492553711,
+            "clipscore": 19.9713191986084,
+            "imagereward": -0.8520699739456177,
+            "laion_aesthetic": 6.042938232421875
+          }
+        },
+        {
+          "id": "c3",
+          "label": "Candidate 3",
+          "asset": "assets/ood/photorealistic/candidate-3.jpg",
+          "taste_scores": {
+            "preference": 0.2634464353322983
+          },
+          "imscore_scores": {
+            "hpsv21": 0.17109982669353485,
+            "pickscore": 18.959272384643555,
+            "clipscore": 18.59857940673828,
+            "imagereward": -1.0208351612091064,
+            "laion_aesthetic": 5.611670017242432
+          }
+        },
+        {
+          "id": "c4",
+          "label": "Candidate 4",
+          "asset": "assets/ood/photorealistic/candidate-4.jpg",
+          "taste_scores": {
+            "preference": 0.5584399104118347
+          },
+          "imscore_scores": {
+            "hpsv21": 0.14251823723316193,
+            "pickscore": 18.49711036682129,
+            "clipscore": 17.776103973388672,
+            "imagereward": -0.7339928150177002,
+            "laion_aesthetic": 5.1936140060424805
+          }
+        }
+      ],
+      "taste_ordered_pair_scores": [
+        {
+          "candidate_a": "c1",
+          "candidate_b": "c2",
+          "probabilities": {
+            "preference": 0.48689958453178406
+          }
+        },
+        {
+          "candidate_a": "c1",
+          "candidate_b": "c3",
+          "probabilities": {
+            "preference": 0.6966485381126404
+          }
+        },
+        {
+          "candidate_a": "c1",
+          "candidate_b": "c4",
+          "probabilities": {
+            "preference": 0.5414257049560547
+          }
+        },
+        {
+          "candidate_a": "c2",
+          "candidate_b": "c1",
+          "probabilities": {
+            "preference": 0.6265138983726501
+          }
+        },
+        {
+          "candidate_a": "c2",
+          "candidate_b": "c3",
+          "probabilities": {
+            "preference": 0.6858364343643188
+          }
+        },
+        {
+          "candidate_a": "c2",
+          "candidate_b": "c4",
+          "probabilities": {
+            "preference": 0.6570233702659607
+          }
+        },
+        {
+          "candidate_a": "c3",
+          "candidate_b": "c1",
+          "probabilities": {
+            "preference": 0.09764494001865387
+          }
+        },
+        {
+          "candidate_a": "c3",
+          "candidate_b": "c2",
+          "probabilities": {
+            "preference": 0.23151648044586182
+          }
+        },
+        {
+          "candidate_a": "c3",
+          "candidate_b": "c4",
+          "probabilities": {
+            "preference": 0.46117788553237915
+          }
+        },
+        {
+          "candidate_a": "c4",
+          "candidate_b": "c1",
+          "probabilities": {
+            "preference": 0.5208398699760437
+          }
+        },
+        {
+          "candidate_a": "c4",
+          "candidate_b": "c2",
+          "probabilities": {
+            "preference": 0.48077392578125
+          }
+        },
+        {
+          "candidate_a": "c4",
+          "candidate_b": "c3",
+          "probabilities": {
+            "preference": 0.6737059354782104
+          }
+        }
+      ]
+    },
+    {
+      "id": "ood-mobile-ui",
+      "title": "Mobile app UI screen probe",
+      "track": "ood",
+      "ood_type": "Mobile app UI screen",
+      "focus_dimension": "preference",
+      "dimension_label": "Preference",
+      "prompt": "User Intent: Create a modern mobile app screen with clear hierarchy, navigation, cards, call-to-action, and polished product UI. Description: The image should resemble a real app screenshot or onboarding screen rather than a social media post.",
+      "candidates": [
+        {
+          "id": "c1",
+          "label": "Candidate 1",
+          "asset": "assets/ood/mobile-ui/candidate-1.png",
+          "taste_scores": {
+            "preference": 0.4773426055908203
+          },
+          "imscore_scores": {
+            "hpsv21": 0.20940646529197693,
+            "pickscore": 20.512630462646484,
+            "clipscore": 27.636945724487305,
+            "imagereward": -0.0069704861380159855,
+            "laion_aesthetic": 4.999642372131348
+          }
+        },
+        {
+          "id": "c2",
+          "label": "Candidate 2",
+          "asset": "assets/ood/mobile-ui/candidate-2.png",
+          "taste_scores": {
+            "preference": 0.5812651117642721
+          },
+          "imscore_scores": {
+            "hpsv21": 0.20771905779838562,
+            "pickscore": 20.330080032348633,
+            "clipscore": 28.892635345458984,
+            "imagereward": -0.05563918873667717,
+            "laion_aesthetic": 5.198331832885742
+          }
+        },
+        {
+          "id": "c3",
+          "label": "Candidate 3",
+          "asset": "assets/ood/mobile-ui/candidate-3.png",
+          "taste_scores": {
+            "preference": 0.338911771774292
+          },
+          "imscore_scores": {
+            "hpsv21": 0.2174246609210968,
+            "pickscore": 20.20520782470703,
+            "clipscore": 27.261701583862305,
+            "imagereward": -0.017030369490385056,
+            "laion_aesthetic": 5.183610916137695
+          }
+        },
+        {
+          "id": "c4",
+          "label": "Candidate 4",
+          "asset": "assets/ood/mobile-ui/candidate-4.png",
+          "taste_scores": {
+            "preference": 0.45917458335558575
+          },
+          "imscore_scores": {
+            "hpsv21": 0.2194371223449707,
+            "pickscore": 20.72812271118164,
+            "clipscore": 30.554649353027344,
+            "imagereward": 0.013538917526602745,
+            "laion_aesthetic": 5.255346775054932
+          }
+        }
+      ],
+      "taste_ordered_pair_scores": [
+        {
+          "candidate_a": "c1",
+          "candidate_b": "c2",
+          "probabilities": {
+            "preference": 0.3964617848396301
+          }
+        },
+        {
+          "candidate_a": "c1",
+          "candidate_b": "c3",
+          "probabilities": {
+            "preference": 0.527052640914917
+          }
+        },
+        {
+          "candidate_a": "c1",
+          "candidate_b": "c4",
+          "probabilities": {
+            "preference": 0.5085133910179138
+          }
+        },
+        {
+          "candidate_a": "c2",
+          "candidate_b": "c1",
+          "probabilities": {
+            "preference": 0.5925260782241821
+          }
+        },
+        {
+          "candidate_a": "c2",
+          "candidate_b": "c3",
+          "probabilities": {
+            "preference": 0.6161379814147949
+          }
+        },
+        {
+          "candidate_a": "c2",
+          "candidate_b": "c4",
+          "probabilities": {
+            "preference": 0.5351312756538391
+          }
+        },
+        {
+          "candidate_a": "c3",
+          "candidate_b": "c1",
+          "probabilities": {
+            "preference": 0.35569125413894653
+          }
+        },
+        {
+          "candidate_a": "c3",
+          "candidate_b": "c2",
+          "probabilities": {
+            "preference": 0.1953919231891632
+          }
+        },
+        {
+          "candidate_a": "c3",
+          "candidate_b": "c4",
+          "probabilities": {
+            "preference": 0.46565213799476624
+          }
+        },
+        {
+          "candidate_a": "c4",
+          "candidate_b": "c1",
+          "probabilities": {
+            "preference": 0.5083613395690918
+          }
+        },
+        {
+          "candidate_a": "c4",
+          "candidate_b": "c2",
+          "probabilities": {
+            "preference": 0.36837151646614075
+          }
+        },
+        {
+          "candidate_a": "c4",
+          "candidate_b": "c3",
+          "probabilities": {
+            "preference": 0.5007908940315247
+          }
+        }
+      ]
+    },
+    {
+      "id": "ood-svg-complex",
+      "title": "SVG complex vector probe",
+      "track": "ood",
+      "ood_type": "SVG complex vector illustration",
+      "focus_dimension": "preference",
+      "dimension_label": "Preference",
+      "prompt": "User Intent: Recreate a complex vector illustration. Description: This is a simple, grayscale cartoon illustration of an animal cell, outlined in white against a transparent background. The cell's gray cytoplasm contains a prominent white nucleus with a darker central nucleolus, alongside various organelles rendered in shades of white and light gray. These include wavy mitochondria, folded endoplasmic reticulum with tiny white dots representing ribosomes, star-shaped structures, and several circular vesicles.",
+      "candidates": [
+        {
+          "id": "c1",
+          "label": "Candidate 1",
+          "asset": "assets/ood/svg-complex/candidate-1.png",
+          "taste_scores": {
+            "preference": 0.3582180589437485
+          },
+          "imscore_scores": {
+            "hpsv21": 0.22576262056827545,
+            "pickscore": 22.645296096801758,
+            "clipscore": 33.936100006103516,
+            "imagereward": 0.23885898292064667,
+            "laion_aesthetic": 4.9093852043151855
+          }
+        },
+        {
+          "id": "c2",
+          "label": "Candidate 2",
+          "asset": "assets/ood/svg-complex/candidate-2.png",
+          "taste_scores": {
+            "preference": 0.4604095220565796
+          },
+          "imscore_scores": {
+            "hpsv21": 0.20055530965328217,
+            "pickscore": 21.495662689208984,
+            "clipscore": 34.38475036621094,
+            "imagereward": -0.17539435625076294,
+            "laion_aesthetic": 4.79383659362793
+          }
+        },
+        {
+          "id": "c3",
+          "label": "Candidate 3",
+          "asset": "assets/ood/svg-complex/candidate-3.png",
+          "taste_scores": {
+            "preference": 0.5589205423990885
+          },
+          "imscore_scores": {
+            "hpsv21": 0.21596401929855347,
+            "pickscore": 21.494874954223633,
+            "clipscore": 33.455841064453125,
+            "imagereward": 0.14012160897254944,
+            "laion_aesthetic": 4.7589311599731445
+          }
+        },
+        {
+          "id": "c4",
+          "label": "Candidate 4",
+          "asset": "assets/ood/svg-complex/candidate-4.png",
+          "taste_scores": {
+            "preference": 0.48883409301439923
+          },
+          "imscore_scores": {
+            "hpsv21": 0.20621322095394135,
+            "pickscore": 21.37007713317871,
+            "clipscore": 30.04828643798828,
+            "imagereward": -0.8830506205558777,
+            "laion_aesthetic": 4.825889587402344
+          }
+        }
+      ],
+      "taste_ordered_pair_scores": [
+        {
+          "candidate_a": "c1",
+          "candidate_b": "c2",
+          "probabilities": {
+            "preference": 0.5436947345733643
+          }
+        },
+        {
+          "candidate_a": "c1",
+          "candidate_b": "c3",
+          "probabilities": {
+            "preference": 0.12529541552066803
+          }
+        },
+        {
+          "candidate_a": "c1",
+          "candidate_b": "c4",
+          "probabilities": {
+            "preference": 0.40566402673721313
+          }
+        },
+        {
+          "candidate_a": "c2",
+          "candidate_b": "c1",
+          "probabilities": {
+            "preference": 0.5834339261054993
+          }
+        },
+        {
+          "candidate_a": "c2",
+          "candidate_b": "c3",
+          "probabilities": {
+            "preference": 0.3256867229938507
+          }
+        },
+        {
+          "candidate_a": "c2",
+          "candidate_b": "c4",
+          "probabilities": {
+            "preference": 0.4721079170703888
+          }
+        },
+        {
+          "candidate_a": "c3",
+          "candidate_b": "c1",
+          "probabilities": {
+            "preference": 0.5713777542114258
+          }
+        },
+        {
+          "candidate_a": "c3",
+          "candidate_b": "c2",
+          "probabilities": {
+            "preference": 0.501791775226593
+          }
+        },
+        {
+          "candidate_a": "c3",
+          "candidate_b": "c4",
+          "probabilities": {
+            "preference": 0.6035920977592468
+          }
+        },
+        {
+          "candidate_a": "c4",
+          "candidate_b": "c1",
+          "probabilities": {
+            "preference": 0.5362065434455872
+          }
+        },
+        {
+          "candidate_a": "c4",
+          "candidate_b": "c2",
+          "probabilities": {
+            "preference": 0.4681531488895416
+          }
+        },
+        {
+          "candidate_a": "c4",
+          "candidate_b": "c3",
+          "probabilities": {
+            "preference": 0.46214258670806885
+          }
+        }
+      ]
+    }
+  ]
 }

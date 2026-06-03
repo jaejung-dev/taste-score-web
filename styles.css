@@ -168,9 +168,23 @@ h3 {
   gap: 28px;
 }
 
+.ood-section {
+  margin-top: 42px;
+}
+
+.section-head {
+  display: grid;
+  gap: 8px;
+  padding-top: 10px;
+}
+
 .prompt-card {
   padding: clamp(18px, 3vw, 30px);
   border-radius: 30px;
+}
+
+.ood-card {
+  background: linear-gradient(180deg, rgba(255, 250, 240, 0.95) 0%, rgba(246, 241, 255, 0.78) 100%);
 }
 
 .prompt-head {
@@ -233,6 +247,10 @@ h3 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
+}
+
+.candidate-score-grid.single-score {
+  grid-template-columns: 1fr;
 }
 
 .candidate-score-box {
