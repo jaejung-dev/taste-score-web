@@ -4,27 +4,29 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>TASTE Score Samples</title>
-    <link rel="stylesheet" href="styles.css?v=20260603-draft-1" />
+    <link rel="stylesheet" href="styles.css?v=20260603-test-1" />
   </head>
   <body>
     <main class="shell">
       <section class="hero">
-        <p class="eyebrow">TASTE train split prototype</p>
-        <h1>TASTE score visualization draft</h1>
+        <p class="eyebrow">TASTE test manifest prototype</p>
+        <h1>TASTE scorer test demo</h1>
         <p class="lede">
-          A small, reproducible snapshot from the public TASTE train split.
-          Each prompt shows four generated design candidates, human ranking
-          signals, and TASTE pairwise preference scores when available.
+          TASTE is a pairwise preference scorer. This demo uses
+          battles_test.csv and shows both raw pairwise probabilities and
+          per-image scores aggregated from those pairwise model outputs.
         </p>
         <div class="notice">
-          The public dataset currently exposes only a train split. This page is
-          a visualization draft, not an official validation report.
+          Per-image score = mean P(candidate wins) against the other candidates
+          for the same prompt. The model itself is still pairwise, so the table
+          is an aggregation of raw A-vs-B outputs rather than an independent
+          single-image forward pass.
         </div>
         <div id="summary" class="summary"></div>
       </section>
 
       <section id="prompts" class="prompts" aria-live="polite"></section>
     </main>
-    <script src="app.js?v=20260603-draft-1"></script>
+    <script src="app.js?v=20260603-test-1"></script>
   </body>
 </html>

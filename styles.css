@@ -93,7 +93,7 @@ h3 {
 
 .summary {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 12px;
   margin-top: 10px;
 }
@@ -101,6 +101,7 @@ h3 {
 .summary-card,
 .prompt-card,
 .rank-box,
+.score-table-section,
 .matrix-section {
   border: 1px solid var(--line);
   background: rgba(255, 250, 240, 0.88);
@@ -209,6 +210,7 @@ h3 {
 }
 
 .human,
+.prompt-stats,
 .overall {
   color: var(--muted);
   font-size: 0.86rem;
@@ -223,6 +225,7 @@ h3 {
 }
 
 .rank-box,
+.score-table-section,
 .matrix-section {
   padding: 18px;
   border-radius: 24px;
@@ -258,6 +261,65 @@ h3 {
 .pending-box p {
   margin-bottom: 0;
   color: var(--muted);
+}
+
+.score-table-section {
+  margin-top: 18px;
+  overflow: hidden;
+}
+
+.score-note {
+  max-width: 860px;
+  margin-bottom: 14px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+}
+
+.score-table {
+  width: 100%;
+  min-width: 920px;
+  border-collapse: collapse;
+  background: #fff;
+}
+
+.score-table th,
+.score-table td {
+  padding: 12px 13px;
+  border-bottom: 1px solid var(--line);
+  text-align: right;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.score-table th:first-child,
+.score-table td:first-child {
+  text-align: left;
+}
+
+.score-table thead th {
+  background: #fbf4e7;
+  color: var(--muted);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.score-table tbody tr:last-child th,
+.score-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.score-table .focus-score {
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 850;
 }
 
 .matrix-section {

@@ -2,19 +2,19 @@
 
 Draft GitHub Pages visualization for TASTE preference scoring.
 
-The page is built from a small reproducible snapshot of the public
-`purvanshi/TASTE` train split. The public dataset does not currently expose a
-separate validation split, so this should be treated as a demo/prototype rather
-than an official validation report.
+The current page is built from `battles_test.csv`, a test battle manifest with
+pairwise human preferences. TASTE itself is pairwise, so per-image scores in the
+UI are aggregate model outputs: the mean probability that an image wins against
+the other candidates for the same prompt.
 
 Build the snapshot:
 
 ```bash
-python scripts/build_demo.py
+PYTHONPATH=/home/ubuntu/taste/taste-scorer/src python scripts/build_test_demo.py
 ```
 
-Build and run TASTE pairwise scoring:
+The earlier train-split prototype builder is still available:
 
 ```bash
-PYTHONPATH=/home/ubuntu/taste/taste-scorer/src python scripts/build_demo.py --score
+python scripts/build_demo.py
 ```

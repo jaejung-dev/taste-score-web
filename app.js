@@ -1,4 +1,4 @@
-const DATA_URL = "data.json?v=20260603-draft-1";
+const DATA_URL = "data.json?v=20260603-test-1";
 
 const fmt = (value, digits = 3) =>
   value === null || value === undefined || Number.isNaN(Number(value))
@@ -18,9 +18,10 @@ function renderSummary(data) {
   const el = byId("summary");
   el.innerHTML = "";
   [
-    ["Prompts", data.summary.prompts],
-    ["Candidates", data.summary.candidates],
-    ["Pairwise battles", data.summary.pairs],
+    ["Test rows", data.summary.test_rows ?? data.summary.prompts],
+    ["Test pairs", data.summary.test_unique_pairs ?? data.summary.pairs],
+    ["Selected prompts", data.summary.selected_prompts ?? data.summary.prompts],
+    ["Selected images", data.summary.selected_candidates ?? data.summary.candidates],
     ["TASTE scored", data.summary.taste_scored ? "yes" : "pending"],
   ].forEach(([label, value]) => {
     const card = createEl("div", "summary-card");
@@ -46,7 +47,7 @@ function renderCandidate(candidate, prompt) {
   const meta = createEl("div", "candidate-meta");
   const title = createEl("div", "candidate-title", candidate.label);
   const score = focusScore(candidate, prompt);
-  const scoreText = score === undefined ? "TASTE pending" : `TASTE ${fmt(score)}`;
+  const scoreText = score === undefined ? "pending" : `model ${fmt(score)}`;
   const scoreClass = score === undefined ? "score muted" : "score";
   title.append(createEl("span", scoreClass, scoreText));
 
@@ -58,11 +59,63 @@ function renderCandidate(candidate, prompt) {
   meta.append(title, human);
 
   if (candidate.taste_overall !== undefined) {
-    meta.append(createEl("div", "overall", `TASTE overall ${fmt(candidate.taste_overall)}`));
+    meta.append(createEl("div", "overall", `Model output overall ${fmt(candidate.taste_overall)}`));
   }
 
   card.append(imgWrap, meta);
   return card;
+}
+
+function renderImageScores(prompt, dimensionLabels, dimensionOrder) {
+  const section = createEl("div", "score-table-section");
+  section.append(createEl("h3", "", "Per-image model output scores"));
+  section.append(
+    createEl(
+      "p",
+      "score-note",
+      prompt.model_output_note ||
+        "Per-image scores are derived by averaging pairwise win probabilities.",
+    ),
+  );
+
+  const tableWrap = createEl("div", "table-wrap");
+  const table = createEl("table", "score-table");
+  const columns = [
+    { key: "image", label: "Image" },
+    { key: "human", label: "Human rank" },
+    { key: prompt.focus_dimension, label: `${prompt.dimension_label} score`, focus: true },
+    { key: "overall", label: "Overall" },
+    ...dimensionOrder
+      .filter((dimension) => dimension !== prompt.focus_dimension)
+      .map((dimension) => ({
+        key: dimension,
+        label: dimensionLabels[dimension] || dimension,
+      })),
+  ];
+  const thead = document.createElement("thead");
+  const headRow = document.createElement("tr");
+  columns.forEach((column) => headRow.append(createEl("th", "", column.label)));
+  thead.append(headRow);
+
+  const tbody = document.createElement("tbody");
+  prompt.candidates.forEach((candidate) => {
+    const row = document.createElement("tr");
+    columns.forEach((column, index) => {
+      let value;
+      if (column.key === "image") value = candidate.label;
+      else if (column.key === "human") value = fmt(candidate.human_mean_rank, 2);
+      else if (column.key === "overall") value = fmt(candidate.model_output_overall);
+      else value = fmt(candidate.model_output_scores?.[column.key]);
+      const cell = createEl(index === 0 ? "th" : "td", "", value);
+      if (column.focus) cell.classList.add("focus-score");
+      row.append(cell);
+    });
+    tbody.append(row);
+  });
+  table.append(thead, tbody);
+  tableWrap.append(table);
+  section.append(tableWrap);
+  return section;
 }
 
 function renderRankList(title, items, scoreFormatter) {
@@ -121,7 +174,7 @@ function renderPairMatrix(prompt) {
   });
 
   const section = createEl("div", "matrix-section");
-  section.append(createEl("h3", "", `Pairwise TASTE probabilities: ${prompt.dimension_label}`));
+  section.append(createEl("h3", "", `Raw pairwise model output: ${prompt.dimension_label}`));
   const grid = createEl("div", "matrix");
   grid.style.setProperty("--matrix-size", candidates.length + 1);
   grid.append(createEl("div", "matrix-cell matrix-head", "A beats B"));
@@ -150,15 +203,33 @@ function renderPrompt(prompt) {
   const section = createEl("section", "prompt-card");
   const head = createEl("div", "prompt-head");
   const title = createEl("div");
-  title.append(createEl("p", "eyebrow", `${prompt.track} · ${prompt.dimension_label}`));
+  title.append(
+    createEl(
+      "p",
+      "eyebrow",
+      `test · ${prompt.dimension_label} · prompt ${prompt.prompt_id} · ${prompt.scene_id}`,
+    ),
+  );
   title.append(createEl("h2", "", prompt.title));
   const promptText = createEl("p", "prompt-text", prompt.prompt);
-  head.append(title, promptText);
+  const stats = createEl(
+    "p",
+    "prompt-stats",
+    `Human agreement ${fmt(prompt.mean_human_agreement, 2)} · unanimous pair rate ${fmt(prompt.unanimous_rate, 2)}`,
+  );
+  head.append(title, promptText, stats);
 
   const candidates = createEl("div", "candidate-grid");
   prompt.candidates.forEach((candidate) => candidates.append(renderCandidate(candidate, prompt)));
 
   section.append(head, candidates, renderRanks(prompt));
+  section.append(
+    renderImageScores(
+      prompt,
+      window.__dimensionLabels || {},
+      window.__dimensionOrder || prompt.taste_dimensions || [],
+    ),
+  );
   const matrix = renderPairMatrix(prompt);
   if (matrix) section.append(matrix);
   return section;
@@ -167,7 +238,13 @@ function renderPrompt(prompt) {
 async function main() {
   const response = await fetch(DATA_URL);
   const data = await response.json();
+  window.__dimensionLabels = data.dimension_labels || {};
+  window.__dimensionOrder = data.dimension_order || data.taste_dimensions || [];
   renderSummary(data);
+  const lede = document.querySelector(".lede");
+  if (lede && data.score_explanation) {
+    lede.textContent = data.score_explanation;
+  }
   const prompts = byId("prompts");
   prompts.innerHTML = "";
   data.prompts.forEach((prompt) => prompts.append(renderPrompt(prompt)));
