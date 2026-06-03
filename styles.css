@@ -91,7 +91,6 @@ h3 {
 .prompt-card,
 .evaluation,
 .metric-card,
-.score-table-section,
 .matrix-section {
   border: 1px solid var(--line);
   background: rgba(255, 250, 240, 0.88);
@@ -255,16 +254,10 @@ h3 {
   line-height: 1.45;
 }
 
-.score-table-section,
 .matrix-section {
   padding: 18px;
   border-radius: 24px;
   box-shadow: none;
-}
-
-.score-table-section {
-  margin-top: 18px;
-  overflow: hidden;
 }
 
 .score-note {
@@ -317,12 +310,6 @@ h3 {
 .score-table tbody tr:last-child th,
 .score-table tbody tr:last-child td {
   border-bottom: 0;
-}
-
-.score-table .focus-score {
-  background: var(--accent-soft);
-  color: var(--accent);
-  font-weight: 850;
 }
 
 .matrix-section {

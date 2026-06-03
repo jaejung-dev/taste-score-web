@@ -1,4 +1,4 @@
-const DATA_URL = "data.json?v=20260603-norankboxes-1";
+const DATA_URL = "data.json?v=20260603-cardonly-1";
 
 const fmt = (value, digits = 5) =>
   value === null || value === undefined || Number.isNaN(Number(value))
@@ -104,7 +104,7 @@ function renderCandidate(candidate, prompt) {
   const meta = createEl("div", "candidate-meta");
   const title = createEl("div", "candidate-title", candidate.label);
   const score = focusScore(candidate, prompt);
-  const scoreText = score === undefined ? "pending" : `model ${fmt(score)}`;
+  const scoreText = score === undefined ? "pending" : `TASTE ${fmt(score)}`;
   const scoreClass = score === undefined ? "score muted" : "score";
   title.append(createEl("span", scoreClass, scoreText));
 
@@ -117,42 +117,6 @@ function renderCandidate(candidate, prompt) {
 
   card.append(imgWrap, meta);
   return card;
-}
-
-function renderImageScores(prompt) {
-  const section = createEl("div", "score-table-section");
-  section.append(createEl("h3", "", "TASTE score vs human rank"));
-
-  const tableWrap = createEl("div", "table-wrap");
-  const table = createEl("table", "score-table");
-  const columns = [
-    { key: "image", label: "Candidate" },
-    { key: "human", label: "Human rank" },
-    { key: prompt.focus_dimension, label: `TASTE ${prompt.dimension_label} score`, focus: true },
-  ];
-  const thead = document.createElement("thead");
-  const headRow = document.createElement("tr");
-  columns.forEach((column) => headRow.append(createEl("th", "", column.label)));
-  thead.append(headRow);
-
-  const tbody = document.createElement("tbody");
-  prompt.candidates.forEach((candidate) => {
-    const row = document.createElement("tr");
-    columns.forEach((column, index) => {
-      let value;
-      if (column.key === "image") value = candidate.label;
-      else if (column.key === "human") value = fmt(candidate.human_mean_rank, 2);
-      else value = fmt(candidate.model_output_scores?.[column.key]);
-      const cell = createEl(index === 0 ? "th" : "td", "", value);
-      if (column.focus) cell.classList.add("focus-score");
-      row.append(cell);
-    });
-    tbody.append(row);
-  });
-  table.append(thead, tbody);
-  tableWrap.append(table);
-  section.append(tableWrap);
-  return section;
 }
 
 function renderPairMatrix(prompt) {
@@ -216,9 +180,6 @@ function renderPrompt(prompt) {
   prompt.candidates.forEach((candidate) => candidates.append(renderCandidate(candidate, prompt)));
 
   section.append(head, candidates);
-  section.append(
-    renderImageScores(prompt),
-  );
   const matrix = renderPairMatrix(prompt);
   if (matrix) section.append(matrix);
   return section;
