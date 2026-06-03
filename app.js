@@ -1,4 +1,4 @@
-const DATA_URL = "data.json?v=20260603-samples3-1";
+const DATA_URL = "data.json?v=20260603-replace653-1";
 
 const fmt = (value, digits = 5) =>
   value === null || value === undefined || Number.isNaN(Number(value))

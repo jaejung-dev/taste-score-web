@@ -39,6 +39,73 @@ DIMENSION_LABELS = {
     "visual_hierarchy": "Visual hierarchy",
 }
 
+EXCLUDED_SAMPLE_KEYS = {
+    ("typography", 653, "scene_092"),
+}
+
+PROMPT_ORDER_PRIORITY = {
+    ("preference", 548, "scene_147"): -1,
+}
+
+FIXED_TYPOS = {
+    ("typography", 652, "scene_091"),
+    ("typography", 714, "scene_153"),
+}
+
+TYPOGRAPHY_REPLACEMENT_EXCLUDED_SCENES = {
+    "scene_001",
+    "scene_002",
+    "scene_003",
+    "scene_027",
+    "scene_031",
+    "scene_039",
+    "scene_041",
+    "scene_065",
+    "scene_074",
+    "scene_077",
+    "scene_080",
+    "scene_089",
+    "scene_090",
+    "scene_092",
+    "scene_098",
+    "scene_100",
+    "scene_107",
+    "scene_134",
+    "scene_147",
+}
+
+PINNED_SAMPLE_KEYS = [
+    ("preference", 548, "scene_147"),
+    ("preference", 187, "scene_027"),
+    ("preference", 238, "scene_077"),
+    ("typography", 652, "scene_091"),
+    ("typography", 706, "scene_145"),
+    ("typography", 714, "scene_153"),
+    ("visual_hierarchy", 362, "scene_041"),
+    ("visual_hierarchy", 386, "scene_065"),
+    ("visual_hierarchy", 401, "scene_080"),
+    ("color_harmony", 1, "scene_001"),
+    ("color_harmony", 2, "scene_002"),
+    ("color_harmony", 39, "scene_039"),
+    ("mood_and_color_tone", 83, "scene_003"),
+    ("mood_and_color_tone", 111, "scene_031"),
+    ("mood_and_color_tone", 154, "scene_074"),
+    ("spatial_accuracy", 570, "scene_089"),
+    ("spatial_accuracy", 571, "scene_090"),
+    ("spatial_accuracy", 581, "scene_100"),
+    ("color_accuracy", 419, "scene_098"),
+    ("color_accuracy", 428, "scene_107"),
+    ("color_accuracy", 455, "scene_134"),
+]
+
+
+def sample_key(row: Any) -> tuple[str, int, str]:
+    return (str(row["dimension"]), int(row["prompt_id"]), str(row["scene_id"]))
+
+
+def sample_order_priority(row: Any) -> int:
+    return PROMPT_ORDER_PRIORITY.get(sample_key(row), 0)
+
 
 def short_prompt(text: str) -> str:
     text = " ".join(str(text).split())
@@ -224,6 +291,20 @@ def select_model_aware_test_groups(
         )
 
     selection = pd.DataFrame(selection_rows)
+    selection = selection[
+        ~selection.apply(lambda row: sample_key(row) in EXCLUDED_SAMPLE_KEYS, axis=1)
+    ].copy()
+    selection = selection[
+        ~selection.apply(
+            lambda row: (
+                str(row["dimension"]) == "typography"
+                and sample_key(row) not in FIXED_TYPOS
+                and str(row["scene_id"]) in TYPOGRAPHY_REPLACEMENT_EXCLUDED_SCENES
+            ),
+            axis=1,
+        )
+    ].copy()
+    selection["prompt_order_priority"] = selection.apply(sample_order_priority, axis=1)
     picked: list[pd.DataFrame] = []
     used_scenes: set[str] = set()
     for dimension in DIMENSION_ORDER:
@@ -251,7 +332,41 @@ def select_model_aware_test_groups(
                     continue
                 rows.append(row)
         picked.append(pd.DataFrame(rows))
-    return pd.concat(picked, ignore_index=True).sort_values(["dimension_order", "prompt_id"])
+    return pd.concat(picked, ignore_index=True).sort_values(
+        ["dimension_order", "prompt_order_priority", "prompt_id"]
+    )
+
+
+def pinned_test_groups(battles: pd.DataFrame) -> pd.DataFrame:
+    group_cols = ["dimension", "prompt_id", "scene_id"]
+    stats = (
+        battles.groupby(group_cols)
+        .agg(
+            prompt=("prompt", "first"),
+            prompt_template=("prompt_template", "first"),
+            mean_agreement=("agreement", "mean"),
+            unanimous_rate=("agreement_bucket", lambda s: float((s == "unanimous").mean())),
+            n_battles=("winner", "size"),
+        )
+        .reset_index()
+    )
+    stats["dimension_order"] = stats["dimension"].map(
+        {dimension: index for index, dimension in enumerate(DIMENSION_ORDER)}
+    )
+    rows = []
+    for order, key in enumerate(PINNED_SAMPLE_KEYS):
+        dimension, prompt_id, scene_id = key
+        match = stats[
+            (stats["dimension"] == dimension)
+            & (stats["prompt_id"] == prompt_id)
+            & (stats["scene_id"] == scene_id)
+        ]
+        if match.empty:
+            raise ValueError(f"Missing pinned sample {key}")
+        row = match.iloc[0].copy()
+        row["prompt_order_priority"] = order
+        rows.append(row)
+    return pd.DataFrame(rows).sort_values("prompt_order_priority")
 
 
 def candidate_records(group: pd.DataFrame, assets: pd.DataFrame) -> list[dict[str, Any]]:
@@ -656,7 +771,7 @@ def build_snapshot(battle_csv: Path, checkpoint: Path, max_per_dimension: int) -
         shutil.rmtree(ASSETS_DIR)
     ASSETS_DIR.mkdir(parents=True, exist_ok=True)
 
-    selected = select_model_aware_test_groups(
+    selected = pinned_test_groups(battles) if PINNED_SAMPLE_KEYS else select_model_aware_test_groups(
         battles,
         assets=assets,
         checkpoint=checkpoint,

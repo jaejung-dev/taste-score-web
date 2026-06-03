@@ -33,8 +33,8 @@
     "selected_candidates": 84,
     "selected_pairs": 126,
     "taste_scored": true,
-    "imscore_scored": true,
-    "selected_ordered_pairs": 252
+    "selected_ordered_pairs": 252,
+    "imscore_scored": true
   },
   "score_explanation": "TASTE evaluates generated design images against human visual preferences across quality dimensions.",
   "evaluation": {
@@ -136,6 +136,632 @@
     "visual_hierarchy"
   ],
   "prompts": [
+    {
+      "id": "548-preference",
+      "prompt_id": 548,
+      "scene_id": "scene_147",
+      "title": "Preference sample",
+      "track": "test",
+      "dimension": "preference",
+      "focus_dimension": "preference",
+      "dimension_label": "Preference",
+      "prompt_template": "ui+d",
+      "prompt": "User Intent: Create an engaging editorial layout for a blog post or website article about travel experiences, combining a prominent lifestyle image with supporting imagery and a clear title and descriptive text. Description: The image displays a clean, modern layout featuring two photographs and a text block on a white background. On the left side, there is a large, vertically oriented photograph depicting three women in floral dresses walking on a cobblestone street in front of a peach-colored building with dark green shutters and a large wooden arched door. On the right side, there's a smaller, square-shaped photograph positioned above a text section. This photograph shows two cardboard boxes filled with vinyl records, with a hand reaching for one. Below the right photograph, a bold, all-caps title \"TRIP TALES\" is displayed, followed by a paragraph of Latin placeholder text. The overall arrangement uses a two-column structure, with the left image taking up the majority of the left column and the right image and text occupying the right column.",
+      "mean_human_agreement": 0.9,
+      "unanimous_rate": 0.5,
+      "candidates": [
+        {
+          "id": "c1",
+          "label": "Candidate 1",
+          "filename": "0000002.png",
+          "asset_id": 2,
+          "model": "Nano Banana 2",
+          "image_url": "https://media.contra.com/image/upload/a1va7bmwbehkv8o0nmzb",
+          "asset": "assets/0548-preference/candidate-1.png",
+          "human_mean_rank": 1.0,
+          "human_first_place_votes": 5,
+          "model_output_scores": {
+            "color_accuracy": 0.5267291168371836,
+            "color_harmony": 0.5263851483662924,
+            "mood_and_color_tone": 0.48777517676353455,
+            "preference": 0.9998388489087423,
+            "spatial_accuracy": 0.9991758664449056,
+            "typography": 0.700584610303243,
+            "visual_hierarchy": 0.5363452037175497
+          },
+          "taste_scores": {
+            "color_accuracy": 0.5267291168371836,
+            "color_harmony": 0.5263851483662924,
+            "mood_and_color_tone": 0.48777517676353455,
+            "preference": 0.9998388489087423,
+            "spatial_accuracy": 0.9991758664449056,
+            "typography": 0.700584610303243,
+            "visual_hierarchy": 0.5363452037175497
+          },
+          "model_output_overall": 0.6824048530487788,
+          "taste_overall": 0.6824048530487788,
+          "model_output_n_pairs": 3,
+          "imscore_scores": {
+            "hpsv21": 0.25626590847969055,
+            "pickscore": 21.815258026123047,
+            "clipscore": 22.594865798950195,
+            "imagereward": -0.03891999274492264,
+            "laion_aesthetic": 5.646625995635986
+          }
+        },
+        {
+          "id": "c2",
+          "label": "Candidate 2",
+          "filename": "0000548.png",
+          "asset_id": 548,
+          "model": "Seedream 5.0 Lite",
+          "image_url": "https://media.contra.com/image/upload/w00waesmmgqc8i9sd4hb",
+          "asset": "assets/0548-preference/candidate-2.png",
+          "human_mean_rank": 2.4,
+          "human_first_place_votes": 0,
+          "model_output_scores": {
+            "color_accuracy": 0.24479594764610133,
+            "color_harmony": 0.5355212688446045,
+            "mood_and_color_tone": 0.527296761671702,
+            "preference": 0.6669742365678152,
+            "spatial_accuracy": 0.2193743047925333,
+            "typography": 0.3897578567266464,
+            "visual_hierarchy": 0.5387953917185465
+          },
+          "taste_scores": {
+            "color_accuracy": 0.24479594764610133,
+            "color_harmony": 0.5355212688446045,
+            "mood_and_color_tone": 0.527296761671702,
+            "preference": 0.6669742365678152,
+            "spatial_accuracy": 0.2193743047925333,
+            "typography": 0.3897578567266464,
+            "visual_hierarchy": 0.5387953917185465
+          },
+          "model_output_overall": 0.44607368113827844,
+          "taste_overall": 0.44607368113827844,
+          "model_output_n_pairs": 3,
+          "imscore_scores": {
+            "hpsv21": 0.24798479676246643,
+            "pickscore": 20.646100997924805,
+            "clipscore": 19.538837432861328,
+            "imagereward": -0.6379360556602478,
+            "laion_aesthetic": 5.9114203453063965
+          }
+        },
+        {
+          "id": "c3",
+          "label": "Candidate 3",
+          "filename": "0000158.png",
+          "asset_id": 158,
+          "model": "GPT Image 1.5",
+          "image_url": "https://media.contra.com/image/upload/gn2qtl1rpuiwkumy0pcy",
+          "asset": "assets/0548-preference/candidate-3.png",
+          "human_mean_rank": 3.0,
+          "human_first_place_votes": 0,
+          "model_output_scores": {
+            "color_accuracy": 0.8400134444236755,
+            "color_harmony": 0.5346224904060364,
+            "mood_and_color_tone": 0.5447945594787598,
+            "preference": 0.4796912455931306,
+            "spatial_accuracy": 0.47758840676397085,
+            "typography": 0.4942067166169484,
+            "visual_hierarchy": 0.47258631388346356
+          },
+          "taste_scores": {
+            "color_accuracy": 0.8400134444236755,
+            "color_harmony": 0.5346224904060364,
+            "mood_and_color_tone": 0.5447945594787598,
+            "preference": 0.4796912455931306,
+            "spatial_accuracy": 0.47758840676397085,
+            "typography": 0.4942067166169484,
+            "visual_hierarchy": 0.47258631388346356
+          },
+          "model_output_overall": 0.5490718824522836,
+          "taste_overall": 0.5490718824522836,
+          "model_output_n_pairs": 3,
+          "imscore_scores": {
+            "hpsv21": 0.2747626006603241,
+            "pickscore": 21.954395294189453,
+            "clipscore": 24.0632266998291,
+            "imagereward": -0.010505054146051407,
+            "laion_aesthetic": 5.880373954772949
+          }
+        },
+        {
+          "id": "c4",
+          "label": "Candidate 4",
+          "filename": "0000171.jpg",
+          "asset_id": 171,
+          "model": "FLUX.2 [max]",
+          "image_url": "https://media.contra.com/image/upload/hcmbmvcv9yzcvu6ihpwv",
+          "asset": "assets/0548-preference/candidate-4.jpg",
+          "human_mean_rank": 3.6,
+          "human_first_place_votes": 0,
+          "model_output_scores": {
+            "color_accuracy": 0.25637886351129663,
+            "color_harmony": 0.4996609687805176,
+            "mood_and_color_tone": 0.5014070173104604,
+            "preference": 0.4805093777055542,
+            "spatial_accuracy": 0.33224526765601087,
+            "typography": 0.23542767266432443,
+            "visual_hierarchy": 0.4711491862932841
+          },
+          "taste_scores": {
+            "color_accuracy": 0.25637886351129663,
+            "color_harmony": 0.4996609687805176,
+            "mood_and_color_tone": 0.5014070173104604,
+            "preference": 0.4805093777055542,
+            "spatial_accuracy": 0.33224526765601087,
+            "typography": 0.23542767266432443,
+            "visual_hierarchy": 0.4711491862932841
+          },
+          "model_output_overall": 0.39668262198877835,
+          "taste_overall": 0.39668262198877835,
+          "model_output_n_pairs": 3,
+          "imscore_scores": {
+            "hpsv21": 0.2254181206226349,
+            "pickscore": 20.40412139892578,
+            "clipscore": 21.012714385986328,
+            "imagereward": -0.33144256472587585,
+            "laion_aesthetic": 5.768953323364258
+          }
+        }
+      ],
+      "human_pair_votes": [
+        {
+          "candidate_a": "c1",
+          "candidate_b": "c2",
+          "votes_a": 5,
+          "votes_b": 0,
+          "agreement": 1.0,
+          "majority_winner": "c1"
+        },
+        {
+          "candidate_a": "c1",
+          "candidate_b": "c3",
+          "votes_a": 5,
+          "votes_b": 0,
+          "agreement": 1.0,
+          "majority_winner": "c1"
+        },
+        {
+          "candidate_a": "c1",
+          "candidate_b": "c4",
+          "votes_a": 5,
+          "votes_b": 0,
+          "agreement": 1.0,
+          "majority_winner": "c1"
+        },
+        {
+          "candidate_a": "c3",
+          "candidate_b": "c2",
+          "votes_a": 1,
+          "votes_b": 4,
+          "agreement": 0.8,
+          "majority_winner": "c2"
+        },
+        {
+          "candidate_a": "c3",
+          "candidate_b": "c4",
+          "votes_a": 4,
+          "votes_b": 1,
+          "agreement": 0.8,
+          "majority_winner": "c3"
+        },
+        {
+          "candidate_a": "c4",
+          "candidate_b": "c2",
+          "votes_a": 1,
+          "votes_b": 4,
+          "agreement": 0.8,
+          "majority_winner": "c2"
+        }
+      ],
+      "taste_pair_scores": [
+        {
+          "candidate_a": "c1",
+          "candidate_b": "c2",
+          "probabilities": {
+            "color_accuracy": 0.4732029139995575,
+            "color_harmony": 0.5204015970230103,
+            "mood_and_color_tone": 0.4900764524936676,
+            "preference": 0.9997155070304871,
+            "spatial_accuracy": 0.9983512163162231,
+            "typography": 0.6776811480522156,
+            "visual_hierarchy": 0.5112449526786804
+          }
+        },
+        {
+          "candidate_a": "c1",
+          "candidate_b": "c3",
+          "probabilities": {
+            "color_accuracy": 0.5600489377975464,
+            "color_harmony": 0.5266473293304443,
+            "mood_and_color_tone": 0.46838057041168213,
+            "preference": 0.9998513460159302,
+            "spatial_accuracy": 0.9992406368255615,
+            "typography": 0.4544273018836975,
+            "visual_hierarchy": 0.5309804081916809
+          }
+        },
+        {
+          "candidate_a": "c1",
+          "candidate_b": "c4",
+          "probabilities": {
+            "color_accuracy": 0.5469355583190918,
+            "color_harmony": 0.5321065187454224,
+            "mood_and_color_tone": 0.5048685073852539,
+            "preference": 0.9999496936798096,
+            "spatial_accuracy": 0.9999357461929321,
+            "typography": 0.9696453809738159,
+            "visual_hierarchy": 0.5668102502822876
+          }
+        },
+        {
+          "candidate_a": "c2",
+          "candidate_b": "c3",
+          "probabilities": {
+            "color_accuracy": 0.6447608470916748,
+            "color_harmony": 0.5416896343231201,
+            "mood_and_color_tone": 0.507611095905304,
+            "preference": 0.9929047226905823,
+            "spatial_accuracy": 0.036947328597307205,
+            "typography": 0.4710181951522827,
+            "visual_hierarchy": 0.5459577441215515
+          }
+        },
+        {
+          "candidate_a": "c2",
+          "candidate_b": "c4",
+          "probabilities": {
+            "color_accuracy": 0.06345457583665848,
+            "color_harmony": 0.5361201167106628,
+            "mood_and_color_tone": 0.5458939671516418,
+            "preference": 0.9947622418403625,
+            "spatial_accuracy": 0.6177442669868469,
+            "typography": 0.5588876605033875,
+            "visual_hierarchy": 0.5572041869163513
+          }
+        },
+        {
+          "candidate_a": "c3",
+          "candidate_b": "c4",
+          "probabilities": {
+            "color_accuracy": 0.9885367155075073,
+            "color_harmony": 0.5343429446220398,
+            "mood_and_color_tone": 0.5485631227493286,
+            "preference": 0.9960307478904724,
+            "spatial_accuracy": 0.9954812526702881,
+            "typography": 0.7003148794174194,
+            "visual_hierarchy": 0.5241413116455078
+          }
+        }
+      ],
+      "taste_dimensions": [
+        "color_accuracy",
+        "color_harmony",
+        "mood_and_color_tone",
+        "preference",
+        "spatial_accuracy",
+        "typography",
+        "visual_hierarchy"
+      ],
+      "model_output_note": "Per-image scores are aggregated from the pairwise model output: mean P(candidate wins) against the other candidates in this prompt.",
+      "taste_rankings": {
+        "color_accuracy": [
+          {
+            "id": "c3",
+            "label": "Candidate 3",
+            "score": 0.5945756435394287
+          },
+          {
+            "id": "c1",
+            "label": "Candidate 1",
+            "score": 0.5267291367053986
+          },
+          {
+            "id": "c4",
+            "label": "Candidate 4",
+            "score": 0.4670243834455808
+          },
+          {
+            "id": "c2",
+            "label": "Candidate 2",
+            "score": 0.41167083630959195
+          }
+        ],
+        "color_harmony": [
+          {
+            "id": "c1",
+            "label": "Candidate 1",
+            "score": 0.5263851483662924
+          },
+          {
+            "id": "c2",
+            "label": "Candidate 2",
+            "score": 0.5191360513369242
+          },
+          {
+            "id": "c3",
+            "label": "Candidate 3",
+            "score": 0.48866866032282513
+          },
+          {
+            "id": "c4",
+            "label": "Candidate 4",
+            "score": 0.4658101399739583
+          }
+        ],
+        "mood_and_color_tone": [
+          {
+            "id": "c3",
+            "label": "Candidate 3",
+            "score": 0.5241904854774475
+          },
+          {
+            "id": "c2",
+            "label": "Candidate 2",
+            "score": 0.5211428701877594
+          },
+          {
+            "id": "c1",
+            "label": "Candidate 1",
+            "score": 0.48777517676353455
+          },
+          {
+            "id": "c4",
+            "label": "Candidate 4",
+            "score": 0.46689146757125854
+          }
+        ],
+        "preference": [
+          {
+            "id": "c1",
+            "label": "Candidate 1",
+            "score": 0.9998388489087423
+          },
+          {
+            "id": "c2",
+            "label": "Candidate 2",
+            "score": 0.662650485833486
+          },
+          {
+            "id": "c3",
+            "label": "Candidate 3",
+            "score": 0.33442489306132
+          },
+          {
+            "id": "c4",
+            "label": "Candidate 4",
+            "score": 0.0030857721964518228
+          }
+        ],
+        "spatial_accuracy": [
+          {
+            "id": "c1",
+            "label": "Candidate 1",
+            "score": 0.9991758664449056
+          },
+          {
+            "id": "c3",
+            "label": "Candidate 3",
+            "score": 0.6530977624158064
+          },
+          {
+            "id": "c2",
+            "label": "Candidate 2",
+            "score": 0.21878012642264366
+          },
+          {
+            "id": "c4",
+            "label": "Candidate 4",
+            "score": 0.1289462447166443
+          }
+        ],
+        "typography": [
+          {
+            "id": "c1",
+            "label": "Candidate 1",
+            "score": 0.700584610303243
+          },
+          {
+            "id": "c3",
+            "label": "Candidate 3",
+            "score": 0.5916231274604797
+          },
+          {
+            "id": "c2",
+            "label": "Candidate 2",
+            "score": 0.45074156920115155
+          },
+          {
+            "id": "c4",
+            "label": "Candidate 4",
+            "score": 0.25705069303512573
+          }
+        ],
+        "visual_hierarchy": [
+          {
+            "id": "c1",
+            "label": "Candidate 1",
+            "score": 0.5363452037175497
+          },
+          {
+            "id": "c2",
+            "label": "Candidate 2",
+            "score": 0.5306389927864075
+          },
+          {
+            "id": "c3",
+            "label": "Candidate 3",
+            "score": 0.4824010531107585
+          },
+          {
+            "id": "c4",
+            "label": "Candidate 4",
+            "score": 0.4506147503852844
+          }
+        ]
+      },
+      "taste_ordered_pair_scores": [
+        {
+          "candidate_a": "c1",
+          "candidate_b": "c2",
+          "probabilities": {
+            "color_accuracy": 0.4732029139995575,
+            "color_harmony": 0.5204015970230103,
+            "mood_and_color_tone": 0.4900764524936676,
+            "preference": 0.9997155070304871,
+            "spatial_accuracy": 0.9983512163162231,
+            "typography": 0.6776811480522156,
+            "visual_hierarchy": 0.5112448930740356
+          }
+        },
+        {
+          "candidate_a": "c1",
+          "candidate_b": "c3",
+          "probabilities": {
+            "color_accuracy": 0.5600488781929016,
+            "color_harmony": 0.5266473293304443,
+            "mood_and_color_tone": 0.46838057041168213,
+            "preference": 0.9998513460159302,
+            "spatial_accuracy": 0.9992406368255615,
+            "typography": 0.4544273018836975,
+            "visual_hierarchy": 0.5309804677963257
+          }
+        },
+        {
+          "candidate_a": "c1",
+          "candidate_b": "c4",
+          "probabilities": {
+            "color_accuracy": 0.5469355583190918,
+            "color_harmony": 0.5321065187454224,
+            "mood_and_color_tone": 0.5048685073852539,
+            "preference": 0.9999496936798096,
+            "spatial_accuracy": 0.9999357461929321,
+            "typography": 0.9696453809738159,
+            "visual_hierarchy": 0.5668102502822876
+          }
+        },
+        {
+          "candidate_a": "c2",
+          "candidate_b": "c1",
+          "probabilities": {
+            "color_accuracy": 0.026172464713454247,
+            "color_harmony": 0.5287540555000305,
+            "mood_and_color_tone": 0.5283852219581604,
+            "preference": 0.01325574517250061,
+            "spatial_accuracy": 0.0034313970245420933,
+            "typography": 0.1393677145242691,
+            "visual_hierarchy": 0.513224184513092
+          }
+        },
+        {
+          "candidate_a": "c2",
+          "candidate_b": "c3",
+          "probabilities": {
+            "color_accuracy": 0.6447608470916748,
+            "color_harmony": 0.5416896343231201,
+            "mood_and_color_tone": 0.507611095905304,
+            "preference": 0.9929047226905823,
+            "spatial_accuracy": 0.03694730997085571,
+            "typography": 0.4710181951522827,
+            "visual_hierarchy": 0.5459577441215515
+          }
+        },
+        {
+          "candidate_a": "c2",
+          "candidate_b": "c4",
+          "probabilities": {
+            "color_accuracy": 0.0634545311331749,
+            "color_harmony": 0.5361201167106628,
+            "mood_and_color_tone": 0.5458939671516418,
+            "preference": 0.9947622418403625,
+            "spatial_accuracy": 0.6177442073822021,
+            "typography": 0.5588876605033875,
+            "visual_hierarchy": 0.5572042465209961
+          }
+        },
+        {
+          "candidate_a": "c3",
+          "candidate_b": "c1",
+          "probabilities": {
+            "color_accuracy": 0.9435515999794006,
+            "color_harmony": 0.5383436679840088,
+            "mood_and_color_tone": 0.5522941946983337,
+            "preference": 0.0028430772945284843,
+            "spatial_accuracy": 0.006006871350109577,
+            "typography": 0.16655847430229187,
+            "visual_hierarchy": 0.43837660551071167
+          }
+        },
+        {
+          "candidate_a": "c3",
+          "candidate_b": "c2",
+          "probabilities": {
+            "color_accuracy": 0.5879520177841187,
+            "color_harmony": 0.5311808586120605,
+            "mood_and_color_tone": 0.5335263013839722,
+            "preference": 0.44019991159439087,
+            "spatial_accuracy": 0.43127697706222534,
+            "typography": 0.615746796131134,
+            "visual_hierarchy": 0.4552410840988159
+          }
+        },
+        {
+          "candidate_a": "c3",
+          "candidate_b": "c4",
+          "probabilities": {
+            "color_accuracy": 0.9885367155075073,
+            "color_harmony": 0.5343429446220398,
+            "mood_and_color_tone": 0.5485631823539734,
+            "preference": 0.9960307478904724,
+            "spatial_accuracy": 0.9954813718795776,
+            "typography": 0.7003148794174194,
+            "visual_hierarchy": 0.524141252040863
+          }
+        },
+        {
+          "candidate_a": "c4",
+          "candidate_b": "c1",
+          "probabilities": {
+            "color_accuracy": 0.39181292057037354,
+            "color_harmony": 0.5013798475265503,
+            "mood_and_color_tone": 0.5192319750785828,
+            "preference": 0.005869290791451931,
+            "spatial_accuracy": 0.0009422568837180734,
+            "typography": 0.03923828899860382,
+            "visual_hierarchy": 0.4603285789489746
+          }
+        },
+        {
+          "candidate_a": "c4",
+          "candidate_b": "c2",
+          "probabilities": {
+            "color_accuracy": 0.0010749526554718614,
+            "color_harmony": 0.49414515495300293,
+            "mood_and_color_tone": 0.4980051517486572,
+            "preference": 0.44041475653648376,
+            "spatial_accuracy": 0.00210764491930604,
+            "typography": 0.35178834199905396,
+            "visual_hierarchy": 0.4549494981765747
+          }
+        },
+        {
+          "candidate_a": "c4",
+          "candidate_b": "c3",
+          "probabilities": {
+            "color_accuracy": 0.37624871730804443,
+            "color_harmony": 0.5034579038619995,
+            "mood_and_color_tone": 0.48698392510414124,
+            "preference": 0.9952440857887268,
+            "spatial_accuracy": 0.9936859011650085,
+            "typography": 0.31525638699531555,
+            "visual_hierarchy": 0.498169481754303
+          }
+        }
+      ]
+    },
     {
       "id": "187-preference",
       "prompt_id": 187,
@@ -1389,632 +2015,6 @@
       ]
     },
     {
-      "id": "548-preference",
-      "prompt_id": 548,
-      "scene_id": "scene_147",
-      "title": "Preference sample",
-      "track": "test",
-      "dimension": "preference",
-      "focus_dimension": "preference",
-      "dimension_label": "Preference",
-      "prompt_template": "ui+d",
-      "prompt": "User Intent: Create an engaging editorial layout for a blog post or website article about travel experiences, combining a prominent lifestyle image with supporting imagery and a clear title and descriptive text. Description: The image displays a clean, modern layout featuring two photographs and a text block on a white background. On the left side, there is a large, vertically oriented photograph depicting three women in floral dresses walking on a cobblestone street in front of a peach-colored building with dark green shutters and a large wooden arched door. On the right side, there's a smaller, square-shaped photograph positioned above a text section. This photograph shows two cardboard boxes filled with vinyl records, with a hand reaching for one. Below the right photograph, a bold, all-caps title \"TRIP TALES\" is displayed, followed by a paragraph of Latin placeholder text. The overall arrangement uses a two-column structure, with the left image taking up the majority of the left column and the right image and text occupying the right column.",
-      "mean_human_agreement": 0.9,
-      "unanimous_rate": 0.5,
-      "candidates": [
-        {
-          "id": "c1",
-          "label": "Candidate 1",
-          "filename": "0000002.png",
-          "asset_id": 2,
-          "model": "Nano Banana 2",
-          "image_url": "https://media.contra.com/image/upload/a1va7bmwbehkv8o0nmzb",
-          "asset": "assets/0548-preference/candidate-1.png",
-          "human_mean_rank": 1.0,
-          "human_first_place_votes": 5,
-          "model_output_scores": {
-            "color_accuracy": 0.5267291168371836,
-            "color_harmony": 0.5263851483662924,
-            "mood_and_color_tone": 0.48777517676353455,
-            "preference": 0.9998388489087423,
-            "spatial_accuracy": 0.9991758664449056,
-            "typography": 0.700584610303243,
-            "visual_hierarchy": 0.5363452037175497
-          },
-          "taste_scores": {
-            "color_accuracy": 0.5267291168371836,
-            "color_harmony": 0.5263851483662924,
-            "mood_and_color_tone": 0.48777517676353455,
-            "preference": 0.9998388489087423,
-            "spatial_accuracy": 0.9991758664449056,
-            "typography": 0.700584610303243,
-            "visual_hierarchy": 0.5363452037175497
-          },
-          "model_output_overall": 0.6824048530487788,
-          "taste_overall": 0.6824048530487788,
-          "model_output_n_pairs": 3,
-          "imscore_scores": {
-            "hpsv21": 0.25626590847969055,
-            "pickscore": 21.815258026123047,
-            "clipscore": 22.594865798950195,
-            "imagereward": -0.03891999274492264,
-            "laion_aesthetic": 5.646625995635986
-          }
-        },
-        {
-          "id": "c2",
-          "label": "Candidate 2",
-          "filename": "0000548.png",
-          "asset_id": 548,
-          "model": "Seedream 5.0 Lite",
-          "image_url": "https://media.contra.com/image/upload/w00waesmmgqc8i9sd4hb",
-          "asset": "assets/0548-preference/candidate-2.png",
-          "human_mean_rank": 2.4,
-          "human_first_place_votes": 0,
-          "model_output_scores": {
-            "color_accuracy": 0.24479594764610133,
-            "color_harmony": 0.5355212688446045,
-            "mood_and_color_tone": 0.527296761671702,
-            "preference": 0.6669742365678152,
-            "spatial_accuracy": 0.2193743047925333,
-            "typography": 0.3897578567266464,
-            "visual_hierarchy": 0.5387953917185465
-          },
-          "taste_scores": {
-            "color_accuracy": 0.24479594764610133,
-            "color_harmony": 0.5355212688446045,
-            "mood_and_color_tone": 0.527296761671702,
-            "preference": 0.6669742365678152,
-            "spatial_accuracy": 0.2193743047925333,
-            "typography": 0.3897578567266464,
-            "visual_hierarchy": 0.5387953917185465
-          },
-          "model_output_overall": 0.44607368113827844,
-          "taste_overall": 0.44607368113827844,
-          "model_output_n_pairs": 3,
-          "imscore_scores": {
-            "hpsv21": 0.24798479676246643,
-            "pickscore": 20.646100997924805,
-            "clipscore": 19.538837432861328,
-            "imagereward": -0.6379360556602478,
-            "laion_aesthetic": 5.9114203453063965
-          }
-        },
-        {
-          "id": "c3",
-          "label": "Candidate 3",
-          "filename": "0000158.png",
-          "asset_id": 158,
-          "model": "GPT Image 1.5",
-          "image_url": "https://media.contra.com/image/upload/gn2qtl1rpuiwkumy0pcy",
-          "asset": "assets/0548-preference/candidate-3.png",
-          "human_mean_rank": 3.0,
-          "human_first_place_votes": 0,
-          "model_output_scores": {
-            "color_accuracy": 0.8400134444236755,
-            "color_harmony": 0.5346224904060364,
-            "mood_and_color_tone": 0.5447945594787598,
-            "preference": 0.4796912455931306,
-            "spatial_accuracy": 0.47758840676397085,
-            "typography": 0.4942067166169484,
-            "visual_hierarchy": 0.47258631388346356
-          },
-          "taste_scores": {
-            "color_accuracy": 0.8400134444236755,
-            "color_harmony": 0.5346224904060364,
-            "mood_and_color_tone": 0.5447945594787598,
-            "preference": 0.4796912455931306,
-            "spatial_accuracy": 0.47758840676397085,
-            "typography": 0.4942067166169484,
-            "visual_hierarchy": 0.47258631388346356
-          },
-          "model_output_overall": 0.5490718824522836,
-          "taste_overall": 0.5490718824522836,
-          "model_output_n_pairs": 3,
-          "imscore_scores": {
-            "hpsv21": 0.2747626006603241,
-            "pickscore": 21.954395294189453,
-            "clipscore": 24.0632266998291,
-            "imagereward": -0.010505054146051407,
-            "laion_aesthetic": 5.880373954772949
-          }
-        },
-        {
-          "id": "c4",
-          "label": "Candidate 4",
-          "filename": "0000171.jpg",
-          "asset_id": 171,
-          "model": "FLUX.2 [max]",
-          "image_url": "https://media.contra.com/image/upload/hcmbmvcv9yzcvu6ihpwv",
-          "asset": "assets/0548-preference/candidate-4.jpg",
-          "human_mean_rank": 3.6,
-          "human_first_place_votes": 0,
-          "model_output_scores": {
-            "color_accuracy": 0.25637886351129663,
-            "color_harmony": 0.4996609687805176,
-            "mood_and_color_tone": 0.5014070173104604,
-            "preference": 0.4805093777055542,
-            "spatial_accuracy": 0.33224526765601087,
-            "typography": 0.23542767266432443,
-            "visual_hierarchy": 0.4711491862932841
-          },
-          "taste_scores": {
-            "color_accuracy": 0.25637886351129663,
-            "color_harmony": 0.4996609687805176,
-            "mood_and_color_tone": 0.5014070173104604,
-            "preference": 0.4805093777055542,
-            "spatial_accuracy": 0.33224526765601087,
-            "typography": 0.23542767266432443,
-            "visual_hierarchy": 0.4711491862932841
-          },
-          "model_output_overall": 0.39668262198877835,
-          "taste_overall": 0.39668262198877835,
-          "model_output_n_pairs": 3,
-          "imscore_scores": {
-            "hpsv21": 0.2254181206226349,
-            "pickscore": 20.40412139892578,
-            "clipscore": 21.012714385986328,
-            "imagereward": -0.33144256472587585,
-            "laion_aesthetic": 5.768953323364258
-          }
-        }
-      ],
-      "human_pair_votes": [
-        {
-          "candidate_a": "c1",
-          "candidate_b": "c2",
-          "votes_a": 5,
-          "votes_b": 0,
-          "agreement": 1.0,
-          "majority_winner": "c1"
-        },
-        {
-          "candidate_a": "c1",
-          "candidate_b": "c3",
-          "votes_a": 5,
-          "votes_b": 0,
-          "agreement": 1.0,
-          "majority_winner": "c1"
-        },
-        {
-          "candidate_a": "c1",
-          "candidate_b": "c4",
-          "votes_a": 5,
-          "votes_b": 0,
-          "agreement": 1.0,
-          "majority_winner": "c1"
-        },
-        {
-          "candidate_a": "c3",
-          "candidate_b": "c2",
-          "votes_a": 1,
-          "votes_b": 4,
-          "agreement": 0.8,
-          "majority_winner": "c2"
-        },
-        {
-          "candidate_a": "c3",
-          "candidate_b": "c4",
-          "votes_a": 4,
-          "votes_b": 1,
-          "agreement": 0.8,
-          "majority_winner": "c3"
-        },
-        {
-          "candidate_a": "c4",
-          "candidate_b": "c2",
-          "votes_a": 1,
-          "votes_b": 4,
-          "agreement": 0.8,
-          "majority_winner": "c2"
-        }
-      ],
-      "taste_pair_scores": [
-        {
-          "candidate_a": "c1",
-          "candidate_b": "c2",
-          "probabilities": {
-            "color_accuracy": 0.4732029139995575,
-            "color_harmony": 0.5204015970230103,
-            "mood_and_color_tone": 0.4900764524936676,
-            "preference": 0.9997155070304871,
-            "spatial_accuracy": 0.9983512163162231,
-            "typography": 0.6776811480522156,
-            "visual_hierarchy": 0.5112449526786804
-          }
-        },
-        {
-          "candidate_a": "c1",
-          "candidate_b": "c3",
-          "probabilities": {
-            "color_accuracy": 0.5600489377975464,
-            "color_harmony": 0.5266473293304443,
-            "mood_and_color_tone": 0.46838057041168213,
-            "preference": 0.9998513460159302,
-            "spatial_accuracy": 0.9992406368255615,
-            "typography": 0.4544273018836975,
-            "visual_hierarchy": 0.5309804081916809
-          }
-        },
-        {
-          "candidate_a": "c1",
-          "candidate_b": "c4",
-          "probabilities": {
-            "color_accuracy": 0.5469355583190918,
-            "color_harmony": 0.5321065187454224,
-            "mood_and_color_tone": 0.5048685073852539,
-            "preference": 0.9999496936798096,
-            "spatial_accuracy": 0.9999357461929321,
-            "typography": 0.9696453809738159,
-            "visual_hierarchy": 0.5668102502822876
-          }
-        },
-        {
-          "candidate_a": "c2",
-          "candidate_b": "c3",
-          "probabilities": {
-            "color_accuracy": 0.6447608470916748,
-            "color_harmony": 0.5416896343231201,
-            "mood_and_color_tone": 0.507611095905304,
-            "preference": 0.9929047226905823,
-            "spatial_accuracy": 0.036947328597307205,
-            "typography": 0.4710181951522827,
-            "visual_hierarchy": 0.5459577441215515
-          }
-        },
-        {
-          "candidate_a": "c2",
-          "candidate_b": "c4",
-          "probabilities": {
-            "color_accuracy": 0.06345457583665848,
-            "color_harmony": 0.5361201167106628,
-            "mood_and_color_tone": 0.5458939671516418,
-            "preference": 0.9947622418403625,
-            "spatial_accuracy": 0.6177442669868469,
-            "typography": 0.5588876605033875,
-            "visual_hierarchy": 0.5572041869163513
-          }
-        },
-        {
-          "candidate_a": "c3",
-          "candidate_b": "c4",
-          "probabilities": {
-            "color_accuracy": 0.9885367155075073,
-            "color_harmony": 0.5343429446220398,
-            "mood_and_color_tone": 0.5485631227493286,
-            "preference": 0.9960307478904724,
-            "spatial_accuracy": 0.9954812526702881,
-            "typography": 0.7003148794174194,
-            "visual_hierarchy": 0.5241413116455078
-          }
-        }
-      ],
-      "taste_dimensions": [
-        "color_accuracy",
-        "color_harmony",
-        "mood_and_color_tone",
-        "preference",
-        "spatial_accuracy",
-        "typography",
-        "visual_hierarchy"
-      ],
-      "model_output_note": "Per-image scores are aggregated from the pairwise model output: mean P(candidate wins) against the other candidates in this prompt.",
-      "taste_rankings": {
-        "color_accuracy": [
-          {
-            "id": "c3",
-            "label": "Candidate 3",
-            "score": 0.5945756435394287
-          },
-          {
-            "id": "c1",
-            "label": "Candidate 1",
-            "score": 0.5267291367053986
-          },
-          {
-            "id": "c4",
-            "label": "Candidate 4",
-            "score": 0.4670243834455808
-          },
-          {
-            "id": "c2",
-            "label": "Candidate 2",
-            "score": 0.41167083630959195
-          }
-        ],
-        "color_harmony": [
-          {
-            "id": "c1",
-            "label": "Candidate 1",
-            "score": 0.5263851483662924
-          },
-          {
-            "id": "c2",
-            "label": "Candidate 2",
-            "score": 0.5191360513369242
-          },
-          {
-            "id": "c3",
-            "label": "Candidate 3",
-            "score": 0.48866866032282513
-          },
-          {
-            "id": "c4",
-            "label": "Candidate 4",
-            "score": 0.4658101399739583
-          }
-        ],
-        "mood_and_color_tone": [
-          {
-            "id": "c3",
-            "label": "Candidate 3",
-            "score": 0.5241904854774475
-          },
-          {
-            "id": "c2",
-            "label": "Candidate 2",
-            "score": 0.5211428701877594
-          },
-          {
-            "id": "c1",
-            "label": "Candidate 1",
-            "score": 0.48777517676353455
-          },
-          {
-            "id": "c4",
-            "label": "Candidate 4",
-            "score": 0.46689146757125854
-          }
-        ],
-        "preference": [
-          {
-            "id": "c1",
-            "label": "Candidate 1",
-            "score": 0.9998388489087423
-          },
-          {
-            "id": "c2",
-            "label": "Candidate 2",
-            "score": 0.662650485833486
-          },
-          {
-            "id": "c3",
-            "label": "Candidate 3",
-            "score": 0.33442489306132
-          },
-          {
-            "id": "c4",
-            "label": "Candidate 4",
-            "score": 0.0030857721964518228
-          }
-        ],
-        "spatial_accuracy": [
-          {
-            "id": "c1",
-            "label": "Candidate 1",
-            "score": 0.9991758664449056
-          },
-          {
-            "id": "c3",
-            "label": "Candidate 3",
-            "score": 0.6530977624158064
-          },
-          {
-            "id": "c2",
-            "label": "Candidate 2",
-            "score": 0.21878012642264366
-          },
-          {
-            "id": "c4",
-            "label": "Candidate 4",
-            "score": 0.1289462447166443
-          }
-        ],
-        "typography": [
-          {
-            "id": "c1",
-            "label": "Candidate 1",
-            "score": 0.700584610303243
-          },
-          {
-            "id": "c3",
-            "label": "Candidate 3",
-            "score": 0.5916231274604797
-          },
-          {
-            "id": "c2",
-            "label": "Candidate 2",
-            "score": 0.45074156920115155
-          },
-          {
-            "id": "c4",
-            "label": "Candidate 4",
-            "score": 0.25705069303512573
-          }
-        ],
-        "visual_hierarchy": [
-          {
-            "id": "c1",
-            "label": "Candidate 1",
-            "score": 0.5363452037175497
-          },
-          {
-            "id": "c2",
-            "label": "Candidate 2",
-            "score": 0.5306389927864075
-          },
-          {
-            "id": "c3",
-            "label": "Candidate 3",
-            "score": 0.4824010531107585
-          },
-          {
-            "id": "c4",
-            "label": "Candidate 4",
-            "score": 0.4506147503852844
-          }
-        ]
-      },
-      "taste_ordered_pair_scores": [
-        {
-          "candidate_a": "c1",
-          "candidate_b": "c2",
-          "probabilities": {
-            "color_accuracy": 0.4732029139995575,
-            "color_harmony": 0.5204015970230103,
-            "mood_and_color_tone": 0.4900764524936676,
-            "preference": 0.9997155070304871,
-            "spatial_accuracy": 0.9983512163162231,
-            "typography": 0.6776811480522156,
-            "visual_hierarchy": 0.5112448930740356
-          }
-        },
-        {
-          "candidate_a": "c1",
-          "candidate_b": "c3",
-          "probabilities": {
-            "color_accuracy": 0.5600488781929016,
-            "color_harmony": 0.5266473293304443,
-            "mood_and_color_tone": 0.46838057041168213,
-            "preference": 0.9998513460159302,
-            "spatial_accuracy": 0.9992406368255615,
-            "typography": 0.4544273018836975,
-            "visual_hierarchy": 0.5309804677963257
-          }
-        },
-        {
-          "candidate_a": "c1",
-          "candidate_b": "c4",
-          "probabilities": {
-            "color_accuracy": 0.5469355583190918,
-            "color_harmony": 0.5321065187454224,
-            "mood_and_color_tone": 0.5048685073852539,
-            "preference": 0.9999496936798096,
-            "spatial_accuracy": 0.9999357461929321,
-            "typography": 0.9696453809738159,
-            "visual_hierarchy": 0.5668102502822876
-          }
-        },
-        {
-          "candidate_a": "c2",
-          "candidate_b": "c1",
-          "probabilities": {
-            "color_accuracy": 0.026172464713454247,
-            "color_harmony": 0.5287540555000305,
-            "mood_and_color_tone": 0.5283852219581604,
-            "preference": 0.01325574517250061,
-            "spatial_accuracy": 0.0034313970245420933,
-            "typography": 0.1393677145242691,
-            "visual_hierarchy": 0.513224184513092
-          }
-        },
-        {
-          "candidate_a": "c2",
-          "candidate_b": "c3",
-          "probabilities": {
-            "color_accuracy": 0.6447608470916748,
-            "color_harmony": 0.5416896343231201,
-            "mood_and_color_tone": 0.507611095905304,
-            "preference": 0.9929047226905823,
-            "spatial_accuracy": 0.03694730997085571,
-            "typography": 0.4710181951522827,
-            "visual_hierarchy": 0.5459577441215515
-          }
-        },
-        {
-          "candidate_a": "c2",
-          "candidate_b": "c4",
-          "probabilities": {
-            "color_accuracy": 0.0634545311331749,
-            "color_harmony": 0.5361201167106628,
-            "mood_and_color_tone": 0.5458939671516418,
-            "preference": 0.9947622418403625,
-            "spatial_accuracy": 0.6177442073822021,
-            "typography": 0.5588876605033875,
-            "visual_hierarchy": 0.5572042465209961
-          }
-        },
-        {
-          "candidate_a": "c3",
-          "candidate_b": "c1",
-          "probabilities": {
-            "color_accuracy": 0.9435515999794006,
-            "color_harmony": 0.5383436679840088,
-            "mood_and_color_tone": 0.5522941946983337,
-            "preference": 0.0028430772945284843,
-            "spatial_accuracy": 0.006006871350109577,
-            "typography": 0.16655847430229187,
-            "visual_hierarchy": 0.43837660551071167
-          }
-        },
-        {
-          "candidate_a": "c3",
-          "candidate_b": "c2",
-          "probabilities": {
-            "color_accuracy": 0.5879520177841187,
-            "color_harmony": 0.5311808586120605,
-            "mood_and_color_tone": 0.5335263013839722,
-            "preference": 0.44019991159439087,
-            "spatial_accuracy": 0.43127697706222534,
-            "typography": 0.615746796131134,
-            "visual_hierarchy": 0.4552410840988159
-          }
-        },
-        {
-          "candidate_a": "c3",
-          "candidate_b": "c4",
-          "probabilities": {
-            "color_accuracy": 0.9885367155075073,
-            "color_harmony": 0.5343429446220398,
-            "mood_and_color_tone": 0.5485631823539734,
-            "preference": 0.9960307478904724,
-            "spatial_accuracy": 0.9954813718795776,
-            "typography": 0.7003148794174194,
-            "visual_hierarchy": 0.524141252040863
-          }
-        },
-        {
-          "candidate_a": "c4",
-          "candidate_b": "c1",
-          "probabilities": {
-            "color_accuracy": 0.39181292057037354,
-            "color_harmony": 0.5013798475265503,
-            "mood_and_color_tone": 0.5192319750785828,
-            "preference": 0.005869290791451931,
-            "spatial_accuracy": 0.0009422568837180734,
-            "typography": 0.03923828899860382,
-            "visual_hierarchy": 0.4603285789489746
-          }
-        },
-        {
-          "candidate_a": "c4",
-          "candidate_b": "c2",
-          "probabilities": {
-            "color_accuracy": 0.0010749526554718614,
-            "color_harmony": 0.49414515495300293,
-            "mood_and_color_tone": 0.4980051517486572,
-            "preference": 0.44041475653648376,
-            "spatial_accuracy": 0.00210764491930604,
-            "typography": 0.35178834199905396,
-            "visual_hierarchy": 0.4549494981765747
-          }
-        },
-        {
-          "candidate_a": "c4",
-          "candidate_b": "c3",
-          "probabilities": {
-            "color_accuracy": 0.37624871730804443,
-            "color_harmony": 0.5034579038619995,
-            "mood_and_color_tone": 0.48698392510414124,
-            "preference": 0.9952440857887268,
-            "spatial_accuracy": 0.9936859011650085,
-            "typography": 0.31525638699531555,
-            "visual_hierarchy": 0.498169481754303
-          }
-        }
-      ]
-    },
-    {
       "id": "652-typography",
       "prompt_id": 652,
       "scene_id": "scene_091",
@@ -2641,173 +2641,173 @@
       ]
     },
     {
-      "id": "653-typography",
-      "prompt_id": 653,
-      "scene_id": "scene_092",
+      "id": "706-typography",
+      "prompt_id": 706,
+      "scene_id": "scene_145",
       "title": "Typography sample",
       "track": "test",
       "dimension": "typography",
       "focus_dimension": "typography",
       "dimension_label": "Typography",
       "prompt_template": "ui+d",
-      "prompt": "User Intent: Create a daily motivational social media post featuring an uplifting quote and a serene background image, designed to inspire and provide positive reinforcement, while subtly showcasing a brand or user handle. Description: The image is a vertical-oriented graphic featuring a motivational quote overlaid on a serene landscape photograph. The background image depicts the silhouette of a woman standing in calm water, with her arms raised towards the sky, set against a vibrant sunset or sunrise. Distant hills are visible across the water. The sky transitions from a bright, warm orange and yellow near the horizon to a softer peach and light orange at the top. The water reflects the warm light with ripples visible. Centered at the top, in a dark, legible sans-serif font, is the phrase \"Daily boost.\" Below this, prominently displayed in a larger, elegant, italicized serif font, is the main quote: \"Success is an effect of process.\" At the bottom, also centrally aligned, is a smaller, dark sans-serif text reading \"@loremipsum\", likely a placeholder for a social media handle or brand. All text elements are dark, providing strong contrast against the bright, warm background.",
-      "mean_human_agreement": 0.8666666666666667,
-      "unanimous_rate": 0.3333333333333333,
+      "prompt": "User Intent: Create an attractive and easy-to-read promotional graphic for a coffee shop or cafe, showcasing a variety of specialty drinks with clear labels, suitable for social media marketing or in-store display, encouraging customers to explore their beverage options. Description: The image is a promotional graphic featuring a selection of specialty beverages on a light pink background. The background is adorned with broad, abstract, white brushstroke shapes that add a soft, artistic touch. Centered prominently on the graphic is the main title \"CHOOSE\" in a bold, serif, dark brown font, followed by \"specialty\" in a whimsical, script-style dark brown font. Six circular photographic images of different drinks are arranged in two rows of three (Flatwhite, Macchiato, Frappe on the top; Matcha, Espresso, Latte on the bottom). Each image is accompanied by its respective drink name written in a clean, sans-serif, dark brown font, curved around the bottom-left or bottom-right edge of the circle. At the very bottom center, a placeholder website address \"loremipsumsite.co\" is displayed in a simple sans-serif font.",
+      "mean_human_agreement": 0.8,
+      "unanimous_rate": 0.16666666666666666,
       "candidates": [
         {
           "id": "c1",
           "label": "Candidate 1",
-          "filename": "0000180.png",
-          "asset_id": 180,
-          "model": "Nano Banana 2",
-          "image_url": "https://media.contra.com/image/upload/hngnqs9p5h4nm7f12czg",
-          "asset": "assets/0653-typography/candidate-1.png",
-          "human_mean_rank": 1.2,
+          "filename": "0000047.png",
+          "asset_id": 47,
+          "model": "GPT Image 1.5",
+          "image_url": "https://media.contra.com/image/upload/c1ct0lyqf1msv7wvs71w",
+          "asset": "assets/0706-typography/candidate-1.png",
+          "human_mean_rank": 1.4,
           "human_first_place_votes": 4,
           "model_output_scores": {
-            "color_accuracy": 0.4425234446922938,
-            "color_harmony": 0.5766546130180359,
-            "mood_and_color_tone": 0.48989178737004596,
-            "preference": 0.5263221462567648,
-            "spatial_accuracy": 0.8294198910395304,
-            "typography": 0.9983806014060974,
-            "visual_hierarchy": 0.47813273469607037
+            "color_accuracy": 0.30799345423777896,
+            "color_harmony": 0.5749465227127075,
+            "mood_and_color_tone": 0.4837735792001088,
+            "preference": 0.528891921043396,
+            "spatial_accuracy": 0.46492937207221985,
+            "typography": 0.720811148484548,
+            "visual_hierarchy": 0.49630003174146015
           },
           "taste_scores": {
-            "color_accuracy": 0.4425234446922938,
-            "color_harmony": 0.5766546130180359,
-            "mood_and_color_tone": 0.48989178737004596,
-            "preference": 0.5263221462567648,
-            "spatial_accuracy": 0.8294198910395304,
-            "typography": 0.9983806014060974,
-            "visual_hierarchy": 0.47813273469607037
+            "color_accuracy": 0.30799345423777896,
+            "color_harmony": 0.5749465227127075,
+            "mood_and_color_tone": 0.4837735792001088,
+            "preference": 0.528891921043396,
+            "spatial_accuracy": 0.46492937207221985,
+            "typography": 0.720811148484548,
+            "visual_hierarchy": 0.49630003174146015
           },
-          "model_output_overall": 0.6201893169255485,
-          "taste_overall": 0.6201893169255485,
+          "model_output_overall": 0.5110922899274599,
+          "taste_overall": 0.5110922899274599,
           "model_output_n_pairs": 3,
           "imscore_scores": {
-            "hpsv21": 0.2701345384120941,
-            "pickscore": 20.50260353088379,
-            "clipscore": 17.437732696533203,
-            "imagereward": 0.14793166518211365,
-            "laion_aesthetic": 5.761589050292969
+            "hpsv21": 0.2922055721282959,
+            "pickscore": 23.740602493286133,
+            "clipscore": 30.159278869628906,
+            "imagereward": 1.3765690326690674,
+            "laion_aesthetic": 5.956742286682129
           }
         },
         {
           "id": "c2",
           "label": "Candidate 2",
-          "filename": "0000507.jpg",
-          "asset_id": 507,
+          "filename": "0000554.jpg",
+          "asset_id": 554,
           "model": "FLUX.2 [max]",
-          "image_url": "https://media.contra.com/image/upload/ueiezlfvnvf3wbbhpkbb",
-          "asset": "assets/0653-typography/candidate-2.jpg",
+          "image_url": "https://media.contra.com/image/upload/wa1pl2bqqdodopdk1hr9",
+          "asset": "assets/0706-typography/candidate-2.jpg",
           "human_mean_rank": 2.2,
-          "human_first_place_votes": 1,
+          "human_first_place_votes": 0,
           "model_output_scores": {
-            "color_accuracy": 0.3322043716907501,
-            "color_harmony": 0.5550983349482218,
-            "mood_and_color_tone": 0.4875090718269348,
-            "preference": 0.6159923275311788,
-            "spatial_accuracy": 0.4022148475050926,
-            "typography": 0.6311538418134054,
-            "visual_hierarchy": 0.4855120579401652
+            "color_accuracy": 0.518602212270101,
+            "color_harmony": 0.5711164673169454,
+            "mood_and_color_tone": 0.5240834454695383,
+            "preference": 0.8317245841026306,
+            "spatial_accuracy": 0.4992619914313157,
+            "typography": 0.5356056489981711,
+            "visual_hierarchy": 0.5227527022361755
           },
           "taste_scores": {
-            "color_accuracy": 0.3322043716907501,
-            "color_harmony": 0.5550983349482218,
-            "mood_and_color_tone": 0.4875090718269348,
-            "preference": 0.6159923275311788,
-            "spatial_accuracy": 0.4022148475050926,
-            "typography": 0.6311538418134054,
-            "visual_hierarchy": 0.4855120579401652
+            "color_accuracy": 0.518602212270101,
+            "color_harmony": 0.5711164673169454,
+            "mood_and_color_tone": 0.5240834454695383,
+            "preference": 0.8317245841026306,
+            "spatial_accuracy": 0.4992619914313157,
+            "typography": 0.5356056489981711,
+            "visual_hierarchy": 0.5227527022361755
           },
-          "model_output_overall": 0.501383550465107,
-          "taste_overall": 0.501383550465107,
+          "model_output_overall": 0.5718781502606969,
+          "taste_overall": 0.5718781502606969,
           "model_output_n_pairs": 3,
           "imscore_scores": {
-            "hpsv21": 0.2671195864677429,
-            "pickscore": 20.888158798217773,
-            "clipscore": 17.400657653808594,
-            "imagereward": 0.26920562982559204,
-            "laion_aesthetic": 5.685173511505127
+            "hpsv21": 0.24844589829444885,
+            "pickscore": 22.67818832397461,
+            "clipscore": 29.543012619018555,
+            "imagereward": 0.9467700719833374,
+            "laion_aesthetic": 5.9040679931640625
           }
         },
         {
           "id": "c3",
           "label": "Candidate 3",
-          "filename": "0000522.png",
-          "asset_id": 522,
+          "filename": "0000573.png",
+          "asset_id": 573,
           "model": "Seedream 5.0 Lite",
-          "image_url": "https://media.contra.com/image/upload/uyfurhov8yyqr0x67kst",
-          "asset": "assets/0653-typography/candidate-3.png",
+          "image_url": "https://media.contra.com/image/upload/wwzgb2eel7ib0tgvfcnt",
+          "asset": "assets/0706-typography/candidate-3.png",
           "human_mean_rank": 3.0,
-          "human_first_place_votes": 0,
+          "human_first_place_votes": 1,
           "model_output_scores": {
-            "color_accuracy": 0.8557660182317098,
-            "color_harmony": 0.5560453335444132,
-            "mood_and_color_tone": 0.4950382709503174,
-            "preference": 0.43286849185824394,
-            "spatial_accuracy": 0.5460279583930969,
-            "typography": 0.2036056462675333,
-            "visual_hierarchy": 0.48819464445114136
+            "color_accuracy": 0.34472165008385974,
+            "color_harmony": 0.5574809908866882,
+            "mood_and_color_tone": 0.4915339946746826,
+            "preference": 0.591680496931076,
+            "spatial_accuracy": 0.6869387229283651,
+            "typography": 0.00675527395408911,
+            "visual_hierarchy": 0.535234530766805
           },
           "taste_scores": {
-            "color_accuracy": 0.8557660182317098,
-            "color_harmony": 0.5560453335444132,
-            "mood_and_color_tone": 0.4950382709503174,
-            "preference": 0.43286849185824394,
-            "spatial_accuracy": 0.5460279583930969,
-            "typography": 0.2036056462675333,
-            "visual_hierarchy": 0.48819464445114136
+            "color_accuracy": 0.34472165008385974,
+            "color_harmony": 0.5574809908866882,
+            "mood_and_color_tone": 0.4915339946746826,
+            "preference": 0.591680496931076,
+            "spatial_accuracy": 0.6869387229283651,
+            "typography": 0.00675527395408911,
+            "visual_hierarchy": 0.535234530766805
           },
-          "model_output_overall": 0.5110780519566366,
-          "taste_overall": 0.5110780519566366,
+          "model_output_overall": 0.45919223717508084,
+          "taste_overall": 0.45919223717508084,
           "model_output_n_pairs": 3,
           "imscore_scores": {
-            "hpsv21": 0.26714301109313965,
-            "pickscore": 20.523632049560547,
-            "clipscore": 16.92731475830078,
-            "imagereward": 0.001839811448007822,
-            "laion_aesthetic": 5.6978912353515625
+            "hpsv21": 0.2577660083770752,
+            "pickscore": 22.8109188079834,
+            "clipscore": 27.837005615234375,
+            "imagereward": 0.8470878005027771,
+            "laion_aesthetic": 5.722628593444824
           }
         },
         {
           "id": "c4",
           "label": "Candidate 4",
-          "filename": "0000355.png",
-          "asset_id": 355,
-          "model": "GPT Image 1.5",
-          "image_url": "https://media.contra.com/image/upload/okgiqwzcg8i60m3b7ehu",
-          "asset": "assets/0653-typography/candidate-4.png",
-          "human_mean_rank": 3.6,
+          "filename": "0000542.png",
+          "asset_id": 542,
+          "model": "Nano Banana 2",
+          "image_url": "https://media.contra.com/image/upload/vwgnqtyqseukgbzglfig",
+          "asset": "assets/0706-typography/candidate-4.png",
+          "human_mean_rank": 3.4,
           "human_first_place_votes": 0,
           "model_output_scores": {
-            "color_accuracy": 0.5824417670567831,
-            "color_harmony": 0.5497293670972189,
-            "mood_and_color_tone": 0.46594002842903137,
-            "preference": 0.2696669399738312,
-            "spatial_accuracy": 0.04511852748692036,
-            "typography": 0.18226922986408076,
-            "visual_hierarchy": 0.4627775251865387
+            "color_accuracy": 0.883124570051829,
+            "color_harmony": 0.573722263177236,
+            "mood_and_color_tone": 0.4867565929889679,
+            "preference": 0.260951188703378,
+            "spatial_accuracy": 0.012913247725615898,
+            "typography": 0.28014611499384046,
+            "visual_hierarchy": 0.5066884656747183
           },
           "taste_scores": {
-            "color_accuracy": 0.5824417670567831,
-            "color_harmony": 0.5497293670972189,
-            "mood_and_color_tone": 0.46594002842903137,
-            "preference": 0.2696669399738312,
-            "spatial_accuracy": 0.04511852748692036,
-            "typography": 0.18226922986408076,
-            "visual_hierarchy": 0.4627775251865387
+            "color_accuracy": 0.883124570051829,
+            "color_harmony": 0.573722263177236,
+            "mood_and_color_tone": 0.4867565929889679,
+            "preference": 0.260951188703378,
+            "spatial_accuracy": 0.012913247725615898,
+            "typography": 0.28014611499384046,
+            "visual_hierarchy": 0.5066884656747183
           },
-          "model_output_overall": 0.3654204835849149,
-          "taste_overall": 0.3654204835849149,
+          "model_output_overall": 0.42918606333079795,
+          "taste_overall": 0.42918606333079795,
           "model_output_n_pairs": 3,
           "imscore_scores": {
-            "hpsv21": 0.27699679136276245,
-            "pickscore": 21.42717742919922,
-            "clipscore": 21.071651458740234,
-            "imagereward": 0.2201385498046875,
-            "laion_aesthetic": 5.799469947814941
+            "hpsv21": 0.26672685146331787,
+            "pickscore": 22.576934814453125,
+            "clipscore": 27.68729019165039,
+            "imagereward": 0.8405268788337708,
+            "laion_aesthetic": 5.931378364562988
           }
         }
       ],
@@ -2823,9 +2823,9 @@
         {
           "candidate_a": "c1",
           "candidate_b": "c3",
-          "votes_a": 5,
-          "votes_b": 0,
-          "agreement": 1.0,
+          "votes_a": 4,
+          "votes_b": 1,
+          "agreement": 0.8,
           "majority_winner": "c1"
         },
         {
@@ -2855,9 +2855,9 @@
         {
           "candidate_a": "c4",
           "candidate_b": "c3",
-          "votes_a": 1,
-          "votes_b": 4,
-          "agreement": 0.8,
+          "votes_a": 2,
+          "votes_b": 3,
+          "agreement": 0.6,
           "majority_winner": "c3"
         }
       ],
@@ -2866,78 +2866,78 @@
           "candidate_a": "c1",
           "candidate_b": "c2",
           "probabilities": {
-            "color_accuracy": 0.7049315571784973,
-            "color_harmony": 0.5651477575302124,
-            "mood_and_color_tone": 0.4953775107860565,
-            "preference": 0.5991411805152893,
-            "spatial_accuracy": 0.8393107652664185,
-            "typography": 0.9970953464508057,
-            "visual_hierarchy": 0.48544448614120483
+            "color_accuracy": 0.21841727197170258,
+            "color_harmony": 0.572304904460907,
+            "mood_and_color_tone": 0.45737165212631226,
+            "preference": 0.21498535573482513,
+            "spatial_accuracy": 0.3478715121746063,
+            "typography": 0.5619943141937256,
+            "visual_hierarchy": 0.47823968529701233
           }
         },
         {
           "candidate_a": "c1",
           "candidate_b": "c3",
           "probabilities": {
-            "color_accuracy": 0.46763429045677185,
-            "color_harmony": 0.5809721946716309,
-            "mood_and_color_tone": 0.47595998644828796,
-            "preference": 0.29602599143981934,
-            "spatial_accuracy": 0.9807548522949219,
-            "typography": 0.9985111355781555,
-            "visual_hierarchy": 0.47478023171424866
+            "color_accuracy": 0.6049423217773438,
+            "color_harmony": 0.5792228579521179,
+            "mood_and_color_tone": 0.4954179525375366,
+            "preference": 0.48522382974624634,
+            "spatial_accuracy": 0.43785038590431213,
+            "typography": 0.625068187713623,
+            "visual_hierarchy": 0.502689778804779
           }
         },
         {
           "candidate_a": "c1",
           "candidate_b": "c4",
           "probabilities": {
-            "color_accuracy": 0.15500445663928986,
-            "color_harmony": 0.5838439464569092,
-            "mood_and_color_tone": 0.4983378052711487,
-            "preference": 0.6837993264198303,
-            "spatial_accuracy": 0.6681941151618958,
-            "typography": 0.999535322189331,
-            "visual_hierarchy": 0.47417354583740234
+            "color_accuracy": 0.10062069445848465,
+            "color_harmony": 0.5733118057250977,
+            "mood_and_color_tone": 0.49853113293647766,
+            "preference": 0.8864665627479553,
+            "spatial_accuracy": 0.6090661883354187,
+            "typography": 0.9753708839416504,
+            "visual_hierarchy": 0.5079706311225891
           }
         },
         {
           "candidate_a": "c2",
           "candidate_b": "c3",
           "probabilities": {
-            "color_accuracy": 0.2511424422264099,
-            "color_harmony": 0.5556102991104126,
-            "mood_and_color_tone": 0.47658634185791016,
-            "preference": 0.5655269026756287,
-            "spatial_accuracy": 0.4796244204044342,
-            "typography": 0.5517667531967163,
-            "visual_hierarchy": 0.47377291321754456
+            "color_accuracy": 0.5413336753845215,
+            "color_harmony": 0.5786105394363403,
+            "mood_and_color_tone": 0.5253057479858398,
+            "preference": 0.9608480334281921,
+            "spatial_accuracy": 0.468161404132843,
+            "typography": 0.6353591084480286,
+            "visual_hierarchy": 0.5167917013168335
           }
         },
         {
           "candidate_a": "c2",
           "candidate_b": "c4",
           "probabilities": {
-            "color_accuracy": 0.13424327969551086,
-            "color_harmony": 0.5759767293930054,
-            "mood_and_color_tone": 0.5005187392234802,
-            "preference": 0.6874482035636902,
-            "spatial_accuracy": 0.6385722160339355,
-            "typography": 0.9659243822097778,
-            "visual_hierarchy": 0.48085567355155945
+            "color_accuracy": 0.43866902589797974,
+            "color_harmony": 0.5668795108795166,
+            "mood_and_color_tone": 0.5471562147140503,
+            "preference": 0.990199863910675,
+            "spatial_accuracy": 0.9917837381362915,
+            "typography": 0.9698938727378845,
+            "visual_hierarchy": 0.5302711129188538
           }
         },
         {
           "candidate_a": "c3",
           "candidate_b": "c4",
           "probabilities": {
-            "color_accuracy": 0.9704593420028687,
-            "color_harmony": 0.558681309223175,
-            "mood_and_color_tone": 0.5090910792350769,
-            "preference": 0.6557344794273376,
-            "spatial_accuracy": 0.6818807125091553,
-            "typography": 0.588829755783081,
-            "visual_hierarchy": 0.47259092330932617
+            "color_accuracy": 0.18455573916435242,
+            "color_harmony": 0.5608640313148499,
+            "mood_and_color_tone": 0.5258499383926392,
+            "preference": 0.938321590423584,
+            "spatial_accuracy": 0.9701152443885803,
+            "typography": 0.009806778281927109,
+            "visual_hierarchy": 0.531959056854248
           }
         }
       ],
@@ -2954,156 +2954,156 @@
       "taste_rankings": {
         "color_accuracy": [
           {
-            "id": "c3",
-            "label": "Candidate 3",
-            "score": 0.750560869773229
-          },
-          {
             "id": "c4",
             "label": "Candidate 4",
-            "score": 0.5800976405541102
-          },
-          {
-            "id": "c1",
-            "label": "Candidate 1",
-            "score": 0.44252343475818634
+            "score": 0.7587181801597277
           },
           {
             "id": "c2",
             "label": "Candidate 2",
-            "score": 0.2268180549144745
+            "score": 0.5871951431035995
+          },
+          {
+            "id": "c3",
+            "label": "Candidate 3",
+            "score": 0.3460932473341624
+          },
+          {
+            "id": "c1",
+            "label": "Candidate 1",
+            "score": 0.30799342940251034
           }
         ],
         "color_harmony": [
           {
             "id": "c1",
             "label": "Candidate 1",
-            "score": 0.5766546328862509
+            "score": 0.5749465227127075
           },
           {
             "id": "c2",
             "label": "Candidate 2",
-            "score": 0.5221464236577352
+            "score": 0.5243950486183167
           },
           {
             "id": "c3",
             "label": "Candidate 3",
-            "score": 0.4740329384803772
+            "score": 0.46767687797546387
           },
           {
             "id": "c4",
             "label": "Candidate 4",
-            "score": 0.4271660049756368
+            "score": 0.43298155069351196
           }
         ],
         "mood_and_color_tone": [
           {
-            "id": "c3",
-            "label": "Candidate 3",
-            "score": 0.5188482503096262
-          },
-          {
-            "id": "c4",
-            "label": "Candidate 4",
-            "score": 0.4973507920900981
-          },
-          {
             "id": "c2",
             "label": "Candidate 2",
-            "score": 0.49390919009844464
+            "score": 0.5383634368578593
+          },
+          {
+            "id": "c3",
+            "label": "Candidate 3",
+            "score": 0.5017087459564209
           },
           {
             "id": "c1",
             "label": "Candidate 1",
-            "score": 0.48989176750183105
+            "score": 0.4837735792001088
+          },
+          {
+            "id": "c4",
+            "label": "Candidate 4",
+            "score": 0.47615423798561096
           }
         ],
         "preference": [
           {
-            "id": "c3",
-            "label": "Candidate 3",
-            "score": 0.5980605284372965
-          },
-          {
             "id": "c2",
             "label": "Candidate 2",
-            "score": 0.5512779752413431
+            "score": 0.9120208472013474
           },
           {
             "id": "c1",
             "label": "Candidate 1",
-            "score": 0.5263221661249796
+            "score": 0.5288919160763422
+          },
+          {
+            "id": "c3",
+            "label": "Candidate 3",
+            "score": 0.49741657574971515
           },
           {
             "id": "c4",
             "label": "Candidate 4",
-            "score": 0.3243393301963806
+            "score": 0.061670660972595215
           }
         ],
         "spatial_accuracy": [
           {
-            "id": "c1",
-            "label": "Candidate 1",
-            "score": 0.8294199109077454
-          },
-          {
             "id": "c2",
             "label": "Candidate 2",
-            "score": 0.42629529039065045
+            "score": 0.7040245433648428
           },
           {
             "id": "c3",
             "label": "Candidate 3",
-            "score": 0.4071671466032664
+            "score": 0.6880344847838084
+          },
+          {
+            "id": "c1",
+            "label": "Candidate 1",
+            "score": 0.46492936213811237
           },
           {
             "id": "c4",
             "label": "Candidate 4",
-            "score": 0.3371176520983378
+            "score": 0.14301160971323648
           }
         ],
         "typography": [
           {
             "id": "c1",
             "label": "Candidate 1",
-            "score": 0.9983806014060974
+            "score": 0.720811128616333
           },
           {
             "id": "c2",
             "label": "Candidate 2",
-            "score": 0.5068652629852295
-          },
-          {
-            "id": "c3",
-            "label": "Candidate 3",
-            "score": 0.3461839556694031
+            "score": 0.6810862223307291
           },
           {
             "id": "c4",
             "label": "Candidate 4",
-            "score": 0.14857017993927002
+            "score": 0.3483094883461793
+          },
+          {
+            "id": "c3",
+            "label": "Candidate 3",
+            "score": 0.2497931607067585
           }
         ],
         "visual_hierarchy": [
           {
-            "id": "c4",
-            "label": "Candidate 4",
-            "score": 0.5241266191005707
+            "id": "c2",
+            "label": "Candidate 2",
+            "score": 0.5229410429795583
           },
           {
             "id": "c3",
             "label": "Candidate 3",
-            "score": 0.508012592792511
-          },
-          {
-            "id": "c2",
-            "label": "Candidate 2",
-            "score": 0.48972803354263306
+            "score": 0.5041591922442118
           },
           {
             "id": "c1",
             "label": "Candidate 1",
-            "score": 0.4781327545642853
+            "score": 0.49630003174146015
+          },
+          {
+            "id": "c4",
+            "label": "Candidate 4",
+            "score": 0.4765997330347697
           }
         ]
       },
@@ -3112,156 +3112,156 @@
           "candidate_a": "c1",
           "candidate_b": "c2",
           "probabilities": {
-            "color_accuracy": 0.7049315571784973,
-            "color_harmony": 0.5651477575302124,
-            "mood_and_color_tone": 0.4953775703907013,
-            "preference": 0.5991411805152893,
-            "spatial_accuracy": 0.8393106460571289,
-            "typography": 0.9970953464508057,
-            "visual_hierarchy": 0.48544442653656006
+            "color_accuracy": 0.21841734647750854,
+            "color_harmony": 0.572304904460907,
+            "mood_and_color_tone": 0.45737165212631226,
+            "preference": 0.21498531103134155,
+            "spatial_accuracy": 0.3478715419769287,
+            "typography": 0.5619943141937256,
+            "visual_hierarchy": 0.47823968529701233
           }
         },
         {
           "candidate_a": "c1",
           "candidate_b": "c3",
           "probabilities": {
-            "color_accuracy": 0.46763429045677185,
-            "color_harmony": 0.5809721350669861,
-            "mood_and_color_tone": 0.47595998644828796,
-            "preference": 0.29602593183517456,
-            "spatial_accuracy": 0.9807548522949219,
-            "typography": 0.9985111355781555,
-            "visual_hierarchy": 0.47478023171424866
+            "color_accuracy": 0.6049423217773438,
+            "color_harmony": 0.5792228579521179,
+            "mood_and_color_tone": 0.4954179525375366,
+            "preference": 0.48522382974624634,
+            "spatial_accuracy": 0.43785038590431213,
+            "typography": 0.6250682473182678,
+            "visual_hierarchy": 0.502689778804779
           }
         },
         {
           "candidate_a": "c1",
           "candidate_b": "c4",
           "probabilities": {
-            "color_accuracy": 0.15500448644161224,
-            "color_harmony": 0.5838439464569092,
-            "mood_and_color_tone": 0.4983378052711487,
-            "preference": 0.6837993264198303,
-            "spatial_accuracy": 0.6681941747665405,
-            "typography": 0.999535322189331,
-            "visual_hierarchy": 0.47417354583740234
+            "color_accuracy": 0.10062069445848465,
+            "color_harmony": 0.5733118057250977,
+            "mood_and_color_tone": 0.49853113293647766,
+            "preference": 0.8864666223526001,
+            "spatial_accuracy": 0.6090661883354187,
+            "typography": 0.9753708839416504,
+            "visual_hierarchy": 0.5079706311225891
           }
         },
         {
           "candidate_a": "c2",
           "candidate_b": "c1",
           "probabilities": {
-            "color_accuracy": 0.6112276315689087,
-            "color_harmony": 0.5337079763412476,
-            "mood_and_color_tone": 0.48542213439941406,
-            "preference": 0.5950018763542175,
-            "spatial_accuracy": 0.08844784647226334,
-            "typography": 0.3757703900337219,
-            "visual_hierarchy": 0.5019075870513916
+            "color_accuracy": 0.5758039355278015,
+            "color_harmony": 0.5678593516349792,
+            "mood_and_color_tone": 0.499788373708725,
+            "preference": 0.5441258549690247,
+            "spatial_accuracy": 0.0378408320248127,
+            "typography": 0.0015639658086001873,
+            "visual_hierarchy": 0.5211952328681946
           }
         },
         {
           "candidate_a": "c2",
           "candidate_b": "c3",
           "probabilities": {
-            "color_accuracy": 0.25114235281944275,
-            "color_harmony": 0.5556102991104126,
-            "mood_and_color_tone": 0.47658634185791016,
-            "preference": 0.5655269026756287,
-            "spatial_accuracy": 0.479624480009079,
-            "typography": 0.5517667531967163,
-            "visual_hierarchy": 0.47377291321754456
+            "color_accuracy": 0.5413336753845215,
+            "color_harmony": 0.5786105394363403,
+            "mood_and_color_tone": 0.5253057479858398,
+            "preference": 0.9608480334281921,
+            "spatial_accuracy": 0.468161404132843,
+            "typography": 0.6353591084480286,
+            "visual_hierarchy": 0.5167917013168335
           }
         },
         {
           "candidate_a": "c2",
           "candidate_b": "c4",
           "probabilities": {
-            "color_accuracy": 0.13424313068389893,
-            "color_harmony": 0.5759767293930054,
-            "mood_and_color_tone": 0.5005187392234802,
-            "preference": 0.6874482035636902,
-            "spatial_accuracy": 0.6385722160339355,
-            "typography": 0.9659243822097778,
-            "visual_hierarchy": 0.48085567355155945
+            "color_accuracy": 0.43866902589797974,
+            "color_harmony": 0.5668795108795166,
+            "mood_and_color_tone": 0.5471562147140503,
+            "preference": 0.990199863910675,
+            "spatial_accuracy": 0.9917837381362915,
+            "typography": 0.9698938727378845,
+            "visual_hierarchy": 0.5302711725234985
           }
         },
         {
           "candidate_a": "c3",
           "candidate_b": "c1",
           "probabilities": {
-            "color_accuracy": 0.8817795515060425,
-            "color_harmony": 0.5554160475730896,
-            "mood_and_color_tone": 0.4830690324306488,
-            "preference": 0.031002316623926163,
-            "spatial_accuracy": 0.3563898205757141,
-            "typography": 0.009311538189649582,
-            "visual_hierarchy": 0.5089824795722961
+            "color_accuracy": 0.6558486819267273,
+            "color_harmony": 0.5531262755393982,
+            "mood_and_color_tone": 0.4876927435398102,
+            "preference": 0.5116845965385437,
+            "spatial_accuracy": 0.583588719367981,
+            "typography": 0.00020104882423765957,
+            "visual_hierarchy": 0.5510867834091187
           }
         },
         {
           "candidate_a": "c3",
           "candidate_b": "c2",
           "probabilities": {
-            "color_accuracy": 0.7150591611862183,
-            "color_harmony": 0.5540386438369751,
-            "mood_and_color_tone": 0.49295470118522644,
-            "preference": 0.611868679523468,
-            "spatial_accuracy": 0.5998133420944214,
-            "typography": 0.01267564482986927,
-            "visual_hierarchy": 0.48301053047180176
+            "color_accuracy": 0.19376052916049957,
+            "color_harmony": 0.5584526658058167,
+            "mood_and_color_tone": 0.4610593020915985,
+            "preference": 0.32503530383110046,
+            "spatial_accuracy": 0.5071122050285339,
+            "typography": 0.010257994756102562,
+            "visual_hierarchy": 0.5226577520370483
           }
         },
         {
           "candidate_a": "c3",
           "candidate_b": "c4",
           "probabilities": {
-            "color_accuracy": 0.9704593420028687,
-            "color_harmony": 0.558681309223175,
-            "mood_and_color_tone": 0.5090910792350769,
-            "preference": 0.6557344794273376,
-            "spatial_accuracy": 0.6818807125091553,
-            "typography": 0.588829755783081,
-            "visual_hierarchy": 0.47259092330932617
+            "color_accuracy": 0.18455573916435242,
+            "color_harmony": 0.5608640313148499,
+            "mood_and_color_tone": 0.5258499383926392,
+            "preference": 0.938321590423584,
+            "spatial_accuracy": 0.9701152443885803,
+            "typography": 0.009806778281927109,
+            "visual_hierarchy": 0.531959056854248
           }
         },
         {
           "candidate_a": "c4",
           "candidate_b": "c1",
           "probabilities": {
-            "color_accuracy": 0.6449910998344421,
-            "color_harmony": 0.5424858331680298,
-            "mood_and_color_tone": 0.4610752761363983,
-            "preference": 0.09840874373912811,
-            "spatial_accuracy": 0.008442029356956482,
-            "typography": 0.018582550808787346,
-            "visual_hierarchy": 0.4749256670475006
+            "color_accuracy": 0.9960513710975647,
+            "color_harmony": 0.5692943334579468,
+            "mood_and_color_tone": 0.4752187132835388,
+            "preference": 0.28771379590034485,
+            "spatial_accuracy": 0.022374168038368225,
+            "typography": 0.0044361441396176815,
+            "visual_hierarchy": 0.5200570821762085
           }
         },
         {
           "candidate_a": "c4",
           "candidate_b": "c2",
           "probabilities": {
-            "color_accuracy": 0.623243510723114,
-            "color_harmony": 0.5627497434616089,
-            "mood_and_color_tone": 0.4723709523677826,
-            "preference": 0.5888746976852417,
-            "spatial_accuracy": 0.013753926381468773,
-            "typography": 0.4849787652492523,
-            "visual_hierarchy": 0.4729888141155243
+            "color_accuracy": 0.9945418238639832,
+            "color_harmony": 0.5706766843795776,
+            "mood_and_color_tone": 0.47531887888908386,
+            "preference": 0.09932418912649155,
+            "spatial_accuracy": 0.00995485670864582,
+            "typography": 0.4295055568218231,
+            "visual_hierarchy": 0.49633798003196716
           }
         },
         {
           "candidate_a": "c4",
           "candidate_b": "c3",
           "probabilities": {
-            "color_accuracy": 0.47909069061279297,
-            "color_harmony": 0.5439525246620178,
-            "mood_and_color_tone": 0.4643738567829132,
-            "preference": 0.12171737849712372,
-            "spatial_accuracy": 0.11315962672233582,
-            "typography": 0.043246373534202576,
-            "visual_hierarchy": 0.4404180943965912
+            "color_accuracy": 0.6587805151939392,
+            "color_harmony": 0.5811957716941833,
+            "mood_and_color_tone": 0.509732186794281,
+            "preference": 0.39581558108329773,
+            "spatial_accuracy": 0.006410718429833651,
+            "typography": 0.40649664402008057,
+            "visual_hierarchy": 0.503670334815979
           }
         }
       ]
