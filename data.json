@@ -35,8 +35,8 @@
     "taste_scored": true,
     "selected_ordered_pairs": 252,
     "imscore_scored": true,
-    "ood_prompts": 4,
-    "ood_candidates": 16
+    "ood_prompts": 7,
+    "ood_candidates": 28
   },
   "score_explanation": "TASTE evaluates generated design images against human visual preferences across quality dimensions.",
   "evaluation": {
@@ -13301,72 +13301,72 @@
   },
   "ood_prompts": [
     {
-      "id": "ood-chart-infographic",
-      "title": "Technical chart / infographic probe",
+      "id": "ood-technical-chart",
+      "title": "Technical chart probe",
       "track": "ood",
-      "ood_type": "Technical chart / infographic",
+      "ood_type": "Technical chart",
       "focus_dimension": "preference",
       "dimension_label": "Preference",
-      "prompt": "User Intent: Create a clear, polished technical chart or infographic that communicates data trends, key performance indicators, and structured business insights. Description: The image should use chart elements, labels, legends, and a clean presentation layout rather than a social poster or campaign graphic.",
+      "prompt": "User Intent: Create a polished technical analytics chart for an executive report. Description: The image should center on real chart structure such as line charts, grouped bars, axes, legends, KPI callouts, and compact annotations. It should look like a clean data visualization slide, not a social media poster.",
       "candidates": [
         {
           "id": "c1",
           "label": "Candidate 1",
-          "asset": "assets/ood/chart-infographic/candidate-1.png",
+          "asset": "assets/ood/ood-technical-chart/candidate-1.png",
           "taste_scores": {
-            "preference": 0.4975458284219106
+            "preference": 0.5328875382741293
           },
           "imscore_scores": {
-            "hpsv21": 0.1882300227880478,
-            "pickscore": 20.00713348388672,
-            "clipscore": 28.625640869140625,
-            "imagereward": 0.24049587547779083,
-            "laion_aesthetic": 5.640485763549805
+            "hpsv21": 0.22869154810905457,
+            "pickscore": 20.863719940185547,
+            "clipscore": 28.353599548339844,
+            "imagereward": 0.608056366443634,
+            "laion_aesthetic": 5.433243751525879
           }
         },
         {
           "id": "c2",
           "label": "Candidate 2",
-          "asset": "assets/ood/chart-infographic/candidate-2.png",
+          "asset": "assets/ood/ood-technical-chart/candidate-2.png",
           "taste_scores": {
-            "preference": 0.4923367202281952
+            "preference": 0.5126761595408121
           },
           "imscore_scores": {
-            "hpsv21": 0.20868785679340363,
-            "pickscore": 20.187124252319336,
-            "clipscore": 27.952241897583008,
-            "imagereward": 0.10190926492214203,
-            "laion_aesthetic": 5.6953535079956055
+            "hpsv21": 0.23242875933647156,
+            "pickscore": 20.81211280822754,
+            "clipscore": 29.7613582611084,
+            "imagereward": 0.8737191557884216,
+            "laion_aesthetic": 5.40595817565918
           }
         },
         {
           "id": "c3",
           "label": "Candidate 3",
-          "asset": "assets/ood/chart-infographic/candidate-3.png",
+          "asset": "assets/ood/ood-technical-chart/candidate-3.png",
           "taste_scores": {
-            "preference": 0.50108070174853
+            "preference": 0.3849870264530182
           },
           "imscore_scores": {
-            "hpsv21": 0.20533668994903564,
-            "pickscore": 19.99127769470215,
-            "clipscore": 29.64716911315918,
-            "imagereward": 0.08217616379261017,
-            "laion_aesthetic": 5.5540995597839355
+            "hpsv21": 0.22064228355884552,
+            "pickscore": 20.972177505493164,
+            "clipscore": 27.991714477539062,
+            "imagereward": 0.7272636294364929,
+            "laion_aesthetic": 5.79293155670166
           }
         },
         {
           "id": "c4",
           "label": "Candidate 4",
-          "asset": "assets/ood/chart-infographic/candidate-4.png",
+          "asset": "assets/ood/ood-technical-chart/candidate-4.png",
           "taste_scores": {
-            "preference": 0.538201113541921
+            "preference": 0.5498648881912231
           },
           "imscore_scores": {
-            "hpsv21": 0.19154219329357147,
-            "pickscore": 20.17561912536621,
-            "clipscore": 28.65677833557129,
-            "imagereward": 0.05973399803042412,
-            "laion_aesthetic": 5.392072677612305
+            "hpsv21": 0.20313754677772522,
+            "pickscore": 19.752595901489258,
+            "clipscore": 26.915082931518555,
+            "imagereward": 0.28646111488342285,
+            "laion_aesthetic": 5.549348831176758
           }
         }
       ],
@@ -13375,155 +13375,155 @@
           "candidate_a": "c1",
           "candidate_b": "c2",
           "probabilities": {
-            "preference": 0.530289351940155
+            "preference": 0.5036972165107727
           }
         },
         {
           "candidate_a": "c1",
           "candidate_b": "c3",
           "probabilities": {
-            "preference": 0.5051892399787903
+            "preference": 0.6037654876708984
           }
         },
         {
           "candidate_a": "c1",
           "candidate_b": "c4",
           "probabilities": {
-            "preference": 0.4571588933467865
+            "preference": 0.49119991064071655
           }
         },
         {
           "candidate_a": "c2",
           "candidate_b": "c1",
           "probabilities": {
-            "preference": 0.4936011731624603
+            "preference": 0.3997049927711487
           }
         },
         {
           "candidate_a": "c2",
           "candidate_b": "c3",
           "probabilities": {
-            "preference": 0.4956322908401489
+            "preference": 0.6622025966644287
           }
         },
         {
           "candidate_a": "c2",
           "candidate_b": "c4",
           "probabilities": {
-            "preference": 0.4877766966819763
+            "preference": 0.47612088918685913
           }
         },
         {
           "candidate_a": "c3",
           "candidate_b": "c1",
           "probabilities": {
-            "preference": 0.5129610896110535
+            "preference": 0.3946571350097656
           }
         },
         {
           "candidate_a": "c3",
           "candidate_b": "c2",
           "probabilities": {
-            "preference": 0.5192241072654724
+            "preference": 0.349592924118042
           }
         },
         {
           "candidate_a": "c3",
           "candidate_b": "c4",
           "probabilities": {
-            "preference": 0.47105690836906433
+            "preference": 0.41071102023124695
           }
         },
         {
           "candidate_a": "c4",
           "candidate_b": "c1",
           "probabilities": {
-            "preference": 0.5391865372657776
+            "preference": 0.5201594233512878
           }
         },
         {
           "candidate_a": "c4",
           "candidate_b": "c2",
           "probabilities": {
-            "preference": 0.5379365682601929
+            "preference": 0.495217502117157
           }
         },
         {
           "candidate_a": "c4",
           "candidate_b": "c3",
           "probabilities": {
-            "preference": 0.5374802350997925
+            "preference": 0.6342177391052246
           }
         }
       ]
     },
     {
-      "id": "ood-photorealistic",
-      "title": "Photorealistic image probe",
+      "id": "ood-infographic",
+      "title": "Infographic probe",
       "track": "ood",
-      "ood_type": "Photorealistic image",
+      "ood_type": "Infographic",
       "focus_dimension": "preference",
       "dimension_label": "Preference",
-      "prompt": "User Intent: Evaluate a pure photorealistic image without typography, poster layout, or graphic design elements. Description: The image should look like a natural camera photograph with realistic lighting, depth, texture, and composition.",
+      "prompt": "User Intent: Create a clear educational infographic that explains a multi-step concept with visual hierarchy. Description: The image should use icons, numbered sections, arrows, callout blocks, and an organized explanatory layout rather than raw charts or a poster.",
       "candidates": [
         {
           "id": "c1",
           "label": "Candidate 1",
-          "asset": "assets/ood/photorealistic/candidate-1.jpg",
+          "asset": "assets/ood/ood-infographic/candidate-1.png",
           "taste_scores": {
-            "preference": 0.5749912758668264
+            "preference": 0.4817555447419484
           },
           "imscore_scores": {
-            "hpsv21": 0.19350039958953857,
-            "pickscore": 19.27781867980957,
-            "clipscore": 20.28195571899414,
-            "imagereward": -0.5164110660552979,
-            "laion_aesthetic": 5.514220237731934
+            "hpsv21": 0.1844380795955658,
+            "pickscore": 19.48874855041504,
+            "clipscore": 20.786027908325195,
+            "imagereward": 0.3480897545814514,
+            "laion_aesthetic": 5.315219879150391
           }
         },
         {
           "id": "c2",
           "label": "Candidate 2",
-          "asset": "assets/ood/photorealistic/candidate-2.jpg",
+          "asset": "assets/ood/ood-infographic/candidate-2.png",
           "taste_scores": {
-            "preference": 0.6564579010009766
+            "preference": 0.578962484995524
           },
           "imscore_scores": {
-            "hpsv21": 0.176092728972435,
-            "pickscore": 19.33895492553711,
-            "clipscore": 19.9713191986084,
-            "imagereward": -0.8520699739456177,
-            "laion_aesthetic": 6.042938232421875
+            "hpsv21": 0.2432679384946823,
+            "pickscore": 20.88423728942871,
+            "clipscore": 22.031328201293945,
+            "imagereward": 0.8035040497779846,
+            "laion_aesthetic": 5.961994647979736
           }
         },
         {
           "id": "c3",
           "label": "Candidate 3",
-          "asset": "assets/ood/photorealistic/candidate-3.jpg",
+          "asset": "assets/ood/ood-infographic/candidate-3.png",
           "taste_scores": {
-            "preference": 0.2634464353322983
+            "preference": 0.5035022795200348
           },
           "imscore_scores": {
-            "hpsv21": 0.17109982669353485,
-            "pickscore": 18.959272384643555,
-            "clipscore": 18.59857940673828,
-            "imagereward": -1.0208351612091064,
-            "laion_aesthetic": 5.611670017242432
+            "hpsv21": 0.23349402844905853,
+            "pickscore": 20.461484909057617,
+            "clipscore": 23.075931549072266,
+            "imagereward": 0.24863159656524658,
+            "laion_aesthetic": 5.7366228103637695
           }
         },
         {
           "id": "c4",
           "label": "Candidate 4",
-          "asset": "assets/ood/photorealistic/candidate-4.jpg",
+          "asset": "assets/ood/ood-infographic/candidate-4.png",
           "taste_scores": {
-            "preference": 0.5584399104118347
+            "preference": 0.3637635111808777
           },
           "imscore_scores": {
-            "hpsv21": 0.14251823723316193,
-            "pickscore": 18.49711036682129,
-            "clipscore": 17.776103973388672,
-            "imagereward": -0.7339928150177002,
-            "laion_aesthetic": 5.1936140060424805
+            "hpsv21": 0.19193896651268005,
+            "pickscore": 19.40765953063965,
+            "clipscore": 23.862171173095703,
+            "imagereward": 0.19196735322475433,
+            "laion_aesthetic": 5.23731803894043
           }
         }
       ],
@@ -13532,155 +13532,155 @@
           "candidate_a": "c1",
           "candidate_b": "c2",
           "probabilities": {
-            "preference": 0.48689958453178406
+            "preference": 0.32027217745780945
           }
         },
         {
           "candidate_a": "c1",
           "candidate_b": "c3",
           "probabilities": {
-            "preference": 0.6966485381126404
+            "preference": 0.47813886404037476
           }
         },
         {
           "candidate_a": "c1",
           "candidate_b": "c4",
           "probabilities": {
-            "preference": 0.5414257049560547
+            "preference": 0.6468555927276611
           }
         },
         {
           "candidate_a": "c2",
           "candidate_b": "c1",
           "probabilities": {
-            "preference": 0.6265138983726501
+            "preference": 0.5276336669921875
           }
         },
         {
           "candidate_a": "c2",
           "candidate_b": "c3",
           "probabilities": {
-            "preference": 0.6858364343643188
+            "preference": 0.5475015640258789
           }
         },
         {
           "candidate_a": "c2",
           "candidate_b": "c4",
           "probabilities": {
-            "preference": 0.6570233702659607
+            "preference": 0.6617522239685059
           }
         },
         {
           "candidate_a": "c3",
           "candidate_b": "c1",
           "probabilities": {
-            "preference": 0.09764494001865387
+            "preference": 0.5237134695053101
           }
         },
         {
           "candidate_a": "c3",
           "candidate_b": "c2",
           "probabilities": {
-            "preference": 0.23151648044586182
+            "preference": 0.3557003438472748
           }
         },
         {
           "candidate_a": "c3",
           "candidate_b": "c4",
           "probabilities": {
-            "preference": 0.46117788553237915
+            "preference": 0.6310930252075195
           }
         },
         {
           "candidate_a": "c4",
           "candidate_b": "c1",
           "probabilities": {
-            "preference": 0.5208398699760437
+            "preference": 0.3629697263240814
           }
         },
         {
           "candidate_a": "c4",
           "candidate_b": "c2",
           "probabilities": {
-            "preference": 0.48077392578125
+            "preference": 0.35570722818374634
           }
         },
         {
           "candidate_a": "c4",
           "candidate_b": "c3",
           "probabilities": {
-            "preference": 0.6737059354782104
+            "preference": 0.3726135790348053
           }
         }
       ]
     },
     {
-      "id": "ood-mobile-ui",
-      "title": "Mobile app UI screen probe",
+      "id": "ood-mobile-finance",
+      "title": "Mobile app UI screen probe: finance",
       "track": "ood",
       "ood_type": "Mobile app UI screen",
       "focus_dimension": "preference",
       "dimension_label": "Preference",
-      "prompt": "User Intent: Create a modern mobile app screen with clear hierarchy, navigation, cards, call-to-action, and polished product UI. Description: The image should resemble a real app screenshot or onboarding screen rather than a social media post.",
+      "prompt": "User Intent: Create a modern mobile finance app screen for tracking savings and spending. Description: The image should resemble a real app screenshot with navigation, cards, charts, balance summary, and a clear call-to-action.",
       "candidates": [
         {
           "id": "c1",
           "label": "Candidate 1",
-          "asset": "assets/ood/mobile-ui/candidate-1.png",
+          "asset": "assets/ood/ood-mobile-finance/candidate-1.png",
           "taste_scores": {
-            "preference": 0.4773426055908203
+            "preference": 0.5284134646256765
           },
           "imscore_scores": {
-            "hpsv21": 0.20940646529197693,
-            "pickscore": 20.512630462646484,
-            "clipscore": 27.636945724487305,
-            "imagereward": -0.0069704861380159855,
-            "laion_aesthetic": 4.999642372131348
+            "hpsv21": 0.24930115044116974,
+            "pickscore": 22.65144157409668,
+            "clipscore": 34.75833511352539,
+            "imagereward": 0.8575413227081299,
+            "laion_aesthetic": 5.43396520614624
           }
         },
         {
           "id": "c2",
           "label": "Candidate 2",
-          "asset": "assets/ood/mobile-ui/candidate-2.png",
+          "asset": "assets/ood/ood-mobile-finance/candidate-2.png",
           "taste_scores": {
-            "preference": 0.5812651117642721
+            "preference": 0.5772212545077006
           },
           "imscore_scores": {
-            "hpsv21": 0.20771905779838562,
-            "pickscore": 20.330080032348633,
-            "clipscore": 28.892635345458984,
-            "imagereward": -0.05563918873667717,
-            "laion_aesthetic": 5.198331832885742
+            "hpsv21": 0.25088584423065186,
+            "pickscore": 22.079479217529297,
+            "clipscore": 34.12397003173828,
+            "imagereward": 0.8929687738418579,
+            "laion_aesthetic": 5.112024784088135
           }
         },
         {
           "id": "c3",
           "label": "Candidate 3",
-          "asset": "assets/ood/mobile-ui/candidate-3.png",
+          "asset": "assets/ood/ood-mobile-finance/candidate-3.png",
           "taste_scores": {
-            "preference": 0.338911771774292
+            "preference": 0.6106741627057394
           },
           "imscore_scores": {
-            "hpsv21": 0.2174246609210968,
-            "pickscore": 20.20520782470703,
-            "clipscore": 27.261701583862305,
-            "imagereward": -0.017030369490385056,
-            "laion_aesthetic": 5.183610916137695
+            "hpsv21": 0.2645938992500305,
+            "pickscore": 22.619625091552734,
+            "clipscore": 29.6014347076416,
+            "imagereward": 0.9103413820266724,
+            "laion_aesthetic": 5.658689498901367
           }
         },
         {
           "id": "c4",
           "label": "Candidate 4",
-          "asset": "assets/ood/mobile-ui/candidate-4.png",
+          "asset": "assets/ood/ood-mobile-finance/candidate-4.png",
           "taste_scores": {
-            "preference": 0.45917458335558575
+            "preference": 0.3383327126502991
           },
           "imscore_scores": {
-            "hpsv21": 0.2194371223449707,
-            "pickscore": 20.72812271118164,
-            "clipscore": 30.554649353027344,
-            "imagereward": 0.013538917526602745,
-            "laion_aesthetic": 5.255346775054932
+            "hpsv21": 0.24031402170658112,
+            "pickscore": 21.725318908691406,
+            "clipscore": 29.493621826171875,
+            "imagereward": 0.24089393019676208,
+            "laion_aesthetic": 5.486677169799805
           }
         }
       ],
@@ -13689,84 +13689,555 @@
           "candidate_a": "c1",
           "candidate_b": "c2",
           "probabilities": {
-            "preference": 0.3964617848396301
+            "preference": 0.5063876509666443
           }
         },
         {
           "candidate_a": "c1",
           "candidate_b": "c3",
           "probabilities": {
-            "preference": 0.527052640914917
+            "preference": 0.47753438353538513
           }
         },
         {
           "candidate_a": "c1",
           "candidate_b": "c4",
           "probabilities": {
-            "preference": 0.5085133910179138
+            "preference": 0.601318359375
           }
         },
         {
           "candidate_a": "c2",
           "candidate_b": "c1",
           "probabilities": {
-            "preference": 0.5925260782241821
+            "preference": 0.5671290159225464
           }
         },
         {
           "candidate_a": "c2",
           "candidate_b": "c3",
           "probabilities": {
-            "preference": 0.6161379814147949
+            "preference": 0.5168954730033875
           }
         },
         {
           "candidate_a": "c2",
           "candidate_b": "c4",
           "probabilities": {
-            "preference": 0.5351312756538391
+            "preference": 0.647639274597168
           }
         },
         {
           "candidate_a": "c3",
           "candidate_b": "c1",
           "probabilities": {
-            "preference": 0.35569125413894653
+            "preference": 0.6605021357536316
           }
         },
         {
           "candidate_a": "c3",
           "candidate_b": "c2",
           "probabilities": {
-            "preference": 0.1953919231891632
+            "preference": 0.542802095413208
           }
         },
         {
           "candidate_a": "c3",
           "candidate_b": "c4",
           "probabilities": {
-            "preference": 0.46565213799476624
+            "preference": 0.6287182569503784
           }
         },
         {
           "candidate_a": "c4",
           "candidate_b": "c1",
           "probabilities": {
-            "preference": 0.5083613395690918
+            "preference": 0.4056454598903656
           }
         },
         {
           "candidate_a": "c4",
           "candidate_b": "c2",
           "probabilities": {
-            "preference": 0.36837151646614075
+            "preference": 0.3400152623653412
           }
         },
         {
           "candidate_a": "c4",
           "candidate_b": "c3",
           "probabilities": {
-            "preference": 0.5007908940315247
+            "preference": 0.26933741569519043
+          }
+        }
+      ]
+    },
+    {
+      "id": "ood-mobile-travel",
+      "title": "Mobile app UI screen probe: travel",
+      "track": "ood",
+      "ood_type": "Mobile app UI screen",
+      "focus_dimension": "preference",
+      "dimension_label": "Preference",
+      "prompt": "User Intent: Create a modern mobile travel planning app screen for an upcoming trip. Description: The image should resemble a real app screenshot with itinerary cards, map preview, booking status, and useful navigation.",
+      "candidates": [
+        {
+          "id": "c1",
+          "label": "Candidate 1",
+          "asset": "assets/ood/ood-mobile-travel/candidate-1.png",
+          "taste_scores": {
+            "preference": 0.5330415070056915
+          },
+          "imscore_scores": {
+            "hpsv21": 0.2692262828350067,
+            "pickscore": 22.09209442138672,
+            "clipscore": 29.919750213623047,
+            "imagereward": 0.725757360458374,
+            "laion_aesthetic": 5.4589433670043945
+          }
+        },
+        {
+          "id": "c2",
+          "label": "Candidate 2",
+          "asset": "assets/ood/ood-mobile-travel/candidate-2.png",
+          "taste_scores": {
+            "preference": 0.5017678240935007
+          },
+          "imscore_scores": {
+            "hpsv21": 0.25185680389404297,
+            "pickscore": 21.86422348022461,
+            "clipscore": 29.48370361328125,
+            "imagereward": 0.5612713098526001,
+            "laion_aesthetic": 5.880023002624512
+          }
+        },
+        {
+          "id": "c3",
+          "label": "Candidate 3",
+          "asset": "assets/ood/ood-mobile-travel/candidate-3.png",
+          "taste_scores": {
+            "preference": 0.5367954274018606
+          },
+          "imscore_scores": {
+            "hpsv21": 0.26281648874282837,
+            "pickscore": 21.300317764282227,
+            "clipscore": 32.00237274169922,
+            "imagereward": 0.14114169776439667,
+            "laion_aesthetic": 5.619703769683838
+          }
+        },
+        {
+          "id": "c4",
+          "label": "Candidate 4",
+          "asset": "assets/ood/ood-mobile-travel/candidate-4.png",
+          "taste_scores": {
+            "preference": 0.5138037204742432
+          },
+          "imscore_scores": {
+            "hpsv21": 0.24359086155891418,
+            "pickscore": 22.105953216552734,
+            "clipscore": 29.515764236450195,
+            "imagereward": 0.3561743497848511,
+            "laion_aesthetic": 5.597546577453613
+          }
+        }
+      ],
+      "taste_ordered_pair_scores": [
+        {
+          "candidate_a": "c1",
+          "candidate_b": "c2",
+          "probabilities": {
+            "preference": 0.49447330832481384
+          }
+        },
+        {
+          "candidate_a": "c1",
+          "candidate_b": "c3",
+          "probabilities": {
+            "preference": 0.5346043109893799
+          }
+        },
+        {
+          "candidate_a": "c1",
+          "candidate_b": "c4",
+          "probabilities": {
+            "preference": 0.5700469017028809
+          }
+        },
+        {
+          "candidate_a": "c2",
+          "candidate_b": "c1",
+          "probabilities": {
+            "preference": 0.42026665806770325
+          }
+        },
+        {
+          "candidate_a": "c2",
+          "candidate_b": "c3",
+          "probabilities": {
+            "preference": 0.5187568068504333
+          }
+        },
+        {
+          "candidate_a": "c2",
+          "candidate_b": "c4",
+          "probabilities": {
+            "preference": 0.5662800073623657
+          }
+        },
+        {
+          "candidate_a": "c3",
+          "candidate_b": "c1",
+          "probabilities": {
+            "preference": 0.49853256344795227
+          }
+        },
+        {
+          "candidate_a": "c3",
+          "candidate_b": "c2",
+          "probabilities": {
+            "preference": 0.628743052482605
+          }
+        },
+        {
+          "candidate_a": "c3",
+          "candidate_b": "c4",
+          "probabilities": {
+            "preference": 0.4831106662750244
+          }
+        },
+        {
+          "candidate_a": "c4",
+          "candidate_b": "c1",
+          "probabilities": {
+            "preference": 0.5522266030311584
+          }
+        },
+        {
+          "candidate_a": "c4",
+          "candidate_b": "c2",
+          "probabilities": {
+            "preference": 0.5265867114067078
+          }
+        },
+        {
+          "candidate_a": "c4",
+          "candidate_b": "c3",
+          "probabilities": {
+            "preference": 0.4625978469848633
+          }
+        }
+      ]
+    },
+    {
+      "id": "ood-photo-product",
+      "title": "Photorealistic image probe: product",
+      "track": "ood",
+      "ood_type": "Photorealistic image",
+      "focus_dimension": "preference",
+      "dimension_label": "Preference",
+      "prompt": "User Intent: Evaluate a pure photorealistic product image without typography, poster layout, or graphic design elements. Description: The image should look like a natural camera photograph with realistic lighting, material texture, depth of field, and composition.",
+      "candidates": [
+        {
+          "id": "c1",
+          "label": "Candidate 1",
+          "asset": "assets/ood/ood-photo-product/candidate-1.png",
+          "taste_scores": {
+            "preference": 0.5735403895378113
+          },
+          "imscore_scores": {
+            "hpsv21": 0.21188494563102722,
+            "pickscore": 20.745866775512695,
+            "clipscore": 23.969038009643555,
+            "imagereward": -0.3531824052333832,
+            "laion_aesthetic": 5.655645370483398
+          }
+        },
+        {
+          "id": "c2",
+          "label": "Candidate 2",
+          "asset": "assets/ood/ood-photo-product/candidate-2.png",
+          "taste_scores": {
+            "preference": 0.581300675868988
+          },
+          "imscore_scores": {
+            "hpsv21": 0.2083369493484497,
+            "pickscore": 20.6363525390625,
+            "clipscore": 23.546146392822266,
+            "imagereward": -0.2165527641773224,
+            "laion_aesthetic": 5.488536834716797
+          }
+        },
+        {
+          "id": "c3",
+          "label": "Candidate 3",
+          "asset": "assets/ood/ood-photo-product/candidate-3.png",
+          "taste_scores": {
+            "preference": 0.29133743047714233
+          },
+          "imscore_scores": {
+            "hpsv21": 0.19705307483673096,
+            "pickscore": 20.253448486328125,
+            "clipscore": 22.026927947998047,
+            "imagereward": -0.18301941454410553,
+            "laion_aesthetic": 5.827075958251953
+          }
+        },
+        {
+          "id": "c4",
+          "label": "Candidate 4",
+          "asset": "assets/ood/ood-photo-product/candidate-4.png",
+          "taste_scores": {
+            "preference": 0.49346886078516644
+          },
+          "imscore_scores": {
+            "hpsv21": 0.24032549560070038,
+            "pickscore": 20.761899948120117,
+            "clipscore": 24.745264053344727,
+            "imagereward": -0.33075109124183655,
+            "laion_aesthetic": 5.925251483917236
+          }
+        }
+      ],
+      "taste_ordered_pair_scores": [
+        {
+          "candidate_a": "c1",
+          "candidate_b": "c2",
+          "probabilities": {
+            "preference": 0.5060404539108276
+          }
+        },
+        {
+          "candidate_a": "c1",
+          "candidate_b": "c3",
+          "probabilities": {
+            "preference": 0.6700838208198547
+          }
+        },
+        {
+          "candidate_a": "c1",
+          "candidate_b": "c4",
+          "probabilities": {
+            "preference": 0.5444968938827515
+          }
+        },
+        {
+          "candidate_a": "c2",
+          "candidate_b": "c1",
+          "probabilities": {
+            "preference": 0.496379554271698
+          }
+        },
+        {
+          "candidate_a": "c2",
+          "candidate_b": "c3",
+          "probabilities": {
+            "preference": 0.6497090458869934
+          }
+        },
+        {
+          "candidate_a": "c2",
+          "candidate_b": "c4",
+          "probabilities": {
+            "preference": 0.5978134274482727
+          }
+        },
+        {
+          "candidate_a": "c3",
+          "candidate_b": "c1",
+          "probabilities": {
+            "preference": 0.37143969535827637
+          }
+        },
+        {
+          "candidate_a": "c3",
+          "candidate_b": "c2",
+          "probabilities": {
+            "preference": 0.40759989619255066
+          }
+        },
+        {
+          "candidate_a": "c3",
+          "candidate_b": "c4",
+          "probabilities": {
+            "preference": 0.09497269988059998
+          }
+        },
+        {
+          "candidate_a": "c4",
+          "candidate_b": "c1",
+          "probabilities": {
+            "preference": 0.4204598665237427
+          }
+        },
+        {
+          "candidate_a": "c4",
+          "candidate_b": "c2",
+          "probabilities": {
+            "preference": 0.4352610111236572
+          }
+        },
+        {
+          "candidate_a": "c4",
+          "candidate_b": "c3",
+          "probabilities": {
+            "preference": 0.6246857047080994
+          }
+        }
+      ]
+    },
+    {
+      "id": "ood-photo-interior",
+      "title": "Photorealistic image probe: interior",
+      "track": "ood",
+      "ood_type": "Photorealistic image",
+      "focus_dimension": "preference",
+      "dimension_label": "Preference",
+      "prompt": "User Intent: Evaluate a pure photorealistic interior image without typography, poster layout, or graphic design elements. Description: The image should look like a natural camera photograph with realistic spatial lighting, textures, depth, and composition.",
+      "candidates": [
+        {
+          "id": "c1",
+          "label": "Candidate 1",
+          "asset": "assets/ood/ood-photo-interior/candidate-1.png",
+          "taste_scores": {
+            "preference": 0.5412701368331909
+          },
+          "imscore_scores": {
+            "hpsv21": 0.22328922152519226,
+            "pickscore": 20.234331130981445,
+            "clipscore": 22.179039001464844,
+            "imagereward": -0.4508005976676941,
+            "laion_aesthetic": 5.458118438720703
+          }
+        },
+        {
+          "id": "c2",
+          "label": "Candidate 2",
+          "asset": "assets/ood/ood-photo-interior/candidate-2.png",
+          "taste_scores": {
+            "preference": 0.4783947765827179
+          },
+          "imscore_scores": {
+            "hpsv21": 0.26205578446388245,
+            "pickscore": 21.452714920043945,
+            "clipscore": 24.430456161499023,
+            "imagereward": -0.19692708551883698,
+            "laion_aesthetic": 5.658492565155029
+          }
+        },
+        {
+          "id": "c3",
+          "label": "Candidate 3",
+          "asset": "assets/ood/ood-photo-interior/candidate-3.png",
+          "taste_scores": {
+            "preference": 0.5276061495145162
+          },
+          "imscore_scores": {
+            "hpsv21": 0.22106072306632996,
+            "pickscore": 19.38153648376465,
+            "clipscore": 20.701383590698242,
+            "imagereward": -0.3067012131214142,
+            "laion_aesthetic": 5.623394012451172
+          }
+        },
+        {
+          "id": "c4",
+          "label": "Candidate 4",
+          "asset": "assets/ood/ood-photo-interior/candidate-4.png",
+          "taste_scores": {
+            "preference": 0.48312807083129883
+          },
+          "imscore_scores": {
+            "hpsv21": 0.2417951077222824,
+            "pickscore": 20.668533325195312,
+            "clipscore": 23.931678771972656,
+            "imagereward": -0.1431954950094223,
+            "laion_aesthetic": 5.584437370300293
+          }
+        }
+      ],
+      "taste_ordered_pair_scores": [
+        {
+          "candidate_a": "c1",
+          "candidate_b": "c2",
+          "probabilities": {
+            "preference": 0.5346119403839111
+          }
+        },
+        {
+          "candidate_a": "c1",
+          "candidate_b": "c3",
+          "probabilities": {
+            "preference": 0.5723368525505066
+          }
+        },
+        {
+          "candidate_a": "c1",
+          "candidate_b": "c4",
+          "probabilities": {
+            "preference": 0.516861617565155
+          }
+        },
+        {
+          "candidate_a": "c2",
+          "candidate_b": "c1",
+          "probabilities": {
+            "preference": 0.4512421488761902
+          }
+        },
+        {
+          "candidate_a": "c2",
+          "candidate_b": "c3",
+          "probabilities": {
+            "preference": 0.4888139069080353
+          }
+        },
+        {
+          "candidate_a": "c2",
+          "candidate_b": "c4",
+          "probabilities": {
+            "preference": 0.4951282739639282
+          }
+        },
+        {
+          "candidate_a": "c3",
+          "candidate_b": "c1",
+          "probabilities": {
+            "preference": 0.469532310962677
+          }
+        },
+        {
+          "candidate_a": "c3",
+          "candidate_b": "c2",
+          "probabilities": {
+            "preference": 0.5482617616653442
+          }
+        },
+        {
+          "candidate_a": "c3",
+          "candidate_b": "c4",
+          "probabilities": {
+            "preference": 0.5650243759155273
+          }
+        },
+        {
+          "candidate_a": "c4",
+          "candidate_b": "c1",
+          "probabilities": {
+            "preference": 0.4312981367111206
+          }
+        },
+        {
+          "candidate_a": "c4",
+          "candidate_b": "c2",
+          "probabilities": {
+            "preference": 0.5012130737304688
+          }
+        },
+        {
+          "candidate_a": "c4",
+          "candidate_b": "c3",
+          "probabilities": {
+            "preference": 0.5168730020523071
           }
         }
       ]
@@ -13778,21 +14249,21 @@
       "ood_type": "SVG complex vector illustration",
       "focus_dimension": "preference",
       "dimension_label": "Preference",
-      "prompt": "User Intent: Recreate a complex vector illustration. Description: This is a simple, grayscale cartoon illustration of an animal cell, outlined in white against a transparent background. The cell's gray cytoplasm contains a prominent white nucleus with a darker central nucleolus, alongside various organelles rendered in shades of white and light gray. These include wavy mitochondria, folded endoplasmic reticulum with tiny white dots representing ribosomes, star-shaped structures, and several circular vesicles.",
+      "prompt": "User Intent: Recreate a complex vector illustration. Description: The image displays a cheerful person, likely a student, wearing yellow headphones and a yellow t-shirt, enthusiastically raising their right hand from within a virtual computer screen. Rendered in a flat, vector art style with bold black outlines, the smiling individual is seated at a desk with a stack of papers and a pencil, all framed by a light purple screen with three small black dots representing window controls. The areas outside the screen are transparent, highlighting the interactive online learning scenario.",
       "candidates": [
         {
           "id": "c1",
           "label": "Candidate 1",
           "asset": "assets/ood/svg-complex/candidate-1.png",
           "taste_scores": {
-            "preference": 0.3582180589437485
+            "preference": 0.7792046070098877
           },
           "imscore_scores": {
-            "hpsv21": 0.22576262056827545,
-            "pickscore": 22.645296096801758,
-            "clipscore": 33.936100006103516,
-            "imagereward": 0.23885898292064667,
-            "laion_aesthetic": 4.9093852043151855
+            "hpsv21": 0.28136518597602844,
+            "pickscore": 22.72087287902832,
+            "clipscore": 31.5859432220459,
+            "imagereward": 1.0804678201675415,
+            "laion_aesthetic": 5.020501136779785
           }
         },
         {
@@ -13800,14 +14271,14 @@
           "label": "Candidate 2",
           "asset": "assets/ood/svg-complex/candidate-2.png",
           "taste_scores": {
-            "preference": 0.4604095220565796
+            "preference": 0.5644757648309072
           },
           "imscore_scores": {
-            "hpsv21": 0.20055530965328217,
-            "pickscore": 21.495662689208984,
-            "clipscore": 34.38475036621094,
-            "imagereward": -0.17539435625076294,
-            "laion_aesthetic": 4.79383659362793
+            "hpsv21": 0.21996526420116425,
+            "pickscore": 20.246675491333008,
+            "clipscore": 24.859704971313477,
+            "imagereward": -0.07521691918373108,
+            "laion_aesthetic": 5.159094333648682
           }
         },
         {
@@ -13815,14 +14286,14 @@
           "label": "Candidate 3",
           "asset": "assets/ood/svg-complex/candidate-3.png",
           "taste_scores": {
-            "preference": 0.5589205423990885
+            "preference": 0.5795153180758158
           },
           "imscore_scores": {
-            "hpsv21": 0.21596401929855347,
-            "pickscore": 21.494874954223633,
-            "clipscore": 33.455841064453125,
-            "imagereward": 0.14012160897254944,
-            "laion_aesthetic": 4.7589311599731445
+            "hpsv21": 0.271190881729126,
+            "pickscore": 21.651105880737305,
+            "clipscore": 27.226205825805664,
+            "imagereward": 0.16728606820106506,
+            "laion_aesthetic": 5.447617530822754
           }
         },
         {
@@ -13830,14 +14301,14 @@
           "label": "Candidate 4",
           "asset": "assets/ood/svg-complex/candidate-4.png",
           "taste_scores": {
-            "preference": 0.48883409301439923
+            "preference": 0.5793949166933695
           },
           "imscore_scores": {
-            "hpsv21": 0.20621322095394135,
-            "pickscore": 21.37007713317871,
-            "clipscore": 30.04828643798828,
-            "imagereward": -0.8830506205558777,
-            "laion_aesthetic": 4.825889587402344
+            "hpsv21": 0.20441590249538422,
+            "pickscore": 20.204483032226562,
+            "clipscore": 29.9129638671875,
+            "imagereward": -1.1473191976547241,
+            "laion_aesthetic": 5.206816673278809
           }
         }
       ],
@@ -13846,84 +14317,84 @@
           "candidate_a": "c1",
           "candidate_b": "c2",
           "probabilities": {
-            "preference": 0.5436947345733643
+            "preference": 0.5357124209403992
           }
         },
         {
           "candidate_a": "c1",
           "candidate_b": "c3",
           "probabilities": {
-            "preference": 0.12529541552066803
+            "preference": 0.9420120716094971
           }
         },
         {
           "candidate_a": "c1",
           "candidate_b": "c4",
           "probabilities": {
-            "preference": 0.40566402673721313
+            "preference": 0.8598893284797668
           }
         },
         {
           "candidate_a": "c2",
           "candidate_b": "c1",
           "probabilities": {
-            "preference": 0.5834339261054993
+            "preference": 0.4618758261203766
           }
         },
         {
           "candidate_a": "c2",
           "candidate_b": "c3",
           "probabilities": {
-            "preference": 0.3256867229938507
+            "preference": 0.6548274159431458
           }
         },
         {
           "candidate_a": "c2",
           "candidate_b": "c4",
           "probabilities": {
-            "preference": 0.4721079170703888
+            "preference": 0.5767240524291992
           }
         },
         {
           "candidate_a": "c3",
           "candidate_b": "c1",
           "probabilities": {
-            "preference": 0.5713777542114258
+            "preference": 0.5474929809570312
           }
         },
         {
           "candidate_a": "c3",
           "candidate_b": "c2",
           "probabilities": {
-            "preference": 0.501791775226593
+            "preference": 0.5360024571418762
           }
         },
         {
           "candidate_a": "c3",
           "candidate_b": "c4",
           "probabilities": {
-            "preference": 0.6035920977592468
+            "preference": 0.65505051612854
           }
         },
         {
           "candidate_a": "c4",
           "candidate_b": "c1",
           "probabilities": {
-            "preference": 0.5362065434455872
+            "preference": 0.5062463283538818
           }
         },
         {
           "candidate_a": "c4",
           "candidate_b": "c2",
           "probabilities": {
-            "preference": 0.4681531488895416
+            "preference": 0.5460320115089417
           }
         },
         {
           "candidate_a": "c4",
           "candidate_b": "c3",
           "probabilities": {
-            "preference": 0.46214258670806885
+            "preference": 0.6859064102172852
           }
         }
       ]

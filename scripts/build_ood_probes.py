@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import base64
+import concurrent.futures as futures
 import json
 import os
 import shutil
@@ -33,6 +34,13 @@ IMSCORE_LABELS = {
     "imagereward": "ImageReward",
     "laion_aesthetic": "LAION aesthetic",
 }
+
+IMAGE_MODEL_SPECS = [
+    {"id": "gpt-image-1.5", "provider": "openai", "model": "gpt-image-1.5"},
+    {"id": "gpt-image-2", "provider": "openai", "model": "gpt-image-2"},
+    {"id": "nano-banana-pro", "provider": "gemini", "model": "gemini-3.1-flash-image-preview"},
+    {"id": "flux-schnell", "provider": "fal", "model": "fal-ai/flux/schnell"},
+]
 
 
 def font(size: int, bold: bool = False) -> ImageFont.FreeTypeFont | ImageFont.ImageFont:
@@ -158,7 +166,7 @@ def download_photo_assets() -> list[dict[str, Any]]:
     return candidates
 
 
-def svg_complex_candidates(group_id: str = "2e9fa887-7a3b-49d5-a23f-91b7176270c1") -> tuple[str, list[dict[str, Any]]]:
+def svg_complex_candidates(group_id: str = "67a03c90-832f-44c7-a3f7-fedf874e940c") -> tuple[str, list[dict[str, Any]]]:
     asset_dir = OOD_ASSET_DIR / "svg-complex"
     asset_dir.mkdir(parents=True, exist_ok=True)
     rows = []
@@ -190,9 +198,167 @@ def load_prod_env(path: Path = PROD_ENV_PATH) -> None:
     if not path.exists():
         return
     data = yaml.safe_load(path.read_text()) or {}
+    root = path.parent
     for key, value in (data.get("env_variables") or {}).items():
-        if value is not None:
-            os.environ.setdefault(key, str(value))
+        if value is None:
+            continue
+        text = str(value)
+        if key == "GOOGLE_APPLICATION_CREDENTIALS" and not text.startswith("/"):
+            text = str(root / text)
+        if key == "GOOGLE_APPLICATION_CREDENTIALS":
+            existing = os.environ.get(key)
+            if not existing or not Path(existing).exists():
+                os.environ[key] = text
+        else:
+            os.environ.setdefault(key, text)
+    if os.environ.get("GCP_PROJECT"):
+        os.environ.setdefault("GOOGLE_CLOUD_PROJECT", os.environ["GCP_PROJECT"])
+
+
+def save_generated_image(image_bytes: bytes, output_path: Path) -> None:
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    with Image.open(BytesIO(image_bytes)) as image:
+        image.convert("RGB").save(output_path, format="PNG")
+
+
+def generate_openai_image(prompt: str, output_path: Path, model: str, *, size: str = "1024x1024") -> None:
+    from openai import OpenAI
+
+    client = OpenAI(api_key=os.environ["OPENAI_API_KEY"], timeout=300.0)
+    response = client.images.generate(model=model, prompt=prompt, size=size)
+    item = response.data[0]
+    if getattr(item, "b64_json", None):
+        save_generated_image(base64.b64decode(item.b64_json), output_path)
+        return
+    if getattr(item, "url", None):
+        image_response = requests.get(item.url, timeout=120)
+        image_response.raise_for_status()
+        save_generated_image(image_response.content, output_path)
+        return
+    raise RuntimeError(f"No image payload returned by {model}.")
+
+
+def generate_gemini_image(prompt: str, output_path: Path, model: str) -> None:
+    from google import genai
+    from google.genai import types
+
+    client = genai.Client(
+        vertexai=True,
+        project=os.getenv("GOOGLE_CLOUD_PROJECT", "lica-398204"),
+        location=os.getenv("GOOGLE_CLOUD_LOCATION", "global"),
+    )
+    configs = [
+        types.GenerateContentConfig(
+            response_modalities=["IMAGE"],
+            image_config=types.ImageConfig(aspect_ratio="1:1", image_size="1K"),
+        ),
+        types.GenerateContentConfig(response_modalities=["IMAGE"]),
+    ]
+    last_error: Exception | None = None
+    for config in configs:
+        try:
+            response = client.models.generate_content(model=model, contents=[prompt], config=config)
+            for candidate in getattr(response, "candidates", []) or []:
+                content = getattr(candidate, "content", None)
+                for part in getattr(content, "parts", None) or []:
+                    inline = getattr(part, "inline_data", None) or getattr(part, "inlineData", None)
+                    data = getattr(inline, "data", None) if inline is not None else None
+                    if data:
+                        image_bytes = base64.b64decode(data) if isinstance(data, str) else bytes(data)
+                        save_generated_image(image_bytes, output_path)
+                        return
+            raise RuntimeError(f"No image payload returned by {model}.")
+        except Exception as exc:
+            last_error = exc
+    raise RuntimeError(f"Gemini image generation failed: {last_error!r}")
+
+
+def extract_image_url(payload: Any) -> str:
+    if isinstance(payload, dict):
+        for key in ("url", "image_url"):
+            value = payload.get(key)
+            if isinstance(value, str) and value.startswith("http"):
+                return value
+        for key in ("images", "image", "data", "output", "results"):
+            value = payload.get(key)
+            if isinstance(value, str) and value.startswith("http"):
+                return value
+            if isinstance(value, list):
+                for item in value:
+                    try:
+                        return extract_image_url(item)
+                    except ValueError:
+                        pass
+            if isinstance(value, dict):
+                try:
+                    return extract_image_url(value)
+                except ValueError:
+                    pass
+    if isinstance(payload, list):
+        for item in payload:
+            try:
+                return extract_image_url(item)
+            except ValueError:
+                pass
+    raise ValueError(f"No image URL found in payload keys: {list(payload) if isinstance(payload, dict) else type(payload)}")
+
+
+def generate_fal_image(prompt: str, output_path: Path, model: str) -> None:
+    api_key = os.environ["FAL_KEY"]
+    response = requests.post(
+        f"https://fal.run/{model}",
+        headers={"Authorization": f"Key {api_key}", "Content-Type": "application/json"},
+        json={"prompt": prompt, "image_size": "square_hd", "num_images": 1},
+        timeout=300,
+    )
+    response.raise_for_status()
+    image_url = extract_image_url(response.json())
+    image_response = requests.get(image_url, timeout=120)
+    image_response.raise_for_status()
+    save_generated_image(image_response.content, output_path)
+
+
+def generate_image_with_model(prompt: str, output_path: Path, spec: dict[str, str]) -> None:
+    if spec["provider"] == "openai":
+        generate_openai_image(prompt, output_path, spec["model"])
+        return
+    if spec["provider"] == "gemini":
+        generate_gemini_image(prompt, output_path, spec["model"])
+        return
+    if spec["provider"] == "fal":
+        generate_fal_image(prompt, output_path, spec["model"])
+        return
+    raise ValueError(f"Unsupported image provider: {spec['provider']}")
+
+
+def generate_image_candidates(probe_id: str, generation_prompt: str, *, size: str = "1024x1024") -> list[dict[str, Any]]:
+    asset_dir = OOD_ASSET_DIR / probe_id
+    candidates: list[dict[str, Any] | None] = [None] * len(IMAGE_MODEL_SPECS)
+
+    def generate_one(index: int, spec: dict[str, str]) -> tuple[int, dict[str, Any]]:
+        output_path = asset_dir / f"candidate-{index}.png"
+        candidate_prompt = (
+            f"{generation_prompt}\n\n"
+            f"Create this as candidate {index} of 4. Keep it visually distinct from the other candidates. "
+            "Do not add watermarks, signatures, UI chrome, or explanatory text outside the intended design."
+        )
+        generate_image_with_model(candidate_prompt, output_path, spec)
+        print(f"generated {probe_id} candidate {index} with {spec['id']}", flush=True)
+        return index - 1, {
+            "id": f"c{index}",
+            "label": f"Candidate {index}",
+            "asset": str(output_path.relative_to(PROJECT)),
+        }
+
+    with futures.ThreadPoolExecutor(max_workers=len(IMAGE_MODEL_SPECS)) as executor:
+        future_map = {
+            executor.submit(generate_one, index, spec): spec
+            for index, spec in enumerate(IMAGE_MODEL_SPECS, start=1)
+        }
+        for future in futures.as_completed(future_map):
+            index, candidate = future.result()
+            candidates[index] = candidate
+    return [candidate for candidate in candidates if candidate is not None]
 
 
 def image_data_uri(path: Path) -> str:
@@ -295,47 +461,103 @@ def build_ood_prompts() -> list[dict[str, Any]]:
     OOD_ASSET_DIR.mkdir(parents=True, exist_ok=True)
 
     svg_prompt, svg_candidates = svg_complex_candidates()
-    return [
+    image_probe_specs = [
         {
-            "id": "ood-chart-infographic",
-            "title": "Technical chart / infographic probe",
-            "track": "ood",
-            "ood_type": "Technical chart / infographic",
-            "focus_dimension": "preference",
-            "dimension_label": "Preference",
+            "id": "ood-technical-chart",
+            "title": "Technical chart probe",
+            "ood_type": "Technical chart",
             "prompt": (
-                "User Intent: Create a clear, polished technical chart or infographic that communicates data trends, "
-                "key performance indicators, and structured business insights. Description: The image should use chart "
-                "elements, labels, legends, and a clean presentation layout rather than a social poster or campaign graphic."
+                "User Intent: Create a polished technical analytics chart for an executive report. "
+                "Description: The image should center on real chart structure such as line charts, grouped bars, axes, legends, KPI callouts, and compact annotations. "
+                "It should look like a clean data visualization slide, not a social media poster."
             ),
-            "candidates": save_chart_assets(),
+            "generation_prompt": (
+                "A polished technical analytics chart for an executive report, clean data visualization slide, "
+                "line chart and grouped bar chart with axes, legends, KPI cards, subtle gridlines, compact labels, "
+                "professional white and navy dashboard style, high readability, no fake brand logo, no watermark."
+            ),
         },
         {
-            "id": "ood-photorealistic",
-            "title": "Photorealistic image probe",
-            "track": "ood",
-            "ood_type": "Photorealistic image",
-            "focus_dimension": "preference",
-            "dimension_label": "Preference",
+            "id": "ood-infographic",
+            "title": "Infographic probe",
+            "ood_type": "Infographic",
             "prompt": (
-                "User Intent: Evaluate a pure photorealistic image without typography, poster layout, or graphic design elements. "
-                "Description: The image should look like a natural camera photograph with realistic lighting, depth, texture, and composition."
+                "User Intent: Create a clear educational infographic that explains a multi-step concept with visual hierarchy. "
+                "Description: The image should use icons, numbered sections, arrows, callout blocks, and an organized explanatory layout rather than raw charts or a poster."
             ),
-            "candidates": download_photo_assets(),
+            "generation_prompt": (
+                "A clean educational infographic explaining a four-step sustainable energy workflow, numbered sections, "
+                "icons, arrows, callout blocks, balanced visual hierarchy, modern editorial layout, soft colors, "
+                "legible but minimal text, no watermark, no mockup frame."
+            ),
         },
         {
-            "id": "ood-mobile-ui",
-            "title": "Mobile app UI screen probe",
-            "track": "ood",
+            "id": "ood-mobile-finance",
+            "title": "Mobile app UI screen probe: finance",
             "ood_type": "Mobile app UI screen",
-            "focus_dimension": "preference",
-            "dimension_label": "Preference",
             "prompt": (
-                "User Intent: Create a modern mobile app screen with clear hierarchy, navigation, cards, call-to-action, and polished product UI. "
-                "Description: The image should resemble a real app screenshot or onboarding screen rather than a social media post."
+                "User Intent: Create a modern mobile finance app screen for tracking savings and spending. "
+                "Description: The image should resemble a real app screenshot with navigation, cards, charts, balance summary, and a clear call-to-action."
             ),
-            "candidates": save_mobile_assets(),
+            "generation_prompt": (
+                "A modern mobile finance app screen, realistic product UI screenshot, balance summary card, savings progress, "
+                "spending chart, bottom navigation, clear call-to-action, polished iOS-style interface, clean spacing, no device mockup border, no watermark."
+            ),
         },
+        {
+            "id": "ood-mobile-travel",
+            "title": "Mobile app UI screen probe: travel",
+            "ood_type": "Mobile app UI screen",
+            "prompt": (
+                "User Intent: Create a modern mobile travel planning app screen for an upcoming trip. "
+                "Description: The image should resemble a real app screenshot with itinerary cards, map preview, booking status, and useful navigation."
+            ),
+            "generation_prompt": (
+                "A modern mobile travel planning app screen, realistic product UI screenshot, itinerary cards, map preview, "
+                "flight and hotel booking status, compact navigation, elegant travel colors, crisp interface, no device mockup border, no watermark."
+            ),
+        },
+        {
+            "id": "ood-photo-product",
+            "title": "Photorealistic image probe: product",
+            "ood_type": "Photorealistic image",
+            "prompt": (
+                "User Intent: Evaluate a pure photorealistic product image without typography, poster layout, or graphic design elements. "
+                "Description: The image should look like a natural camera photograph with realistic lighting, material texture, depth of field, and composition."
+            ),
+            "generation_prompt": (
+                "A pure photorealistic studio photograph of a translucent glass perfume bottle on a stone surface, "
+                "natural window light, realistic reflections and shadows, shallow depth of field, no text, no label, no poster design, no watermark."
+            ),
+        },
+        {
+            "id": "ood-photo-interior",
+            "title": "Photorealistic image probe: interior",
+            "ood_type": "Photorealistic image",
+            "prompt": (
+                "User Intent: Evaluate a pure photorealistic interior image without typography, poster layout, or graphic design elements. "
+                "Description: The image should look like a natural camera photograph with realistic spatial lighting, textures, depth, and composition."
+            ),
+            "generation_prompt": (
+                "A pure photorealistic photograph of a calm modern workspace interior, wooden desk, laptop, ceramic mug, plant, "
+                "morning sunlight through a window, realistic shadows and material textures, no text, no poster design, no watermark."
+            ),
+        },
+    ]
+    return [
+        *[
+            {
+                "id": spec["id"],
+                "title": spec["title"],
+                "track": "ood",
+                "ood_type": spec["ood_type"],
+                "focus_dimension": "preference",
+                "dimension_label": "Preference",
+                "prompt": spec["prompt"],
+                "candidates": generate_image_candidates(spec["id"], spec["generation_prompt"]),
+            }
+            for spec in image_probe_specs
+        ],
         {
             "id": "ood-svg-complex",
             "title": "SVG complex vector probe",
