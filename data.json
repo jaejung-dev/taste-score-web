@@ -35,8 +35,8 @@
     "taste_scored": true,
     "selected_ordered_pairs": 252,
     "imscore_scored": true,
-    "ood_prompts": 7,
-    "ood_candidates": 28
+    "ood_prompts": 8,
+    "ood_candidates": 32
   },
   "score_explanation": "TASTE evaluates generated design images against human visual preferences across quality dimensions.",
   "evaluation": {
@@ -14243,8 +14243,8 @@
       ]
     },
     {
-      "id": "ood-svg-complex",
-      "title": "SVG complex vector probe",
+      "id": "ood-svg-student",
+      "title": "SVG complex vector probe: student",
       "track": "ood",
       "ood_type": "SVG complex vector illustration",
       "focus_dimension": "preference",
@@ -14254,7 +14254,7 @@
         {
           "id": "c1",
           "label": "Candidate 1",
-          "asset": "assets/ood/svg-complex/candidate-1.png",
+          "asset": "assets/ood/ood-svg-student/candidate-1.png",
           "taste_scores": {
             "preference": 0.7792046070098877
           },
@@ -14269,7 +14269,7 @@
         {
           "id": "c2",
           "label": "Candidate 2",
-          "asset": "assets/ood/svg-complex/candidate-2.png",
+          "asset": "assets/ood/ood-svg-student/candidate-2.png",
           "taste_scores": {
             "preference": 0.5644757648309072
           },
@@ -14284,7 +14284,7 @@
         {
           "id": "c3",
           "label": "Candidate 3",
-          "asset": "assets/ood/svg-complex/candidate-3.png",
+          "asset": "assets/ood/ood-svg-student/candidate-3.png",
           "taste_scores": {
             "preference": 0.5795153180758158
           },
@@ -14299,7 +14299,7 @@
         {
           "id": "c4",
           "label": "Candidate 4",
-          "asset": "assets/ood/svg-complex/candidate-4.png",
+          "asset": "assets/ood/ood-svg-student/candidate-4.png",
           "taste_scores": {
             "preference": 0.5793949166933695
           },
@@ -14395,6 +14395,163 @@
           "candidate_b": "c3",
           "probabilities": {
             "preference": 0.6859064102172852
+          }
+        }
+      ]
+    },
+    {
+      "id": "ood-svg-laptop",
+      "title": "SVG complex vector probe: laptop",
+      "track": "ood",
+      "ood_type": "SVG complex vector illustration",
+      "focus_dimension": "preference",
+      "dimension_label": "Preference",
+      "prompt": "User Intent: Recreate a complex vector illustration. Description: This charming, cartoon-style illustration features a person with light brown, curly hair and a gentle smile, intently focused on a laptop while wearing headphones. Rendered in a soft color palette of light beige, muted reddish-orange, and brown, the art style is simple, minimalist, and conveys a sense of peaceful engagement. The background is transparent.",
+      "candidates": [
+        {
+          "id": "c1",
+          "label": "Candidate 1",
+          "asset": "assets/ood/ood-svg-laptop/candidate-1.png",
+          "taste_scores": {
+            "preference": 0.6478597323099772
+          },
+          "imscore_scores": {
+            "hpsv21": 0.24437053501605988,
+            "pickscore": 20.822694778442383,
+            "clipscore": 27.88272476196289,
+            "imagereward": 0.1676599383354187,
+            "laion_aesthetic": 5.065007209777832
+          }
+        },
+        {
+          "id": "c2",
+          "label": "Candidate 2",
+          "asset": "assets/ood/ood-svg-laptop/candidate-2.png",
+          "taste_scores": {
+            "preference": 0.5352441668510437
+          },
+          "imscore_scores": {
+            "hpsv21": 0.19101575016975403,
+            "pickscore": 18.82062339782715,
+            "clipscore": 28.392759323120117,
+            "imagereward": -0.2561917006969452,
+            "laion_aesthetic": 5.29341459274292
+          }
+        },
+        {
+          "id": "c3",
+          "label": "Candidate 3",
+          "asset": "assets/ood/ood-svg-laptop/candidate-3.png",
+          "taste_scores": {
+            "preference": 0.5947942932446798
+          },
+          "imscore_scores": {
+            "hpsv21": 0.21420113742351532,
+            "pickscore": 20.093080520629883,
+            "clipscore": 25.13435173034668,
+            "imagereward": 0.6674734354019165,
+            "laion_aesthetic": 5.255489349365234
+          }
+        },
+        {
+          "id": "c4",
+          "label": "Candidate 4",
+          "asset": "assets/ood/ood-svg-laptop/candidate-4.png",
+          "taste_scores": {
+            "preference": 0.5814348856608073
+          },
+          "imscore_scores": {
+            "hpsv21": 0.16192489862442017,
+            "pickscore": 18.966888427734375,
+            "clipscore": 27.16575813293457,
+            "imagereward": -1.3503060340881348,
+            "laion_aesthetic": 4.917201042175293
+          }
+        }
+      ],
+      "taste_ordered_pair_scores": [
+        {
+          "candidate_a": "c1",
+          "candidate_b": "c2",
+          "probabilities": {
+            "preference": 0.5978397130966187
+          }
+        },
+        {
+          "candidate_a": "c1",
+          "candidate_b": "c3",
+          "probabilities": {
+            "preference": 0.5249873995780945
+          }
+        },
+        {
+          "candidate_a": "c1",
+          "candidate_b": "c4",
+          "probabilities": {
+            "preference": 0.8207520842552185
+          }
+        },
+        {
+          "candidate_a": "c2",
+          "candidate_b": "c1",
+          "probabilities": {
+            "preference": 0.5352603197097778
+          }
+        },
+        {
+          "candidate_a": "c2",
+          "candidate_b": "c3",
+          "probabilities": {
+            "preference": 0.4591544270515442
+          }
+        },
+        {
+          "candidate_a": "c2",
+          "candidate_b": "c4",
+          "probabilities": {
+            "preference": 0.6113177537918091
+          }
+        },
+        {
+          "candidate_a": "c3",
+          "candidate_b": "c1",
+          "probabilities": {
+            "preference": 0.5804254412651062
+          }
+        },
+        {
+          "candidate_a": "c3",
+          "candidate_b": "c2",
+          "probabilities": {
+            "preference": 0.5997467041015625
+          }
+        },
+        {
+          "candidate_a": "c3",
+          "candidate_b": "c4",
+          "probabilities": {
+            "preference": 0.6042107343673706
+          }
+        },
+        {
+          "candidate_a": "c4",
+          "candidate_b": "c1",
+          "probabilities": {
+            "preference": 0.5755816698074341
+          }
+        },
+        {
+          "candidate_a": "c4",
+          "candidate_b": "c2",
+          "probabilities": {
+            "preference": 0.577898383140564
+          }
+        },
+        {
+          "candidate_a": "c4",
+          "candidate_b": "c3",
+          "probabilities": {
+            "preference": 0.5908246040344238
           }
         }
       ]

@@ -41,6 +41,20 @@ IMAGE_MODEL_SPECS = [
     {"id": "nano-banana-pro", "provider": "gemini", "model": "gemini-3.1-flash-image-preview"},
     {"id": "flux-schnell", "provider": "fal", "model": "fal-ai/flux/schnell"},
 ]
+SVG_COMPLEX_GROUPS = [
+    {
+        "id": "ood-svg-student",
+        "title": "SVG complex vector probe: student",
+        "asset_dir": "ood-svg-student",
+        "group_id": "67a03c90-832f-44c7-a3f7-fedf874e940c",
+    },
+    {
+        "id": "ood-svg-laptop",
+        "title": "SVG complex vector probe: laptop",
+        "asset_dir": "ood-svg-laptop",
+        "group_id": "35d0bf03-5fef-43d2-a464-7085fb1cd79c",
+    },
+]
 
 
 def font(size: int, bold: bool = False) -> ImageFont.FreeTypeFont | ImageFont.ImageFont:
@@ -166,8 +180,8 @@ def download_photo_assets() -> list[dict[str, Any]]:
     return candidates
 
 
-def svg_complex_candidates(group_id: str = "67a03c90-832f-44c7-a3f7-fedf874e940c") -> tuple[str, list[dict[str, Any]]]:
-    asset_dir = OOD_ASSET_DIR / "svg-complex"
+def svg_complex_candidates(group_id: str, asset_dir_name: str) -> tuple[str, list[dict[str, Any]]]:
+    asset_dir = OOD_ASSET_DIR / asset_dir_name
     asset_dir.mkdir(parents=True, exist_ok=True)
     rows = []
     for line in SVG_CANDIDATES.read_text().splitlines():
@@ -455,12 +469,25 @@ def score_imscore(ood_prompts: list[dict[str, Any]], api_key: str, timeout: floa
         print(prompt["id"], done, "/", len(prompt["candidates"]), flush=True)
 
 
+def build_svg_complex_probe(spec: dict[str, str]) -> dict[str, Any]:
+    svg_prompt, svg_candidates = svg_complex_candidates(spec["group_id"], spec["asset_dir"])
+    return {
+        "id": spec["id"],
+        "title": spec["title"],
+        "track": "ood",
+        "ood_type": "SVG complex vector illustration",
+        "focus_dimension": "preference",
+        "dimension_label": "Preference",
+        "prompt": f"User Intent: Recreate a complex vector illustration. Description: {svg_prompt}",
+        "candidates": svg_candidates,
+    }
+
+
 def build_ood_prompts() -> list[dict[str, Any]]:
     if OOD_ASSET_DIR.exists():
         shutil.rmtree(OOD_ASSET_DIR)
     OOD_ASSET_DIR.mkdir(parents=True, exist_ok=True)
 
-    svg_prompt, svg_candidates = svg_complex_candidates()
     image_probe_specs = [
         {
             "id": "ood-technical-chart",
@@ -558,18 +585,7 @@ def build_ood_prompts() -> list[dict[str, Any]]:
             }
             for spec in image_probe_specs
         ],
-        {
-            "id": "ood-svg-complex",
-            "title": "SVG complex vector probe",
-            "track": "ood",
-            "ood_type": "SVG complex vector illustration",
-            "focus_dimension": "preference",
-            "dimension_label": "Preference",
-            "prompt": (
-                f"User Intent: Recreate a complex vector illustration. Description: {svg_prompt}"
-            ),
-            "candidates": svg_candidates,
-        },
+        *[build_svg_complex_probe(spec) for spec in SVG_COMPLEX_GROUPS],
     ]
 
 
