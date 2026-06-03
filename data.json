@@ -35,7 +35,7 @@
     "taste_scored": true,
     "imscore_scored": true
   },
-  "score_explanation": "TASTE is a pairwise preference scorer. Raw model outputs are P(image A wins over image B) for each dimension. The per-image score shown here is the mean win probability for that image against the other candidates in the same prompt.",
+  "score_explanation": "TASTE evaluates generated design images against human visual preferences across quality dimensions.",
   "evaluation": {
     "overview": {
       "n_pairs": 738,
@@ -160,7 +160,7 @@
           "human_mean_rank": 1.0,
           "human_first_place_votes": 5,
           "model_output_scores": {
-            "color_accuracy": 0.5267291367053986,
+            "color_accuracy": 0.5267291168371836,
             "color_harmony": 0.5263851483662924,
             "mood_and_color_tone": 0.48777517676353455,
             "preference": 0.9998388489087423,
@@ -169,7 +169,7 @@
             "visual_hierarchy": 0.5363452037175497
           },
           "taste_scores": {
-            "color_accuracy": 0.5267291367053986,
+            "color_accuracy": 0.5267291168371836,
             "color_harmony": 0.5263851483662924,
             "mood_and_color_tone": 0.48777517676353455,
             "preference": 0.9998388489087423,
@@ -177,8 +177,8 @@
             "typography": 0.700584610303243,
             "visual_hierarchy": 0.5363452037175497
           },
-          "model_output_overall": 0.6824048558870952,
-          "taste_overall": 0.6824048558870952,
+          "model_output_overall": 0.6824048530487788,
+          "taste_overall": 0.6824048530487788,
           "model_output_n_pairs": 3,
           "imscore_scores": {
             "hpsv21": 0.25626590847969055,
@@ -199,25 +199,25 @@
           "human_mean_rank": 2.4,
           "human_first_place_votes": 0,
           "model_output_scores": {
-            "color_accuracy": 0.41167083630959195,
-            "color_harmony": 0.5191360513369242,
-            "mood_and_color_tone": 0.5211428701877594,
-            "preference": 0.662650485833486,
-            "spatial_accuracy": 0.21878012642264366,
-            "typography": 0.45074156920115155,
-            "visual_hierarchy": 0.5306389927864075
+            "color_accuracy": 0.24479594764610133,
+            "color_harmony": 0.5355212688446045,
+            "mood_and_color_tone": 0.527296761671702,
+            "preference": 0.6669742365678152,
+            "spatial_accuracy": 0.2193743047925333,
+            "typography": 0.3897578567266464,
+            "visual_hierarchy": 0.5387953917185465
           },
           "taste_scores": {
-            "color_accuracy": 0.41167083630959195,
-            "color_harmony": 0.5191360513369242,
-            "mood_and_color_tone": 0.5211428701877594,
-            "preference": 0.662650485833486,
-            "spatial_accuracy": 0.21878012642264366,
-            "typography": 0.45074156920115155,
-            "visual_hierarchy": 0.5306389927864075
+            "color_accuracy": 0.24479594764610133,
+            "color_harmony": 0.5355212688446045,
+            "mood_and_color_tone": 0.527296761671702,
+            "preference": 0.6669742365678152,
+            "spatial_accuracy": 0.2193743047925333,
+            "typography": 0.3897578567266464,
+            "visual_hierarchy": 0.5387953917185465
           },
-          "model_output_overall": 0.47353727601113776,
-          "taste_overall": 0.47353727601113776,
+          "model_output_overall": 0.44607368113827844,
+          "taste_overall": 0.44607368113827844,
           "model_output_n_pairs": 3,
           "imscore_scores": {
             "hpsv21": 0.24798479676246643,
@@ -238,25 +238,25 @@
           "human_mean_rank": 3.0,
           "human_first_place_votes": 0,
           "model_output_scores": {
-            "color_accuracy": 0.5945756435394287,
-            "color_harmony": 0.48866866032282513,
-            "mood_and_color_tone": 0.5241904854774475,
-            "preference": 0.33442489306132,
-            "spatial_accuracy": 0.6530977624158064,
-            "typography": 0.5916231274604797,
-            "visual_hierarchy": 0.4824010531107585
+            "color_accuracy": 0.8400134444236755,
+            "color_harmony": 0.5346224904060364,
+            "mood_and_color_tone": 0.5447945594787598,
+            "preference": 0.4796912455931306,
+            "spatial_accuracy": 0.47758840676397085,
+            "typography": 0.4942067166169484,
+            "visual_hierarchy": 0.47258631388346356
           },
           "taste_scores": {
-            "color_accuracy": 0.5945756435394287,
-            "color_harmony": 0.48866866032282513,
-            "mood_and_color_tone": 0.5241904854774475,
-            "preference": 0.33442489306132,
-            "spatial_accuracy": 0.6530977624158064,
-            "typography": 0.5916231274604797,
-            "visual_hierarchy": 0.4824010531107585
+            "color_accuracy": 0.8400134444236755,
+            "color_harmony": 0.5346224904060364,
+            "mood_and_color_tone": 0.5447945594787598,
+            "preference": 0.4796912455931306,
+            "spatial_accuracy": 0.47758840676397085,
+            "typography": 0.4942067166169484,
+            "visual_hierarchy": 0.47258631388346356
           },
-          "model_output_overall": 0.5241402321982951,
-          "taste_overall": 0.5241402321982951,
+          "model_output_overall": 0.5490718824522836,
+          "taste_overall": 0.5490718824522836,
           "model_output_n_pairs": 3,
           "imscore_scores": {
             "hpsv21": 0.2747626006603241,
@@ -277,25 +277,25 @@
           "human_mean_rank": 3.6,
           "human_first_place_votes": 0,
           "model_output_scores": {
-            "color_accuracy": 0.4670243834455808,
-            "color_harmony": 0.4658101399739583,
-            "mood_and_color_tone": 0.46689146757125854,
-            "preference": 0.0030857721964518228,
-            "spatial_accuracy": 0.1289462447166443,
-            "typography": 0.25705069303512573,
-            "visual_hierarchy": 0.4506147503852844
+            "color_accuracy": 0.25637886351129663,
+            "color_harmony": 0.4996609687805176,
+            "mood_and_color_tone": 0.5014070173104604,
+            "preference": 0.4805093777055542,
+            "spatial_accuracy": 0.33224526765601087,
+            "typography": 0.23542767266432443,
+            "visual_hierarchy": 0.4711491862932841
           },
           "taste_scores": {
-            "color_accuracy": 0.4670243834455808,
-            "color_harmony": 0.4658101399739583,
-            "mood_and_color_tone": 0.46689146757125854,
-            "preference": 0.0030857721964518228,
-            "spatial_accuracy": 0.1289462447166443,
-            "typography": 0.25705069303512573,
-            "visual_hierarchy": 0.4506147503852844
+            "color_accuracy": 0.25637886351129663,
+            "color_harmony": 0.4996609687805176,
+            "mood_and_color_tone": 0.5014070173104604,
+            "preference": 0.4805093777055542,
+            "spatial_accuracy": 0.33224526765601087,
+            "typography": 0.23542767266432443,
+            "visual_hierarchy": 0.4711491862932841
           },
-          "model_output_overall": 0.319917635903472,
-          "taste_overall": 0.319917635903472,
+          "model_output_overall": 0.39668262198877835,
+          "taste_overall": 0.39668262198877835,
           "model_output_n_pairs": 3,
           "imscore_scores": {
             "hpsv21": 0.2254181206226349,
@@ -601,7 +601,165 @@
             "score": 0.4506147503852844
           }
         ]
-      }
+      },
+      "taste_ordered_pair_scores": [
+        {
+          "candidate_a": "c1",
+          "candidate_b": "c2",
+          "probabilities": {
+            "color_accuracy": 0.4732029139995575,
+            "color_harmony": 0.5204015970230103,
+            "mood_and_color_tone": 0.4900764524936676,
+            "preference": 0.9997155070304871,
+            "spatial_accuracy": 0.9983512163162231,
+            "typography": 0.6776811480522156,
+            "visual_hierarchy": 0.5112448930740356
+          }
+        },
+        {
+          "candidate_a": "c1",
+          "candidate_b": "c3",
+          "probabilities": {
+            "color_accuracy": 0.5600488781929016,
+            "color_harmony": 0.5266473293304443,
+            "mood_and_color_tone": 0.46838057041168213,
+            "preference": 0.9998513460159302,
+            "spatial_accuracy": 0.9992406368255615,
+            "typography": 0.4544273018836975,
+            "visual_hierarchy": 0.5309804677963257
+          }
+        },
+        {
+          "candidate_a": "c1",
+          "candidate_b": "c4",
+          "probabilities": {
+            "color_accuracy": 0.5469355583190918,
+            "color_harmony": 0.5321065187454224,
+            "mood_and_color_tone": 0.5048685073852539,
+            "preference": 0.9999496936798096,
+            "spatial_accuracy": 0.9999357461929321,
+            "typography": 0.9696453809738159,
+            "visual_hierarchy": 0.5668102502822876
+          }
+        },
+        {
+          "candidate_a": "c2",
+          "candidate_b": "c1",
+          "probabilities": {
+            "color_accuracy": 0.026172464713454247,
+            "color_harmony": 0.5287540555000305,
+            "mood_and_color_tone": 0.5283852219581604,
+            "preference": 0.01325574517250061,
+            "spatial_accuracy": 0.0034313970245420933,
+            "typography": 0.1393677145242691,
+            "visual_hierarchy": 0.513224184513092
+          }
+        },
+        {
+          "candidate_a": "c2",
+          "candidate_b": "c3",
+          "probabilities": {
+            "color_accuracy": 0.6447608470916748,
+            "color_harmony": 0.5416896343231201,
+            "mood_and_color_tone": 0.507611095905304,
+            "preference": 0.9929047226905823,
+            "spatial_accuracy": 0.03694730997085571,
+            "typography": 0.4710181951522827,
+            "visual_hierarchy": 0.5459577441215515
+          }
+        },
+        {
+          "candidate_a": "c2",
+          "candidate_b": "c4",
+          "probabilities": {
+            "color_accuracy": 0.0634545311331749,
+            "color_harmony": 0.5361201167106628,
+            "mood_and_color_tone": 0.5458939671516418,
+            "preference": 0.9947622418403625,
+            "spatial_accuracy": 0.6177442073822021,
+            "typography": 0.5588876605033875,
+            "visual_hierarchy": 0.5572042465209961
+          }
+        },
+        {
+          "candidate_a": "c3",
+          "candidate_b": "c1",
+          "probabilities": {
+            "color_accuracy": 0.9435515999794006,
+            "color_harmony": 0.5383436679840088,
+            "mood_and_color_tone": 0.5522941946983337,
+            "preference": 0.0028430772945284843,
+            "spatial_accuracy": 0.006006871350109577,
+            "typography": 0.16655847430229187,
+            "visual_hierarchy": 0.43837660551071167
+          }
+        },
+        {
+          "candidate_a": "c3",
+          "candidate_b": "c2",
+          "probabilities": {
+            "color_accuracy": 0.5879520177841187,
+            "color_harmony": 0.5311808586120605,
+            "mood_and_color_tone": 0.5335263013839722,
+            "preference": 0.44019991159439087,
+            "spatial_accuracy": 0.43127697706222534,
+            "typography": 0.615746796131134,
+            "visual_hierarchy": 0.4552410840988159
+          }
+        },
+        {
+          "candidate_a": "c3",
+          "candidate_b": "c4",
+          "probabilities": {
+            "color_accuracy": 0.9885367155075073,
+            "color_harmony": 0.5343429446220398,
+            "mood_and_color_tone": 0.5485631823539734,
+            "preference": 0.9960307478904724,
+            "spatial_accuracy": 0.9954813718795776,
+            "typography": 0.7003148794174194,
+            "visual_hierarchy": 0.524141252040863
+          }
+        },
+        {
+          "candidate_a": "c4",
+          "candidate_b": "c1",
+          "probabilities": {
+            "color_accuracy": 0.39181292057037354,
+            "color_harmony": 0.5013798475265503,
+            "mood_and_color_tone": 0.5192319750785828,
+            "preference": 0.005869290791451931,
+            "spatial_accuracy": 0.0009422568837180734,
+            "typography": 0.03923828899860382,
+            "visual_hierarchy": 0.4603285789489746
+          }
+        },
+        {
+          "candidate_a": "c4",
+          "candidate_b": "c2",
+          "probabilities": {
+            "color_accuracy": 0.0010749526554718614,
+            "color_harmony": 0.49414515495300293,
+            "mood_and_color_tone": 0.4980051517486572,
+            "preference": 0.44041475653648376,
+            "spatial_accuracy": 0.00210764491930604,
+            "typography": 0.35178834199905396,
+            "visual_hierarchy": 0.4549494981765747
+          }
+        },
+        {
+          "candidate_a": "c4",
+          "candidate_b": "c3",
+          "probabilities": {
+            "color_accuracy": 0.37624871730804443,
+            "color_harmony": 0.5034579038619995,
+            "mood_and_color_tone": 0.48698392510414124,
+            "preference": 0.9952440857887268,
+            "spatial_accuracy": 0.9936859011650085,
+            "typography": 0.31525638699531555,
+            "visual_hierarchy": 0.498169481754303
+          }
+        }
+      ]
     },
     {
       "id": "318-typography",
@@ -628,25 +786,25 @@
           "human_mean_rank": 1.2,
           "human_first_place_votes": 4,
           "model_output_scores": {
-            "color_accuracy": 0.5862027406692505,
-            "color_harmony": 0.6851141651471456,
+            "color_accuracy": 0.5862027605374655,
+            "color_harmony": 0.6851141850153605,
             "mood_and_color_tone": 0.46232809871435165,
             "preference": 0.9973814288775126,
-            "spatial_accuracy": 0.2616594359278679,
+            "spatial_accuracy": 0.2616594632466634,
             "typography": 0.9928830663363138,
-            "visual_hierarchy": 0.9981007973353068
+            "visual_hierarchy": 0.998100757598877
           },
           "taste_scores": {
-            "color_accuracy": 0.5862027406692505,
-            "color_harmony": 0.6851141651471456,
+            "color_accuracy": 0.5862027605374655,
+            "color_harmony": 0.6851141850153605,
             "mood_and_color_tone": 0.46232809871435165,
             "preference": 0.9973814288775126,
-            "spatial_accuracy": 0.2616594359278679,
+            "spatial_accuracy": 0.2616594632466634,
             "typography": 0.9928830663363138,
-            "visual_hierarchy": 0.9981007973353068
+            "visual_hierarchy": 0.998100757598877
           },
-          "model_output_overall": 0.711952819001107,
-          "taste_overall": 0.711952819001107,
+          "model_output_overall": 0.7119528229037921,
+          "taste_overall": 0.7119528229037921,
           "model_output_n_pairs": 3,
           "imscore_scores": {
             "hpsv21": 0.28685325384140015,
@@ -667,25 +825,25 @@
           "human_mean_rank": 1.8,
           "human_first_place_votes": 1,
           "model_output_scores": {
-            "color_accuracy": 0.45336665709813434,
-            "color_harmony": 0.6973059177398682,
-            "mood_and_color_tone": 0.8008690054217974,
-            "preference": 0.657823383808136,
-            "spatial_accuracy": 0.605189191798369,
-            "typography": 0.67303866147995,
-            "visual_hierarchy": 0.4423043727874756
+            "color_accuracy": 0.4957347810268402,
+            "color_harmony": 0.6851837038993835,
+            "mood_and_color_tone": 0.5030247828690335,
+            "preference": 0.834780196348826,
+            "spatial_accuracy": 0.5553702314694723,
+            "typography": 0.7968329091866811,
+            "visual_hierarchy": 0.44270828769852716
           },
           "taste_scores": {
-            "color_accuracy": 0.45336665709813434,
-            "color_harmony": 0.6973059177398682,
-            "mood_and_color_tone": 0.8008690054217974,
-            "preference": 0.657823383808136,
-            "spatial_accuracy": 0.605189191798369,
-            "typography": 0.67303866147995,
-            "visual_hierarchy": 0.4423043727874756
+            "color_accuracy": 0.4957347810268402,
+            "color_harmony": 0.6851837038993835,
+            "mood_and_color_tone": 0.5030247828690335,
+            "preference": 0.834780196348826,
+            "spatial_accuracy": 0.5553702314694723,
+            "typography": 0.7968329091866811,
+            "visual_hierarchy": 0.44270828769852716
           },
-          "model_output_overall": 0.6185567414476758,
-          "taste_overall": 0.6185567414476758,
+          "model_output_overall": 0.6162335560712521,
+          "taste_overall": 0.6162335560712521,
           "model_output_n_pairs": 3,
           "imscore_scores": {
             "hpsv21": 0.27916279435157776,
@@ -706,25 +864,25 @@
           "human_mean_rank": 3.2,
           "human_first_place_votes": 0,
           "model_output_scores": {
-            "color_accuracy": 0.4983885586261749,
-            "color_harmony": 0.6165375709533691,
-            "mood_and_color_tone": 0.46814751625061035,
-            "preference": 0.1371868054072062,
-            "spatial_accuracy": 0.41951829691727954,
-            "typography": 0.33271972338358563,
-            "visual_hierarchy": 0.2754634420077006
+            "color_accuracy": 0.5726528962453207,
+            "color_harmony": 0.35609336383640766,
+            "mood_and_color_tone": 0.2674255892634392,
+            "preference": 0.26034439735425013,
+            "spatial_accuracy": 0.31446125358343124,
+            "typography": 0.33299005227551487,
+            "visual_hierarchy": 0.15868488186970353
           },
           "taste_scores": {
-            "color_accuracy": 0.4983885586261749,
-            "color_harmony": 0.6165375709533691,
-            "mood_and_color_tone": 0.46814751625061035,
-            "preference": 0.1371868054072062,
-            "spatial_accuracy": 0.41951829691727954,
-            "typography": 0.33271972338358563,
-            "visual_hierarchy": 0.2754634420077006
+            "color_accuracy": 0.5726528962453207,
+            "color_harmony": 0.35609336383640766,
+            "mood_and_color_tone": 0.2674255892634392,
+            "preference": 0.26034439735425013,
+            "spatial_accuracy": 0.31446125358343124,
+            "typography": 0.33299005227551487,
+            "visual_hierarchy": 0.15868488186970353
           },
-          "model_output_overall": 0.3925659876494181,
-          "taste_overall": 0.3925659876494181,
+          "model_output_overall": 0.32323606206115246,
+          "taste_overall": 0.32323606206115246,
           "model_output_n_pairs": 3,
           "imscore_scores": {
             "hpsv21": 0.28392621874809265,
@@ -745,25 +903,25 @@
           "human_mean_rank": 3.8,
           "human_first_place_votes": 0,
           "model_output_scores": {
-            "color_accuracy": 0.46204204360644024,
-            "color_harmony": 0.0010423461596171062,
-            "mood_and_color_tone": 0.26865537961324054,
-            "preference": 0.20760838190714517,
-            "spatial_accuracy": 0.7136330753564835,
-            "typography": 0.0013585488001505535,
-            "visual_hierarchy": 0.284131387869517
+            "color_accuracy": 0.5267010927200317,
+            "color_harmony": 0.13517588175212344,
+            "mood_and_color_tone": 0.10531201033154503,
+            "preference": 0.001217012330016587,
+            "spatial_accuracy": 0.629903773466746,
+            "typography": 0.1487093452208986,
+            "visual_hierarchy": 0.6952224771181742
           },
           "taste_scores": {
-            "color_accuracy": 0.46204204360644024,
-            "color_harmony": 0.0010423461596171062,
-            "mood_and_color_tone": 0.26865537961324054,
-            "preference": 0.20760838190714517,
-            "spatial_accuracy": 0.7136330753564835,
-            "typography": 0.0013585488001505535,
-            "visual_hierarchy": 0.284131387869517
+            "color_accuracy": 0.5267010927200317,
+            "color_harmony": 0.13517588175212344,
+            "mood_and_color_tone": 0.10531201033154503,
+            "preference": 0.001217012330016587,
+            "spatial_accuracy": 0.629903773466746,
+            "typography": 0.1487093452208986,
+            "visual_hierarchy": 0.6952224771181742
           },
-          "model_output_overall": 0.27692445190179915,
-          "taste_overall": 0.27692445190179915,
+          "model_output_overall": 0.3203202275627908,
+          "taste_overall": 0.3203202275627908,
           "model_output_n_pairs": 3,
           "imscore_scores": {
             "hpsv21": 0.26184386014938354,
@@ -1069,7 +1227,165 @@
             "score": 0.2754634420077006
           }
         ]
-      }
+      },
+      "taste_ordered_pair_scores": [
+        {
+          "candidate_a": "c1",
+          "candidate_b": "c2",
+          "probabilities": {
+            "color_accuracy": 0.5936281681060791,
+            "color_harmony": 0.45637089014053345,
+            "mood_and_color_tone": 0.10525942593812943,
+            "preference": 0.9943244457244873,
+            "spatial_accuracy": 0.10663110017776489,
+            "typography": 0.9791620969772339,
+            "visual_hierarchy": 0.9993669390678406
+          }
+        },
+        {
+          "candidate_a": "c1",
+          "candidate_b": "c3",
+          "probabilities": {
+            "color_accuracy": 0.5763159394264221,
+            "color_harmony": 0.6004830002784729,
+            "mood_and_color_tone": 0.6584234237670898,
+            "preference": 0.9983522891998291,
+            "spatial_accuracy": 0.3852250576019287,
+            "typography": 0.9995792508125305,
+            "visual_hierarchy": 0.9983658194541931
+          }
+        },
+        {
+          "candidate_a": "c1",
+          "candidate_b": "c4",
+          "probabilities": {
+            "color_accuracy": 0.588664174079895,
+            "color_harmony": 0.9984886646270752,
+            "mood_and_color_tone": 0.6233014464378357,
+            "preference": 0.9994675517082214,
+            "spatial_accuracy": 0.29312223196029663,
+            "typography": 0.9999078512191772,
+            "visual_hierarchy": 0.9965695142745972
+          }
+        },
+        {
+          "candidate_a": "c2",
+          "candidate_b": "c1",
+          "probabilities": {
+            "color_accuracy": 0.5334762334823608,
+            "color_harmony": 0.5072624683380127,
+            "mood_and_color_tone": 0.0012079064035788178,
+            "preference": 0.536545991897583,
+            "spatial_accuracy": 0.7439120411872864,
+            "typography": 0.3922206461429596,
+            "visual_hierarchy": 0.0018448056653141975
+          }
+        },
+        {
+          "candidate_a": "c2",
+          "candidate_b": "c3",
+          "probabilities": {
+            "color_accuracy": 0.47667378187179565,
+            "color_harmony": 0.5492352247238159,
+            "mood_and_color_tone": 0.6435738205909729,
+            "preference": 0.974004864692688,
+            "spatial_accuracy": 0.4992575943470001,
+            "typography": 0.9985294342041016,
+            "visual_hierarchy": 0.6364541053771973
+          }
+        },
+        {
+          "candidate_a": "c2",
+          "candidate_b": "c4",
+          "probabilities": {
+            "color_accuracy": 0.47705432772636414,
+            "color_harmony": 0.999053418636322,
+            "mood_and_color_tone": 0.8642926216125488,
+            "preference": 0.9937897324562073,
+            "spatial_accuracy": 0.42294105887413025,
+            "typography": 0.9997486472129822,
+            "visual_hierarchy": 0.6898259520530701
+          }
+        },
+        {
+          "candidate_a": "c3",
+          "candidate_b": "c1",
+          "probabilities": {
+            "color_accuracy": 0.5788387656211853,
+            "color_harmony": 0.02202078513801098,
+            "mood_and_color_tone": 0.052589185535907745,
+            "preference": 0.0020825902465730906,
+            "spatial_accuracy": 0.6785756349563599,
+            "typography": 0.0008348014089278877,
+            "visual_hierarchy": 0.004422678146511316
+          }
+        },
+        {
+          "candidate_a": "c3",
+          "candidate_b": "c2",
+          "probabilities": {
+            "color_accuracy": 0.5909645557403564,
+            "color_harmony": 0.04692842811346054,
+            "mood_and_color_tone": 0.04324778914451599,
+            "preference": 0.3950330317020416,
+            "spatial_accuracy": 0.12177058309316635,
+            "typography": 0.0018675002502277493,
+            "visual_hierarchy": 0.01042171660810709
+          }
+        },
+        {
+          "candidate_a": "c3",
+          "candidate_b": "c4",
+          "probabilities": {
+            "color_accuracy": 0.5481553673744202,
+            "color_harmony": 0.9993308782577515,
+            "mood_and_color_tone": 0.7064397931098938,
+            "preference": 0.38391757011413574,
+            "spatial_accuracy": 0.14303754270076752,
+            "typography": 0.9962678551673889,
+            "visual_hierarchy": 0.4612102508544922
+          }
+        },
+        {
+          "candidate_a": "c4",
+          "candidate_b": "c1",
+          "probabilities": {
+            "color_accuracy": 0.7765854597091675,
+            "color_harmony": 0.005542158614844084,
+            "mood_and_color_tone": 0.0009034012327902019,
+            "preference": 7.696761895203963e-05,
+            "spatial_accuracy": 0.831854522228241,
+            "typography": 0.003690511453896761,
+            "visual_hierarchy": 0.5419099926948547
+          }
+        },
+        {
+          "candidate_a": "c4",
+          "candidate_b": "c2",
+          "probabilities": {
+            "color_accuracy": 0.5102194547653198,
+            "color_harmony": 0.38623419404029846,
+            "mood_and_color_tone": 0.3103005588054657,
+            "preference": 0.00021464262681547552,
+            "spatial_accuracy": 0.4849246144294739,
+            "typography": 0.003381783375516534,
+            "visual_hierarchy": 0.9497644901275635
+          }
+        },
+        {
+          "candidate_a": "c4",
+          "candidate_b": "c3",
+          "probabilities": {
+            "color_accuracy": 0.2932983636856079,
+            "color_harmony": 0.01375129260122776,
+            "mood_and_color_tone": 0.004732070956379175,
+            "preference": 0.0033594267442822456,
+            "spatial_accuracy": 0.5729321837425232,
+            "typography": 0.43905574083328247,
+            "visual_hierarchy": 0.5939929485321045
+          }
+        }
+      ]
     },
     {
       "id": "397-visual_hierarchy",
@@ -1096,25 +1412,25 @@
           "human_mean_rank": 1.6,
           "human_first_place_votes": 3,
           "model_output_scores": {
-            "color_accuracy": 0.060165969344476856,
+            "color_accuracy": 0.060165954598536096,
             "color_harmony": 0.5265398025512695,
-            "mood_and_color_tone": 0.5950517257054647,
-            "preference": 0.2323078914390256,
-            "spatial_accuracy": 0.5415476560592651,
-            "typography": 0.7211746176083883,
-            "visual_hierarchy": 0.7431143720944723
+            "mood_and_color_tone": 0.5950517157713572,
+            "preference": 0.2323078904688979,
+            "spatial_accuracy": 0.5415477156639099,
+            "typography": 0.7211746374766032,
+            "visual_hierarchy": 0.7431144118309021
           },
           "taste_scores": {
-            "color_accuracy": 0.060165969344476856,
+            "color_accuracy": 0.060165954598536096,
             "color_harmony": 0.5265398025512695,
-            "mood_and_color_tone": 0.5950517257054647,
-            "preference": 0.2323078914390256,
-            "spatial_accuracy": 0.5415476560592651,
-            "typography": 0.7211746176083883,
-            "visual_hierarchy": 0.7431143720944723
+            "mood_and_color_tone": 0.5950517157713572,
+            "preference": 0.2323078904688979,
+            "spatial_accuracy": 0.5415477156639099,
+            "typography": 0.7211746374766032,
+            "visual_hierarchy": 0.7431144118309021
           },
-          "model_output_overall": 0.48855743354319464,
-          "taste_overall": 0.48855743354319464,
+          "model_output_overall": 0.4885574469087822,
+          "taste_overall": 0.4885574469087822,
           "model_output_n_pairs": 3,
           "imscore_scores": {
             "hpsv21": 0.2439323365688324,
@@ -1135,25 +1451,25 @@
           "human_mean_rank": 2.0,
           "human_first_place_votes": 1,
           "model_output_scores": {
-            "color_accuracy": 0.7054672588904699,
-            "color_harmony": 0.474600613117218,
-            "mood_and_color_tone": 0.8694527248541514,
-            "preference": 0.9911320739580939,
-            "spatial_accuracy": 0.531831423441569,
-            "typography": 0.24797846376895905,
-            "visual_hierarchy": 0.7421314120292664
+            "color_accuracy": 0.5986565351486206,
+            "color_harmony": 0.4802592595418294,
+            "mood_and_color_tone": 0.9998757640520731,
+            "preference": 0.9857555031776428,
+            "spatial_accuracy": 0.5243107577164968,
+            "typography": 0.5451785276333491,
+            "visual_hierarchy": 0.7601173122723898
           },
           "taste_scores": {
-            "color_accuracy": 0.7054672588904699,
-            "color_harmony": 0.474600613117218,
-            "mood_and_color_tone": 0.8694527248541514,
-            "preference": 0.9911320739580939,
-            "spatial_accuracy": 0.531831423441569,
-            "typography": 0.24797846376895905,
-            "visual_hierarchy": 0.7421314120292664
+            "color_accuracy": 0.5986565351486206,
+            "color_harmony": 0.4802592595418294,
+            "mood_and_color_tone": 0.9998757640520731,
+            "preference": 0.9857555031776428,
+            "spatial_accuracy": 0.5243107577164968,
+            "typography": 0.5451785276333491,
+            "visual_hierarchy": 0.7601173122723898
           },
-          "model_output_overall": 0.6517991385799611,
-          "taste_overall": 0.6517991385799611,
+          "model_output_overall": 0.6991648085060573,
+          "taste_overall": 0.6991648085060573,
           "model_output_n_pairs": 3,
           "imscore_scores": {
             "hpsv21": 0.25418752431869507,
@@ -1174,25 +1490,25 @@
           "human_mean_rank": 2.4,
           "human_first_place_votes": 1,
           "model_output_scores": {
-            "color_accuracy": 0.6892591239884496,
-            "color_harmony": 0.3970319678386052,
-            "mood_and_color_tone": 0.20157457874544585,
-            "preference": 0.39779595534006756,
-            "spatial_accuracy": 0.5655145049095154,
-            "typography": 0.5747805684804916,
-            "visual_hierarchy": 0.48335309823354083
+            "color_accuracy": 0.5846941371758779,
+            "color_harmony": 0.23647579550743103,
+            "mood_and_color_tone": 0.20142286376600774,
+            "preference": 0.2833397892148544,
+            "spatial_accuracy": 0.4534111221631368,
+            "typography": 0.5309442405899366,
+            "visual_hierarchy": 0.4815954218332384
           },
           "taste_scores": {
-            "color_accuracy": 0.6892591239884496,
-            "color_harmony": 0.3970319678386052,
-            "mood_and_color_tone": 0.20157457874544585,
-            "preference": 0.39779595534006756,
-            "spatial_accuracy": 0.5655145049095154,
-            "typography": 0.5747805684804916,
-            "visual_hierarchy": 0.48335309823354083
+            "color_accuracy": 0.5846941371758779,
+            "color_harmony": 0.23647579550743103,
+            "mood_and_color_tone": 0.20142286376600774,
+            "preference": 0.2833397892148544,
+            "spatial_accuracy": 0.4534111221631368,
+            "typography": 0.5309442405899366,
+            "visual_hierarchy": 0.4815954218332384
           },
-          "model_output_overall": 0.4727585425051594,
-          "taste_overall": 0.4727585425051594,
+          "model_output_overall": 0.39598333860721185,
+          "taste_overall": 0.39598333860721185,
           "model_output_n_pairs": 3,
           "imscore_scores": {
             "hpsv21": 0.26663845777511597,
@@ -1213,25 +1529,25 @@
           "human_mean_rank": 4.0,
           "human_first_place_votes": 0,
           "model_output_scores": {
-            "color_accuracy": 0.5451076477766037,
-            "color_harmony": 0.6018276164929072,
-            "mood_and_color_tone": 0.33392097069493804,
-            "preference": 0.3787640792628129,
-            "spatial_accuracy": 0.36110641558965045,
-            "typography": 0.45606635014216107,
-            "visual_hierarchy": 0.03140111764272054
+            "color_accuracy": 0.6273320416609446,
+            "color_harmony": 0.623244841893514,
+            "mood_and_color_tone": 0.5457945863405863,
+            "preference": 0.5668276846408844,
+            "spatial_accuracy": 0.2638622224330902,
+            "typography": 0.6767578125,
+            "visual_hierarchy": 0.0027841245367502174
           },
           "taste_scores": {
-            "color_accuracy": 0.5451076477766037,
-            "color_harmony": 0.6018276164929072,
-            "mood_and_color_tone": 0.33392097069493804,
-            "preference": 0.3787640792628129,
-            "spatial_accuracy": 0.36110641558965045,
-            "typography": 0.45606635014216107,
-            "visual_hierarchy": 0.03140111764272054
+            "color_accuracy": 0.6273320416609446,
+            "color_harmony": 0.623244841893514,
+            "mood_and_color_tone": 0.5457945863405863,
+            "preference": 0.5668276846408844,
+            "spatial_accuracy": 0.2638622224330902,
+            "typography": 0.6767578125,
+            "visual_hierarchy": 0.0027841245367502174
           },
-          "model_output_overall": 0.3868848853716848,
-          "taste_overall": 0.3868848853716848,
+          "model_output_overall": 0.47237190200082424,
+          "taste_overall": 0.47237190200082424,
           "model_output_n_pairs": 3,
           "imscore_scores": {
             "hpsv21": 0.3031059503555298,
@@ -1537,7 +1853,165 @@
             "score": 0.03140111764272054
           }
         ]
-      }
+      },
+      "taste_ordered_pair_scores": [
+        {
+          "candidate_a": "c1",
+          "candidate_b": "c2",
+          "probabilities": {
+            "color_accuracy": 0.05588923767209053,
+            "color_harmony": 0.5007167458534241,
+            "mood_and_color_tone": 0.39148324728012085,
+            "preference": 0.0015867521287873387,
+            "spatial_accuracy": 0.4345133900642395,
+            "typography": 0.8941406607627869,
+            "visual_hierarchy": 0.6167829036712646
+          }
+        },
+        {
+          "candidate_a": "c1",
+          "candidate_b": "c3",
+          "probabilities": {
+            "color_accuracy": 0.007133742328733206,
+            "color_harmony": 0.5529717803001404,
+            "mood_and_color_tone": 0.3962878882884979,
+            "preference": 0.6601952910423279,
+            "spatial_accuracy": 0.5331757068634033,
+            "typography": 0.6577440500259399,
+            "visual_hierarchy": 0.6696010828018188
+          }
+        },
+        {
+          "candidate_a": "c1",
+          "candidate_b": "c4",
+          "probabilities": {
+            "color_accuracy": 0.11747488379478455,
+            "color_harmony": 0.5259308815002441,
+            "mood_and_color_tone": 0.9973840117454529,
+            "preference": 0.03514162823557854,
+            "spatial_accuracy": 0.6569540500640869,
+            "typography": 0.6116392016410828,
+            "visual_hierarchy": 0.9429592490196228
+          }
+        },
+        {
+          "candidate_a": "c2",
+          "candidate_b": "c1",
+          "probabilities": {
+            "color_accuracy": 0.6236785650253296,
+            "color_harmony": 0.5162591934204102,
+            "mood_and_color_tone": 0.999785840511322,
+            "preference": 0.9822835326194763,
+            "spatial_accuracy": 0.5429246425628662,
+            "typography": 0.9974595904350281,
+            "visual_hierarchy": 0.43717479705810547
+          }
+        },
+        {
+          "candidate_a": "c2",
+          "candidate_b": "c3",
+          "probabilities": {
+            "color_accuracy": 0.5576117634773254,
+            "color_harmony": 0.48932933807373047,
+            "mood_and_color_tone": 0.9998610019683838,
+            "preference": 0.9902100563049316,
+            "spatial_accuracy": 0.4023328125476837,
+            "typography": 0.1478537768125534,
+            "visual_hierarchy": 0.8479218482971191
+          }
+        },
+        {
+          "candidate_a": "c2",
+          "candidate_b": "c4",
+          "probabilities": {
+            "color_accuracy": 0.6146792769432068,
+            "color_harmony": 0.43518924713134766,
+            "mood_and_color_tone": 0.9999804496765137,
+            "preference": 0.9847729206085205,
+            "spatial_accuracy": 0.6276748180389404,
+            "typography": 0.4902222156524658,
+            "visual_hierarchy": 0.9952552914619446
+          }
+        },
+        {
+          "candidate_a": "c3",
+          "candidate_b": "c1",
+          "probabilities": {
+            "color_accuracy": 0.6567721962928772,
+            "color_harmony": 0.2256246656179428,
+            "mood_and_color_tone": 0.0002708122774492949,
+            "preference": 0.003693938720971346,
+            "spatial_accuracy": 0.473324716091156,
+            "typography": 0.9778802394866943,
+            "visual_hierarchy": 0.00011973083746852353
+          }
+        },
+        {
+          "candidate_a": "c3",
+          "candidate_b": "c2",
+          "probabilities": {
+            "color_accuracy": 0.4647873342037201,
+            "color_harmony": 0.2504056990146637,
+            "mood_and_color_tone": 0.6031251549720764,
+            "preference": 0.002532334765419364,
+            "spatial_accuracy": 0.2548567056655884,
+            "typography": 0.08501295000314713,
+            "visual_hierarchy": 0.47708430886268616
+          }
+        },
+        {
+          "candidate_a": "c3",
+          "candidate_b": "c4",
+          "probabilities": {
+            "color_accuracy": 0.6325228810310364,
+            "color_harmony": 0.23339702188968658,
+            "mood_and_color_tone": 0.0008726240484975278,
+            "preference": 0.8437930941581726,
+            "spatial_accuracy": 0.632051944732666,
+            "typography": 0.5299395322799683,
+            "visual_hierarchy": 0.9675822257995605
+          }
+        },
+        {
+          "candidate_a": "c4",
+          "candidate_b": "c1",
+          "probabilities": {
+            "color_accuracy": 0.7323489189147949,
+            "color_harmony": 0.9985044002532959,
+            "mood_and_color_tone": 0.625235915184021,
+            "preference": 0.371521919965744,
+            "spatial_accuracy": 0.2167523205280304,
+            "typography": 0.5463895201683044,
+            "visual_hierarchy": 0.00016308622434735298
+          }
+        },
+        {
+          "candidate_a": "c4",
+          "candidate_b": "c2",
+          "probabilities": {
+            "color_accuracy": 0.477995902299881,
+            "color_harmony": 0.3908475339412689,
+            "mood_and_color_tone": 0.5993335247039795,
+            "preference": 0.3611181378364563,
+            "spatial_accuracy": 0.1886889934539795,
+            "typography": 0.5862334966659546,
+            "visual_hierarchy": 0.0075651491060853004
+          }
+        },
+        {
+          "candidate_a": "c4",
+          "candidate_b": "c3",
+          "probabilities": {
+            "color_accuracy": 0.671651303768158,
+            "color_harmony": 0.4803825914859772,
+            "mood_and_color_tone": 0.41281431913375854,
+            "preference": 0.9678429961204529,
+            "spatial_accuracy": 0.38614535331726074,
+            "typography": 0.897650420665741,
+            "visual_hierarchy": 0.0006241382798179984
+          }
+        }
+      ]
     },
     {
       "id": "39-color_harmony",
@@ -1564,25 +2038,25 @@
           "human_mean_rank": 1.4,
           "human_first_place_votes": 4,
           "model_output_scores": {
-            "color_accuracy": 0.4108697213232517,
+            "color_accuracy": 0.4108697585761547,
             "color_harmony": 0.8357658584912618,
-            "mood_and_color_tone": 0.2525951197312679,
-            "preference": 0.4342614809672038,
-            "spatial_accuracy": 0.21174122393131256,
+            "mood_and_color_tone": 0.2525951694018052,
+            "preference": 0.4342615008354187,
+            "spatial_accuracy": 0.21174125373363495,
             "typography": 0.5348649819691976,
-            "visual_hierarchy": 0.6654704709847769
+            "visual_hierarchy": 0.6654704511165619
           },
           "taste_scores": {
-            "color_accuracy": 0.4108697213232517,
+            "color_accuracy": 0.4108697585761547,
             "color_harmony": 0.8357658584912618,
-            "mood_and_color_tone": 0.2525951197312679,
-            "preference": 0.4342614809672038,
-            "spatial_accuracy": 0.21174122393131256,
+            "mood_and_color_tone": 0.2525951694018052,
+            "preference": 0.4342615008354187,
+            "spatial_accuracy": 0.21174125373363495,
             "typography": 0.5348649819691976,
-            "visual_hierarchy": 0.6654704709847769
+            "visual_hierarchy": 0.6654704511165619
           },
-          "model_output_overall": 0.4779384081997532,
-          "taste_overall": 0.4779384081997532,
+          "model_output_overall": 0.4779384248748621,
+          "taste_overall": 0.4779384248748621,
           "model_output_n_pairs": 3,
           "imscore_scores": {
             "hpsv21": 0.24369320273399353,
@@ -1603,25 +2077,25 @@
           "human_mean_rank": 2.0,
           "human_first_place_votes": 0,
           "model_output_scores": {
-            "color_accuracy": 0.7228609087566534,
-            "color_harmony": 0.6783355474472046,
-            "mood_and_color_tone": 0.808201273282369,
-            "preference": 0.7025849322477976,
-            "spatial_accuracy": 0.5967923154433569,
-            "typography": 0.6183342337608337,
-            "visual_hierarchy": 0.32950353622436523
+            "color_accuracy": 0.610254685084025,
+            "color_harmony": 0.5151832719954351,
+            "mood_and_color_tone": 0.9986435174942017,
+            "preference": 0.7004640897115072,
+            "spatial_accuracy": 0.5243175427118937,
+            "typography": 0.4327411015983671,
+            "visual_hierarchy": 0.4834885597229004
           },
           "taste_scores": {
-            "color_accuracy": 0.7228609087566534,
-            "color_harmony": 0.6783355474472046,
-            "mood_and_color_tone": 0.808201273282369,
-            "preference": 0.7025849322477976,
-            "spatial_accuracy": 0.5967923154433569,
-            "typography": 0.6183342337608337,
-            "visual_hierarchy": 0.32950353622436523
+            "color_accuracy": 0.610254685084025,
+            "color_harmony": 0.5151832719954351,
+            "mood_and_color_tone": 0.9986435174942017,
+            "preference": 0.7004640897115072,
+            "spatial_accuracy": 0.5243175427118937,
+            "typography": 0.4327411015983671,
+            "visual_hierarchy": 0.4834885597229004
           },
-          "model_output_overall": 0.6366589638803687,
-          "taste_overall": 0.6366589638803687,
+          "model_output_overall": 0.6092989669026185,
+          "taste_overall": 0.6092989669026185,
           "model_output_n_pairs": 3,
           "imscore_scores": {
             "hpsv21": 0.25724053382873535,
@@ -1642,25 +2116,25 @@
           "human_mean_rank": 3.0,
           "human_first_place_votes": 1,
           "model_output_scores": {
-            "color_accuracy": 0.41289299726486206,
-            "color_harmony": 0.12495201018949349,
-            "mood_and_color_tone": 0.5035389631423944,
-            "preference": 0.5544043680032095,
-            "spatial_accuracy": 0.7231140732765198,
-            "typography": 0.5792923967043558,
-            "visual_hierarchy": 0.6058555841445923
+            "color_accuracy": 0.49337170521418255,
+            "color_harmony": 0.16289359082778296,
+            "mood_and_color_tone": 0.23651646077632904,
+            "preference": 0.648732324441274,
+            "spatial_accuracy": 0.31085733820994693,
+            "typography": 0.7902720272541046,
+            "visual_hierarchy": 0.5999534626801809
           },
           "taste_scores": {
-            "color_accuracy": 0.41289299726486206,
-            "color_harmony": 0.12495201018949349,
-            "mood_and_color_tone": 0.5035389631423944,
-            "preference": 0.5544043680032095,
-            "spatial_accuracy": 0.7231140732765198,
-            "typography": 0.5792923967043558,
-            "visual_hierarchy": 0.6058555841445923
+            "color_accuracy": 0.49337170521418255,
+            "color_harmony": 0.16289359082778296,
+            "mood_and_color_tone": 0.23651646077632904,
+            "preference": 0.648732324441274,
+            "spatial_accuracy": 0.31085733820994693,
+            "typography": 0.7902720272541046,
+            "visual_hierarchy": 0.5999534626801809
           },
-          "model_output_overall": 0.5005786275322038,
-          "taste_overall": 0.5005786275322038,
+          "model_output_overall": 0.4632281299148287,
+          "taste_overall": 0.4632281299148287,
           "model_output_n_pairs": 3,
           "imscore_scores": {
             "hpsv21": 0.28522995114326477,
@@ -1681,25 +2155,25 @@
           "human_mean_rank": 3.6,
           "human_first_place_votes": 0,
           "model_output_scores": {
-            "color_accuracy": 0.45337637265523273,
-            "color_harmony": 0.3609465838720401,
-            "mood_and_color_tone": 0.4356646438439687,
-            "preference": 0.3087492187817891,
-            "spatial_accuracy": 0.46835238734881085,
-            "typography": 0.2675083875656128,
-            "visual_hierarchy": 0.3991704086462657
+            "color_accuracy": 0.540465792020162,
+            "color_harmony": 0.003007067095798751,
+            "mood_and_color_tone": 0.6392807761828104,
+            "preference": 0.0012087220602552406,
+            "spatial_accuracy": 0.22576496005058289,
+            "typography": 0.06517087928174685,
+            "visual_hierarchy": 0.36078454678257305
           },
           "taste_scores": {
-            "color_accuracy": 0.45337637265523273,
-            "color_harmony": 0.3609465838720401,
-            "mood_and_color_tone": 0.4356646438439687,
-            "preference": 0.3087492187817891,
-            "spatial_accuracy": 0.46835238734881085,
-            "typography": 0.2675083875656128,
-            "visual_hierarchy": 0.3991704086462657
+            "color_accuracy": 0.540465792020162,
+            "color_harmony": 0.003007067095798751,
+            "mood_and_color_tone": 0.6392807761828104,
+            "preference": 0.0012087220602552406,
+            "spatial_accuracy": 0.22576496005058289,
+            "typography": 0.06517087928174685,
+            "visual_hierarchy": 0.36078454678257305
           },
-          "model_output_overall": 0.3848240003876743,
-          "taste_overall": 0.3848240003876743,
+          "model_output_overall": 0.262240391924847,
+          "taste_overall": 0.262240391924847,
           "model_output_n_pairs": 3,
           "imscore_scores": {
             "hpsv21": 0.2456692010164261,
@@ -2005,7 +2479,165 @@
             "score": 0.32950353622436523
           }
         ]
-      }
+      },
+      "taste_ordered_pair_scores": [
+        {
+          "candidate_a": "c1",
+          "candidate_b": "c2",
+          "probabilities": {
+            "color_accuracy": 0.05541873350739479,
+            "color_harmony": 0.5084439516067505,
+            "mood_and_color_tone": 0.5723139047622681,
+            "preference": 0.4401215612888336,
+            "spatial_accuracy": 0.22978328168392181,
+            "typography": 0.4431419372558594,
+            "visual_hierarchy": 0.9194490313529968
+          }
+        },
+        {
+          "candidate_a": "c1",
+          "candidate_b": "c3",
+          "probabilities": {
+            "color_accuracy": 0.6156207919120789,
+            "color_harmony": 0.999293327331543,
+            "mood_and_color_tone": 0.0003531666297931224,
+            "preference": 0.4350908100605011,
+            "spatial_accuracy": 0.11097154021263123,
+            "typography": 0.6023791432380676,
+            "visual_hierarchy": 0.6132893562316895
+          }
+        },
+        {
+          "candidate_a": "c1",
+          "candidate_b": "c4",
+          "probabilities": {
+            "color_accuracy": 0.5615697503089905,
+            "color_harmony": 0.9995602965354919,
+            "mood_and_color_tone": 0.1851184368133545,
+            "preference": 0.4275721311569214,
+            "spatial_accuracy": 0.2944689393043518,
+            "typography": 0.5590738654136658,
+            "visual_hierarchy": 0.4636729657649994
+          }
+        },
+        {
+          "candidate_a": "c2",
+          "candidate_b": "c1",
+          "probabilities": {
+            "color_accuracy": 0.606762707233429,
+            "color_harmony": 0.002099341247230768,
+            "mood_and_color_tone": 0.99901282787323,
+            "preference": 0.5535158514976501,
+            "spatial_accuracy": 0.5527923703193665,
+            "typography": 7.872586138546467e-05,
+            "visual_hierarchy": 0.5425059795379639
+          }
+        },
+        {
+          "candidate_a": "c2",
+          "candidate_b": "c3",
+          "probabilities": {
+            "color_accuracy": 0.6505457758903503,
+            "color_harmony": 0.6418265700340271,
+            "mood_and_color_tone": 0.999982476234436,
+            "preference": 0.558795154094696,
+            "spatial_accuracy": 0.39810359477996826,
+            "typography": 0.6589789390563965,
+            "visual_hierarchy": 0.5134913325309753
+          }
+        },
+        {
+          "candidate_a": "c2",
+          "candidate_b": "c4",
+          "probabilities": {
+            "color_accuracy": 0.5734555721282959,
+            "color_harmony": 0.9016239047050476,
+            "mood_and_color_tone": 0.996935248374939,
+            "preference": 0.9890812635421753,
+            "spatial_accuracy": 0.6220566630363464,
+            "typography": 0.6391656398773193,
+            "visual_hierarchy": 0.39446836709976196
+          }
+        },
+        {
+          "candidate_a": "c3",
+          "candidate_b": "c1",
+          "probabilities": {
+            "color_accuracy": 0.5833241939544678,
+            "color_harmony": 0.43211737275123596,
+            "mood_and_color_tone": 0.080377958714962,
+            "preference": 0.6678871512413025,
+            "spatial_accuracy": 0.14157810807228088,
+            "typography": 0.4096546471118927,
+            "visual_hierarchy": 0.46560153365135193
+          }
+        },
+        {
+          "candidate_a": "c3",
+          "candidate_b": "c2",
+          "probabilities": {
+            "color_accuracy": 0.39194536209106445,
+            "color_harmony": 0.04058746621012688,
+            "mood_and_color_tone": 0.11821889132261276,
+            "preference": 0.6212108731269836,
+            "spatial_accuracy": 0.11257664114236832,
+            "typography": 0.9619261622428894,
+            "visual_hierarchy": 0.389911413192749
+          }
+        },
+        {
+          "candidate_a": "c3",
+          "candidate_b": "c4",
+          "probabilities": {
+            "color_accuracy": 0.5048455595970154,
+            "color_harmony": 0.015975933521986008,
+            "mood_and_color_tone": 0.5109525322914124,
+            "preference": 0.6570989489555359,
+            "spatial_accuracy": 0.6784172654151917,
+            "typography": 0.9992352724075317,
+            "visual_hierarchy": 0.9443474411964417
+          }
+        },
+        {
+          "candidate_a": "c4",
+          "candidate_b": "c1",
+          "probabilities": {
+            "color_accuracy": 0.681645929813385,
+            "color_harmony": 0.0004899498308077455,
+            "mood_and_color_tone": 0.550926923751831,
+            "preference": 6.45098407403566e-05,
+            "spatial_accuracy": 0.2591211199760437,
+            "typography": 0.0009445204632356763,
+            "visual_hierarchy": 0.39713427424430847
+          }
+        },
+        {
+          "candidate_a": "c4",
+          "candidate_b": "c2",
+          "probabilities": {
+            "color_accuracy": 0.32956862449645996,
+            "color_harmony": 0.002383934333920479,
+            "mood_and_color_tone": 0.36783748865127563,
+            "preference": 0.0011951563647016883,
+            "spatial_accuracy": 0.14843213558197021,
+            "typography": 0.003818591358140111,
+            "visual_hierarchy": 0.04853500798344612
+          }
+        },
+        {
+          "candidate_a": "c4",
+          "candidate_b": "c3",
+          "probabilities": {
+            "color_accuracy": 0.6101828217506409,
+            "color_harmony": 0.006147317122668028,
+            "mood_and_color_tone": 0.9990779161453247,
+            "preference": 0.002366499975323677,
+            "spatial_accuracy": 0.26974162459373474,
+            "typography": 0.19074952602386475,
+            "visual_hierarchy": 0.6366843581199646
+          }
+        }
+      ]
     },
     {
       "id": "107-mood_and_color_tone",
@@ -2036,8 +2668,8 @@
             "color_harmony": 0.6892392834027609,
             "mood_and_color_tone": 0.9981672763824463,
             "preference": 0.9912781914075216,
-            "spatial_accuracy": 0.3012619415918986,
-            "typography": 0.49189012746016186,
+            "spatial_accuracy": 0.30126193165779114,
+            "typography": 0.4918901373942693,
             "visual_hierarchy": 0.5399473401873062
           },
           "taste_scores": {
@@ -2045,8 +2677,8 @@
             "color_harmony": 0.6892392834027609,
             "mood_and_color_tone": 0.9981672763824463,
             "preference": 0.9912781914075216,
-            "spatial_accuracy": 0.3012619415918986,
-            "typography": 0.49189012746016186,
+            "spatial_accuracy": 0.30126193165779114,
+            "typography": 0.4918901373942693,
             "visual_hierarchy": 0.5399473401873062
           },
           "model_output_overall": 0.6310888577496544,
@@ -2071,25 +2703,25 @@
           "human_mean_rank": 2.0,
           "human_first_place_votes": 0,
           "model_output_scores": {
-            "color_accuracy": 0.5812586943308512,
-            "color_harmony": 0.4449649552504222,
-            "mood_and_color_tone": 0.6676724155743917,
-            "preference": 0.5718040267626444,
-            "spatial_accuracy": 0.4722824990749359,
-            "typography": 0.41680344194173813,
-            "visual_hierarchy": 0.8897559153071294
+            "color_accuracy": 0.6436792413393656,
+            "color_harmony": 0.3135144015153249,
+            "mood_and_color_tone": 0.6666049026481838,
+            "preference": 0.754708488782247,
+            "spatial_accuracy": 0.46734241644541424,
+            "typography": 0.6734378164013227,
+            "visual_hierarchy": 0.5569267434766516
           },
           "taste_scores": {
-            "color_accuracy": 0.5812586943308512,
-            "color_harmony": 0.4449649552504222,
-            "mood_and_color_tone": 0.6676724155743917,
-            "preference": 0.5718040267626444,
-            "spatial_accuracy": 0.4722824990749359,
-            "typography": 0.41680344194173813,
-            "visual_hierarchy": 0.8897559153071294
+            "color_accuracy": 0.6436792413393656,
+            "color_harmony": 0.3135144015153249,
+            "mood_and_color_tone": 0.6666049026481838,
+            "preference": 0.754708488782247,
+            "spatial_accuracy": 0.46734241644541424,
+            "typography": 0.6734378164013227,
+            "visual_hierarchy": 0.5569267434766516
           },
-          "model_output_overall": 0.5777917068917304,
-          "taste_overall": 0.5777917068917304,
+          "model_output_overall": 0.5823162872297871,
+          "taste_overall": 0.5823162872297871,
           "model_output_n_pairs": 3,
           "imscore_scores": {
             "hpsv21": 0.3015311062335968,
@@ -2110,25 +2742,25 @@
           "human_mean_rank": 3.4,
           "human_first_place_votes": 0,
           "model_output_scores": {
-            "color_accuracy": 0.48585185408592224,
-            "color_harmony": 0.23864780738949776,
-            "mood_and_color_tone": 0.1898673176765442,
-            "preference": 0.28102835019429523,
-            "spatial_accuracy": 0.6433928509553274,
-            "typography": 0.8175700580080351,
-            "visual_hierarchy": 0.31208093961079914
+            "color_accuracy": 0.5667924582958221,
+            "color_harmony": 0.011021323152817786,
+            "mood_and_color_tone": 0.18978397657762494,
+            "preference": 0.3959621886412303,
+            "spatial_accuracy": 0.48491327961285907,
+            "typography": 0.6894003550211588,
+            "visual_hierarchy": 0.20450682559749112
           },
           "taste_scores": {
-            "color_accuracy": 0.48585185408592224,
-            "color_harmony": 0.23864780738949776,
-            "mood_and_color_tone": 0.1898673176765442,
-            "preference": 0.28102835019429523,
-            "spatial_accuracy": 0.6433928509553274,
-            "typography": 0.8175700580080351,
-            "visual_hierarchy": 0.31208093961079914
+            "color_accuracy": 0.5667924582958221,
+            "color_harmony": 0.011021323152817786,
+            "mood_and_color_tone": 0.18978397657762494,
+            "preference": 0.3959621886412303,
+            "spatial_accuracy": 0.48491327961285907,
+            "typography": 0.6894003550211588,
+            "visual_hierarchy": 0.20450682559749112
           },
-          "model_output_overall": 0.4240627397029173,
-          "taste_overall": 0.4240627397029173,
+          "model_output_overall": 0.36319720098557207,
+          "taste_overall": 0.36319720098557207,
           "model_output_n_pairs": 3,
           "imscore_scores": {
             "hpsv21": 0.2707202732563019,
@@ -2149,25 +2781,25 @@
           "human_mean_rank": 3.6,
           "human_first_place_votes": 0,
           "model_output_scores": {
-            "color_accuracy": 0.5270516077677408,
-            "color_harmony": 0.6271479539573193,
-            "mood_and_color_tone": 0.14429299036661783,
-            "preference": 0.15588943163553873,
-            "spatial_accuracy": 0.5830627083778381,
-            "typography": 0.273736372590065,
-            "visual_hierarchy": 0.2582158048947652
+            "color_accuracy": 0.666353682676951,
+            "color_harmony": 0.2162874142328898,
+            "mood_and_color_tone": 0.17708484070316408,
+            "preference": 0.14492981780009964,
+            "spatial_accuracy": 0.5696338216463724,
+            "typography": 0.14856511758019528,
+            "visual_hierarchy": 0.18692570466858646
           },
           "taste_scores": {
-            "color_accuracy": 0.5270516077677408,
-            "color_harmony": 0.6271479539573193,
-            "mood_and_color_tone": 0.14429299036661783,
-            "preference": 0.15588943163553873,
-            "spatial_accuracy": 0.5830627083778381,
-            "typography": 0.273736372590065,
-            "visual_hierarchy": 0.2582158048947652
+            "color_accuracy": 0.666353682676951,
+            "color_harmony": 0.2162874142328898,
+            "mood_and_color_tone": 0.17708484070316408,
+            "preference": 0.14492981780009964,
+            "spatial_accuracy": 0.5696338216463724,
+            "typography": 0.14856511758019528,
+            "visual_hierarchy": 0.18692570466858646
           },
-          "model_output_overall": 0.3670566956556978,
-          "taste_overall": 0.3670566956556978,
+          "model_output_overall": 0.3013971999011798,
+          "taste_overall": 0.3013971999011798,
           "model_output_n_pairs": 3,
           "imscore_scores": {
             "hpsv21": 0.27452099323272705,
@@ -2473,7 +3105,165 @@
             "score": 0.2582158048947652
           }
         ]
-      }
+      },
+      "taste_ordered_pair_scores": [
+        {
+          "candidate_a": "c1",
+          "candidate_b": "c2",
+          "probabilities": {
+            "color_accuracy": 0.42039722204208374,
+            "color_harmony": 0.5850194096565247,
+            "mood_and_color_tone": 0.9967905879020691,
+            "preference": 0.9907604455947876,
+            "spatial_accuracy": 0.28824564814567566,
+            "typography": 0.772229790687561,
+            "visual_hierarchy": 0.001236943295225501
+          }
+        },
+        {
+          "candidate_a": "c1",
+          "candidate_b": "c3",
+          "probabilities": {
+            "color_accuracy": 0.4281396269798279,
+            "color_harmony": 0.8768287301063538,
+            "mood_and_color_tone": 0.9997578263282776,
+            "preference": 0.9974507689476013,
+            "spatial_accuracy": 0.2336486279964447,
+            "typography": 0.49384644627571106,
+            "visual_hierarchy": 0.9983484745025635
+          }
+        },
+        {
+          "candidate_a": "c1",
+          "candidate_b": "c4",
+          "probabilities": {
+            "color_accuracy": 0.3689766824245453,
+            "color_harmony": 0.605869710445404,
+            "mood_and_color_tone": 0.9979534149169922,
+            "preference": 0.9856233596801758,
+            "spatial_accuracy": 0.38189151883125305,
+            "typography": 0.20959417521953583,
+            "visual_hierarchy": 0.6202566027641296
+          }
+        },
+        {
+          "candidate_a": "c2",
+          "candidate_b": "c1",
+          "probabilities": {
+            "color_accuracy": 0.7668644189834595,
+            "color_harmony": 0.02062898874282837,
+            "mood_and_color_tone": 6.873319307487691e-06,
+            "preference": 0.5579530596733093,
+            "spatial_accuracy": 0.696933925151825,
+            "typography": 0.9976733326911926,
+            "visual_hierarchy": 0.0002756008179858327
+          }
+        },
+        {
+          "candidate_a": "c2",
+          "candidate_b": "c3",
+          "probabilities": {
+            "color_accuracy": 0.6100993752479553,
+            "color_harmony": 0.4382352828979492,
+            "mood_and_color_tone": 0.9998975992202759,
+            "preference": 0.7570642232894897,
+            "spatial_accuracy": 0.2585199177265167,
+            "typography": 0.022721536457538605,
+            "visual_hierarchy": 0.6732432246208191
+          }
+        },
+        {
+          "candidate_a": "c2",
+          "candidate_b": "c4",
+          "probabilities": {
+            "color_accuracy": 0.5540739297866821,
+            "color_harmony": 0.48167893290519714,
+            "mood_and_color_tone": 0.9999102354049683,
+            "preference": 0.9491081833839417,
+            "spatial_accuracy": 0.446573406457901,
+            "typography": 0.9999185800552368,
+            "visual_hierarchy": 0.9972614049911499
+          }
+        },
+        {
+          "candidate_a": "c3",
+          "candidate_b": "c1",
+          "probabilities": {
+            "color_accuracy": 0.6871592402458191,
+            "color_harmony": 0.0007005261722952127,
+            "mood_and_color_tone": 2.1291523808031343e-05,
+            "preference": 0.14273720979690552,
+            "spatial_accuracy": 0.6066382527351379,
+            "typography": 0.5731964707374573,
+            "visual_hierarchy": 0.004917990881949663
+          }
+        },
+        {
+          "candidate_a": "c3",
+          "candidate_b": "c2",
+          "probabilities": {
+            "color_accuracy": 0.5174235701560974,
+            "color_harmony": 0.0013559485087171197,
+            "mood_and_color_tone": 7.320002623600885e-05,
+            "preference": 0.4475491940975189,
+            "spatial_accuracy": 0.4257546365261078,
+            "typography": 0.5257264375686646,
+            "visual_hierarchy": 0.0007679083500988781
+          }
+        },
+        {
+          "candidate_a": "c3",
+          "candidate_b": "c4",
+          "probabilities": {
+            "color_accuracy": 0.4957945644855499,
+            "color_harmony": 0.031007494777441025,
+            "mood_and_color_tone": 0.5692574381828308,
+            "preference": 0.5976001620292664,
+            "spatial_accuracy": 0.42234694957733154,
+            "typography": 0.9692781567573547,
+            "visual_hierarchy": 0.6078345775604248
+          }
+        },
+        {
+          "candidate_a": "c4",
+          "candidate_b": "c1",
+          "probabilities": {
+            "color_accuracy": 0.7597491145133972,
+            "color_harmony": 0.018134262412786484,
+            "mood_and_color_tone": 4.3081851686110895e-07,
+            "preference": 0.002192799700424075,
+            "spatial_accuracy": 0.6425026059150696,
+            "typography": 0.014454690739512444,
+            "visual_hierarchy": 0.0030475654639303684
+          }
+        },
+        {
+          "candidate_a": "c4",
+          "candidate_b": "c2",
+          "probabilities": {
+            "color_accuracy": 0.5998426675796509,
+            "color_harmony": 0.04126117005944252,
+            "mood_and_color_tone": 2.8409986043698154e-05,
+            "preference": 0.06307315826416016,
+            "spatial_accuracy": 0.5547376275062561,
+            "typography": 0.014209314249455929,
+            "visual_hierarchy": 0.0021032157819718122
+          }
+        },
+        {
+          "candidate_a": "c4",
+          "candidate_b": "c3",
+          "probabilities": {
+            "color_accuracy": 0.6394692659378052,
+            "color_harmony": 0.5894668102264404,
+            "mood_and_color_tone": 0.5312256813049316,
+            "preference": 0.3695234954357147,
+            "spatial_accuracy": 0.5116612315177917,
+            "typography": 0.41703134775161743,
+            "visual_hierarchy": 0.5556263327598572
+          }
+        }
+      ]
     },
     {
       "id": "570-spatial_accuracy",
@@ -2500,25 +3290,25 @@
           "human_mean_rank": 1.0,
           "human_first_place_votes": 5,
           "model_output_scores": {
-            "color_accuracy": 0.797162652015686,
+            "color_accuracy": 0.7971626321474711,
             "color_harmony": 0.5421407620112101,
             "mood_and_color_tone": 0.5050771733125051,
-            "preference": 0.8096372683842977,
+            "preference": 0.8096372485160828,
             "spatial_accuracy": 0.9999348719914755,
             "typography": 0.7166249752044678,
             "visual_hierarchy": 0.5229814251263937
           },
           "taste_scores": {
-            "color_accuracy": 0.797162652015686,
+            "color_accuracy": 0.7971626321474711,
             "color_harmony": 0.5421407620112101,
             "mood_and_color_tone": 0.5050771733125051,
-            "preference": 0.8096372683842977,
+            "preference": 0.8096372485160828,
             "spatial_accuracy": 0.9999348719914755,
             "typography": 0.7166249752044678,
             "visual_hierarchy": 0.5229814251263937
           },
-          "model_output_overall": 0.6990798754351479,
-          "taste_overall": 0.6990798754351479,
+          "model_output_overall": 0.6990798697585151,
+          "taste_overall": 0.6990798697585151,
           "model_output_n_pairs": 3,
           "imscore_scores": {
             "hpsv21": 0.20566049218177795,
@@ -2539,25 +3329,25 @@
           "human_mean_rank": 2.6,
           "human_first_place_votes": 0,
           "model_output_scores": {
-            "color_accuracy": 0.2411149044831594,
-            "color_harmony": 0.4871889352798462,
-            "mood_and_color_tone": 0.5081050197283427,
-            "preference": 0.4033189614613851,
-            "spatial_accuracy": 0.12882506723205248,
-            "typography": 0.5169504880905151,
-            "visual_hierarchy": 0.5246169368426005
+            "color_accuracy": 0.40931976834932965,
+            "color_harmony": 0.514304518699646,
+            "mood_and_color_tone": 0.5166048208872477,
+            "preference": 0.3754659127444029,
+            "spatial_accuracy": 0.12972310255281627,
+            "typography": 0.42455532650152844,
+            "visual_hierarchy": 0.5448789000511169
           },
           "taste_scores": {
-            "color_accuracy": 0.2411149044831594,
-            "color_harmony": 0.4871889352798462,
-            "mood_and_color_tone": 0.5081050197283427,
-            "preference": 0.4033189614613851,
-            "spatial_accuracy": 0.12882506723205248,
-            "typography": 0.5169504880905151,
-            "visual_hierarchy": 0.5246169368426005
+            "color_accuracy": 0.40931976834932965,
+            "color_harmony": 0.514304518699646,
+            "mood_and_color_tone": 0.5166048208872477,
+            "preference": 0.3754659127444029,
+            "spatial_accuracy": 0.12972310255281627,
+            "typography": 0.42455532650152844,
+            "visual_hierarchy": 0.5448789000511169
           },
-          "model_output_overall": 0.40144575901684304,
-          "taste_overall": 0.40144575901684304,
+          "model_output_overall": 0.4164074785408697,
+          "taste_overall": 0.4164074785408697,
           "model_output_n_pairs": 3,
           "imscore_scores": {
             "hpsv21": 0.20167028903961182,
@@ -2578,25 +3368,25 @@
           "human_mean_rank": 3.0,
           "human_first_place_votes": 0,
           "model_output_scores": {
-            "color_accuracy": 0.6130171318848928,
-            "color_harmony": 0.4928438663482666,
-            "mood_and_color_tone": 0.5056376159191132,
-            "preference": 0.40232304732004803,
-            "spatial_accuracy": 0.39628057678540546,
-            "typography": 0.607177714506785,
-            "visual_hierarchy": 0.49206896622975665
+            "color_accuracy": 0.7167259951432546,
+            "color_harmony": 0.5582096179326376,
+            "mood_and_color_tone": 0.5125206708908081,
+            "preference": 0.28777112253010273,
+            "spatial_accuracy": 0.17902979400241747,
+            "typography": 0.6957347939411799,
+            "visual_hierarchy": 0.5316201647122701
           },
           "taste_scores": {
-            "color_accuracy": 0.6130171318848928,
-            "color_harmony": 0.4928438663482666,
-            "mood_and_color_tone": 0.5056376159191132,
-            "preference": 0.40232304732004803,
-            "spatial_accuracy": 0.39628057678540546,
-            "typography": 0.607177714506785,
-            "visual_hierarchy": 0.49206896622975665
+            "color_accuracy": 0.7167259951432546,
+            "color_harmony": 0.5582096179326376,
+            "mood_and_color_tone": 0.5125206708908081,
+            "preference": 0.28777112253010273,
+            "spatial_accuracy": 0.17902979400241747,
+            "typography": 0.6957347939411799,
+            "visual_hierarchy": 0.5316201647122701
           },
-          "model_output_overall": 0.5013355598563239,
-          "taste_overall": 0.5013355598563239,
+          "model_output_overall": 0.4973731655932387,
+          "taste_overall": 0.4973731655932387,
           "model_output_n_pairs": 3,
           "imscore_scores": {
             "hpsv21": 0.19841524958610535,
@@ -2617,25 +3407,25 @@
           "human_mean_rank": 3.4,
           "human_first_place_votes": 0,
           "model_output_scores": {
-            "color_accuracy": 0.3487053116162618,
-            "color_harmony": 0.47782643636067706,
-            "mood_and_color_tone": 0.48118019104003906,
-            "preference": 0.3847207228342692,
-            "spatial_accuracy": 0.47495948399106663,
-            "typography": 0.15924682219823202,
-            "visual_hierarchy": 0.4603326718012492
+            "color_accuracy": 0.20298377114037672,
+            "color_harmony": 0.520315925280253,
+            "mood_and_color_tone": 0.5325820446014404,
+            "preference": 0.32949356983105343,
+            "spatial_accuracy": 0.14313870978852114,
+            "typography": 0.1790165879841273,
+            "visual_hierarchy": 0.5137337346871694
           },
           "taste_scores": {
-            "color_accuracy": 0.3487053116162618,
-            "color_harmony": 0.47782643636067706,
-            "mood_and_color_tone": 0.48118019104003906,
-            "preference": 0.3847207228342692,
-            "spatial_accuracy": 0.47495948399106663,
-            "typography": 0.15924682219823202,
-            "visual_hierarchy": 0.4603326718012492
+            "color_accuracy": 0.20298377114037672,
+            "color_harmony": 0.520315925280253,
+            "mood_and_color_tone": 0.5325820446014404,
+            "preference": 0.32949356983105343,
+            "spatial_accuracy": 0.14313870978852114,
+            "typography": 0.1790165879841273,
+            "visual_hierarchy": 0.5137337346871694
           },
-          "model_output_overall": 0.39813880569168497,
-          "taste_overall": 0.39813880569168497,
+          "model_output_overall": 0.3458949061875631,
+          "taste_overall": 0.3458949061875631,
           "model_output_n_pairs": 3,
           "imscore_scores": {
             "hpsv21": 0.18716169893741608,
@@ -2941,7 +3731,165 @@
             "score": 0.4603326718012492
           }
         ]
-      }
+      },
+      "taste_ordered_pair_scores": [
+        {
+          "candidate_a": "c1",
+          "candidate_b": "c2",
+          "probabilities": {
+            "color_accuracy": 0.997330904006958,
+            "color_harmony": 0.5600007772445679,
+            "mood_and_color_tone": 0.503372311592102,
+            "preference": 0.8888220191001892,
+            "spatial_accuracy": 0.9999902248382568,
+            "typography": 0.5677379965782166,
+            "visual_hierarchy": 0.5054112672805786
+          }
+        },
+        {
+          "candidate_a": "c1",
+          "candidate_b": "c3",
+          "probabilities": {
+            "color_accuracy": 0.6618840098381042,
+            "color_harmony": 0.5462265610694885,
+            "mood_and_color_tone": 0.48901447653770447,
+            "preference": 0.7789433002471924,
+            "spatial_accuracy": 0.9998937845230103,
+            "typography": 0.6030610203742981,
+            "visual_hierarchy": 0.527919352054596
+          }
+        },
+        {
+          "candidate_a": "c1",
+          "candidate_b": "c4",
+          "probabilities": {
+            "color_accuracy": 0.7322729825973511,
+            "color_harmony": 0.520194947719574,
+            "mood_and_color_tone": 0.5228447318077087,
+            "preference": 0.7611464262008667,
+            "spatial_accuracy": 0.9999206066131592,
+            "typography": 0.9790759086608887,
+            "visual_hierarchy": 0.5356136560440063
+          }
+        },
+        {
+          "candidate_a": "c2",
+          "candidate_b": "c1",
+          "probabilities": {
+            "color_accuracy": 0.5072836875915527,
+            "color_harmony": 0.5213459730148315,
+            "mood_and_color_tone": 0.522127091884613,
+            "preference": 0.027618834748864174,
+            "spatial_accuracy": 0.0027039109263569117,
+            "typography": 0.15507645905017853,
+            "visual_hierarchy": 0.5553746223449707
+          }
+        },
+        {
+          "candidate_a": "c2",
+          "candidate_b": "c3",
+          "probabilities": {
+            "color_accuracy": 0.4975796639919281,
+            "color_harmony": 0.5114582180976868,
+            "mood_and_color_tone": 0.5126007199287415,
+            "preference": 0.5768791437149048,
+            "spatial_accuracy": 0.3317350447177887,
+            "typography": 0.570671796798706,
+            "visual_hierarchy": 0.5415329933166504
+          }
+        },
+        {
+          "candidate_a": "c2",
+          "candidate_b": "c4",
+          "probabilities": {
+            "color_accuracy": 0.22309595346450806,
+            "color_harmony": 0.5101093649864197,
+            "mood_and_color_tone": 0.5150866508483887,
+            "preference": 0.5218997597694397,
+            "spatial_accuracy": 0.05473035201430321,
+            "typography": 0.5479177236557007,
+            "visual_hierarchy": 0.5377290844917297
+          }
+        },
+        {
+          "candidate_a": "c3",
+          "candidate_b": "c1",
+          "probabilities": {
+            "color_accuracy": 0.15199849009513855,
+            "color_harmony": 0.5715547800064087,
+            "mood_and_color_tone": 0.5079517364501953,
+            "preference": 0.027492603287100792,
+            "spatial_accuracy": 0.000794320076238364,
+            "typography": 0.13679753243923187,
+            "visual_hierarchy": 0.5438006520271301
+          }
+        },
+        {
+          "candidate_a": "c3",
+          "candidate_b": "c2",
+          "probabilities": {
+            "color_accuracy": 0.9996644258499146,
+            "color_harmony": 0.5668576955795288,
+            "mood_and_color_tone": 0.5110822319984436,
+            "preference": 0.27302923798561096,
+            "spatial_accuracy": 0.01582450233399868,
+            "typography": 0.9551408886909485,
+            "visual_hierarchy": 0.5054005980491638
+          }
+        },
+        {
+          "candidate_a": "c3",
+          "candidate_b": "c4",
+          "probabilities": {
+            "color_accuracy": 0.9985150694847107,
+            "color_harmony": 0.5362163782119751,
+            "mood_and_color_tone": 0.5185280442237854,
+            "preference": 0.5627915263175964,
+            "spatial_accuracy": 0.5204705595970154,
+            "typography": 0.9952659606933594,
+            "visual_hierarchy": 0.5456592440605164
+          }
+        },
+        {
+          "candidate_a": "c4",
+          "candidate_b": "c1",
+          "probabilities": {
+            "color_accuracy": 0.024265991523861885,
+            "color_harmony": 0.5183629989624023,
+            "mood_and_color_tone": 0.5370606184005737,
+            "preference": 0.06797214597463608,
+            "spatial_accuracy": 0.00039468397153541446,
+            "typography": 0.0016321345465257764,
+            "visual_hierarchy": 0.5349781513214111
+          }
+        },
+        {
+          "candidate_a": "c4",
+          "candidate_b": "c2",
+          "probabilities": {
+            "color_accuracy": 0.0137937031686306,
+            "color_harmony": 0.532420814037323,
+            "mood_and_color_tone": 0.5344395041465759,
+            "preference": 0.5409560799598694,
+            "spatial_accuracy": 0.0008032296900637448,
+            "typography": 0.5094766020774841,
+            "visual_hierarchy": 0.48016491532325745
+          }
+        },
+        {
+          "candidate_a": "c4",
+          "candidate_b": "c3",
+          "probabilities": {
+            "color_accuracy": 0.5708916187286377,
+            "color_harmony": 0.5101639628410339,
+            "mood_and_color_tone": 0.5262460112571716,
+            "preference": 0.3795524835586548,
+            "spatial_accuracy": 0.42821821570396423,
+            "typography": 0.025941027328372,
+            "visual_hierarchy": 0.5260581374168396
+          }
+        }
+      ]
     },
     {
       "id": "421-color_accuracy",
@@ -2968,25 +3916,25 @@
           "human_mean_rank": 1.6,
           "human_first_place_votes": 3,
           "model_output_scores": {
-            "color_accuracy": 0.9807067116101583,
+            "color_accuracy": 0.9807066718737284,
             "color_harmony": 0.5808976292610168,
             "mood_and_color_tone": 0.5095794995625814,
             "preference": 0.6884383658568064,
-            "spatial_accuracy": 0.6237618482361237,
+            "spatial_accuracy": 0.6237618500987688,
             "typography": 0.6628651635255665,
-            "visual_hierarchy": 0.23372575640678406
+            "visual_hierarchy": 0.2337257315715154
           },
           "taste_scores": {
-            "color_accuracy": 0.9807067116101583,
+            "color_accuracy": 0.9807066718737284,
             "color_harmony": 0.5808976292610168,
             "mood_and_color_tone": 0.5095794995625814,
             "preference": 0.6884383658568064,
-            "spatial_accuracy": 0.6237618482361237,
+            "spatial_accuracy": 0.6237618500987688,
             "typography": 0.6628651635255665,
-            "visual_hierarchy": 0.23372575640678406
+            "visual_hierarchy": 0.2337257315715154
           },
-          "model_output_overall": 0.611424996351291,
-          "taste_overall": 0.611424996351291,
+          "model_output_overall": 0.6114249873928549,
+          "taste_overall": 0.6114249873928549,
           "model_output_n_pairs": 3,
           "imscore_scores": {
             "hpsv21": 0.25273552536964417,
@@ -3007,25 +3955,25 @@
           "human_mean_rank": 1.8,
           "human_first_place_votes": 2,
           "model_output_scores": {
-            "color_accuracy": 0.6847872535387675,
-            "color_harmony": 0.5242294271787008,
-            "mood_and_color_tone": 0.511841336886088,
-            "preference": 0.5330872535705566,
-            "spatial_accuracy": 0.9033786697934071,
-            "typography": 0.20214751966220015,
-            "visual_hierarchy": 0.37142425527175266
+            "color_accuracy": 0.8176672657330831,
+            "color_harmony": 0.567785918712616,
+            "mood_and_color_tone": 0.5202955603599548,
+            "preference": 0.6551598608493805,
+            "spatial_accuracy": 0.758657972017924,
+            "typography": 0.202858616966599,
+            "visual_hierarchy": 0.16844771802425385
           },
           "taste_scores": {
-            "color_accuracy": 0.6847872535387675,
-            "color_harmony": 0.5242294271787008,
-            "mood_and_color_tone": 0.511841336886088,
-            "preference": 0.5330872535705566,
-            "spatial_accuracy": 0.9033786697934071,
-            "typography": 0.20214751966220015,
-            "visual_hierarchy": 0.37142425527175266
+            "color_accuracy": 0.8176672657330831,
+            "color_harmony": 0.567785918712616,
+            "mood_and_color_tone": 0.5202955603599548,
+            "preference": 0.6551598608493805,
+            "spatial_accuracy": 0.758657972017924,
+            "typography": 0.202858616966599,
+            "visual_hierarchy": 0.16844771802425385
           },
-          "model_output_overall": 0.532985102271639,
-          "taste_overall": 0.532985102271639,
+          "model_output_overall": 0.5272675589519731,
+          "taste_overall": 0.5272675589519731,
           "model_output_n_pairs": 3,
           "imscore_scores": {
             "hpsv21": 0.24525293707847595,
@@ -3046,25 +3994,25 @@
           "human_mean_rank": 2.8,
           "human_first_place_votes": 0,
           "model_output_scores": {
-            "color_accuracy": 0.33410922686258954,
-            "color_harmony": 0.46585901578267414,
-            "mood_and_color_tone": 0.49515485763549805,
-            "preference": 0.6092962721983591,
-            "spatial_accuracy": 0.224193274974823,
-            "typography": 0.13675722231467566,
-            "visual_hierarchy": 0.7037898277242979
+            "color_accuracy": 0.7771419286727905,
+            "color_harmony": 0.522795836130778,
+            "mood_and_color_tone": 0.5260055462519327,
+            "preference": 0.36242928852637607,
+            "spatial_accuracy": 0.5184194842974345,
+            "typography": 0.35903405064406496,
+            "visual_hierarchy": 0.41367806990941364
           },
           "taste_scores": {
-            "color_accuracy": 0.33410922686258954,
-            "color_harmony": 0.46585901578267414,
-            "mood_and_color_tone": 0.49515485763549805,
-            "preference": 0.6092962721983591,
-            "spatial_accuracy": 0.224193274974823,
-            "typography": 0.13675722231467566,
-            "visual_hierarchy": 0.7037898277242979
+            "color_accuracy": 0.7771419286727905,
+            "color_harmony": 0.522795836130778,
+            "mood_and_color_tone": 0.5260055462519327,
+            "preference": 0.36242928852637607,
+            "spatial_accuracy": 0.5184194842974345,
+            "typography": 0.35903405064406496,
+            "visual_hierarchy": 0.41367806990941364
           },
-          "model_output_overall": 0.4241656710704168,
-          "taste_overall": 0.4241656710704168,
+          "model_output_overall": 0.4970720292046843,
+          "taste_overall": 0.4970720292046843,
           "model_output_n_pairs": 3,
           "imscore_scores": {
             "hpsv21": 0.2445703148841858,
@@ -3085,25 +4033,25 @@
           "human_mean_rank": 3.8,
           "human_first_place_votes": 0,
           "model_output_scores": {
-            "color_accuracy": 0.0003968079884847005,
-            "color_harmony": 0.4290139277776082,
-            "mood_and_color_tone": 0.4834243059158325,
-            "preference": 0.16917810837427774,
-            "spatial_accuracy": 0.24866620699564615,
-            "typography": 0.9982300944975577,
-            "visual_hierarchy": 0.6910601605971655
+            "color_accuracy": 0.1736298892647028,
+            "color_harmony": 0.5408810973167419,
+            "mood_and_color_tone": 0.5017131765683492,
+            "preference": 0.4784044822057088,
+            "spatial_accuracy": 0.3209159274895986,
+            "typography": 0.9199381073315939,
+            "visual_hierarchy": 0.15563122928142548
           },
           "taste_scores": {
-            "color_accuracy": 0.0003968079884847005,
-            "color_harmony": 0.4290139277776082,
-            "mood_and_color_tone": 0.4834243059158325,
-            "preference": 0.16917810837427774,
-            "spatial_accuracy": 0.24866620699564615,
-            "typography": 0.9982300944975577,
-            "visual_hierarchy": 0.6910601605971655
+            "color_accuracy": 0.1736298892647028,
+            "color_harmony": 0.5408810973167419,
+            "mood_and_color_tone": 0.5017131765683492,
+            "preference": 0.4784044822057088,
+            "spatial_accuracy": 0.3209159274895986,
+            "typography": 0.9199381073315939,
+            "visual_hierarchy": 0.15563122928142548
           },
-          "model_output_overall": 0.4314242303066532,
-          "taste_overall": 0.4314242303066532,
+          "model_output_overall": 0.4415877013511601,
+          "taste_overall": 0.4415877013511601,
           "model_output_n_pairs": 3,
           "imscore_scores": {
             "hpsv21": 0.24692770838737488,
@@ -3409,7 +4357,165 @@
             "score": 0.23372575640678406
           }
         ]
-      }
+      },
+      "taste_ordered_pair_scores": [
+        {
+          "candidate_a": "c1",
+          "candidate_b": "c2",
+          "probabilities": {
+            "color_accuracy": 0.9426445364952087,
+            "color_harmony": 0.5816709399223328,
+            "mood_and_color_tone": 0.5011125206947327,
+            "preference": 0.934233546257019,
+            "spatial_accuracy": 0.028321079909801483,
+            "typography": 0.9964297413825989,
+            "visual_hierarchy": 0.192428320646286
+          }
+        },
+        {
+          "candidate_a": "c1",
+          "candidate_b": "c3",
+          "probabilities": {
+            "color_accuracy": 0.9995110034942627,
+            "color_harmony": 0.564635157585144,
+            "mood_and_color_tone": 0.5134686231613159,
+            "preference": 0.13478806614875793,
+            "spatial_accuracy": 0.9996082186698914,
+            "typography": 0.9911001324653625,
+            "visual_hierarchy": 0.19681762158870697
+          }
+        },
+        {
+          "candidate_a": "c1",
+          "candidate_b": "c4",
+          "probabilities": {
+            "color_accuracy": 0.9999644756317139,
+            "color_harmony": 0.5963867902755737,
+            "mood_and_color_tone": 0.5141573548316956,
+            "preference": 0.9962934851646423,
+            "spatial_accuracy": 0.8433562517166138,
+            "typography": 0.0010656167287379503,
+            "visual_hierarchy": 0.3119312524795532
+          }
+        },
+        {
+          "candidate_a": "c2",
+          "candidate_b": "c1",
+          "probabilities": {
+            "color_accuracy": 0.4559953808784485,
+            "color_harmony": 0.5489985346794128,
+            "mood_and_color_tone": 0.5242502093315125,
+            "preference": 0.4319843351840973,
+            "spatial_accuracy": 0.5375168323516846,
+            "typography": 0.0057035512290894985,
+            "visual_hierarchy": 0.1986420452594757
+          }
+        },
+        {
+          "candidate_a": "c2",
+          "candidate_b": "c3",
+          "probabilities": {
+            "color_accuracy": 0.9977455735206604,
+            "color_harmony": 0.5741639733314514,
+            "mood_and_color_tone": 0.5231931209564209,
+            "preference": 0.5564011335372925,
+            "spatial_accuracy": 0.9986255168914795,
+            "typography": 0.6021273136138916,
+            "visual_hierarchy": 0.07893182337284088
+          }
+        },
+        {
+          "candidate_a": "c2",
+          "candidate_b": "c4",
+          "probabilities": {
+            "color_accuracy": 0.9992608428001404,
+            "color_harmony": 0.5801952481269836,
+            "mood_and_color_tone": 0.5134433507919312,
+            "preference": 0.9770941138267517,
+            "spatial_accuracy": 0.7398315668106079,
+            "typography": 0.0007449860568158329,
+            "visual_hierarchy": 0.22776928544044495
+          }
+        },
+        {
+          "candidate_a": "c3",
+          "candidate_b": "c1",
+          "probabilities": {
+            "color_accuracy": 0.34284234046936035,
+            "color_harmony": 0.495757520198822,
+            "mood_and_color_tone": 0.5441585779190063,
+            "preference": 0.07260411232709885,
+            "spatial_accuracy": 0.5182754993438721,
+            "typography": 0.5329992175102234,
+            "visual_hierarchy": 0.4801294207572937
+          }
+        },
+        {
+          "candidate_a": "c3",
+          "candidate_b": "c2",
+          "probabilities": {
+            "color_accuracy": 0.9889991879463196,
+            "color_harmony": 0.536253809928894,
+            "mood_and_color_tone": 0.511731743812561,
+            "preference": 0.4956056773662567,
+            "spatial_accuracy": 0.36616939306259155,
+            "typography": 0.5406038165092468,
+            "visual_hierarchy": 0.3737858533859253
+          }
+        },
+        {
+          "candidate_a": "c3",
+          "candidate_b": "c4",
+          "probabilities": {
+            "color_accuracy": 0.9995842576026917,
+            "color_harmony": 0.5363761782646179,
+            "mood_and_color_tone": 0.522126317024231,
+            "preference": 0.5190780758857727,
+            "spatial_accuracy": 0.6708135604858398,
+            "typography": 0.003499117912724614,
+            "visual_hierarchy": 0.387118935585022
+          }
+        },
+        {
+          "candidate_a": "c4",
+          "candidate_b": "c1",
+          "probabilities": {
+            "color_accuracy": 0.03097143955528736,
+            "color_harmony": 0.5146756172180176,
+            "mood_and_color_tone": 0.5176056623458862,
+            "preference": 0.2906075716018677,
+            "spatial_accuracy": 0.20411935448646545,
+            "typography": 0.9997653365135193,
+            "visual_hierarchy": 0.27971136569976807
+          }
+        },
+        {
+          "candidate_a": "c4",
+          "candidate_b": "c2",
+          "probabilities": {
+            "color_accuracy": 0.033827271312475204,
+            "color_harmony": 0.5566638708114624,
+            "mood_and_color_tone": 0.4879244565963745,
+            "preference": 0.5825538635253906,
+            "spatial_accuracy": 0.42117008566856384,
+            "typography": 0.999313235282898,
+            "visual_hierarchy": 0.13537918031215668
+          }
+        },
+        {
+          "candidate_a": "c4",
+          "candidate_b": "c3",
+          "probabilities": {
+            "color_accuracy": 0.4560909569263458,
+            "color_harmony": 0.5513038039207458,
+            "mood_and_color_tone": 0.49960941076278687,
+            "preference": 0.5620520114898682,
+            "spatial_accuracy": 0.3374583423137665,
+            "typography": 0.7607357501983643,
+            "visual_hierarchy": 0.051803141832351685
+          }
+        }
+      ]
     }
   ],
   "imscore_order": [

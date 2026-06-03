@@ -1,4 +1,4 @@
-const DATA_URL = "data.json?v=20260603-imscore-1";
+const DATA_URL = "data.json?v=20260603-pairwise-1";
 
 const fmt = (value, digits = 5) =>
   value === null || value === undefined || Number.isNaN(Number(value))
@@ -47,7 +47,7 @@ function renderEvaluation(data) {
     createEl(
       "p",
       "score-note",
-      "Primary metric: Spearman correlation between the model's per-image aggregate score and human mean rank across battles_test.csv. Human rank is inverted because rank 1 is best, so higher means the model orders images more like the human panel.",
+      "Higher Spearman means TASTE ranks candidate images more similarly to human judgments.",
     ),
   );
 
@@ -162,18 +162,18 @@ function orderedCandidates(prompt) {
 }
 
 function renderPairMatrix(prompt, ordered) {
-  if (!prompt.taste_pair_scores?.length) return null;
+  const pairRows = prompt.taste_ordered_pair_scores || prompt.taste_pair_scores;
+  if (!pairRows?.length) return null;
   const candidates = ordered.map((candidate) => candidate.id);
   const labels = Object.fromEntries(prompt.candidates.map((c) => [c.id, c.label]));
   const probs = new Map();
-  prompt.taste_pair_scores.forEach((pair) => {
+  pairRows.forEach((pair) => {
     const value = pair.probabilities[prompt.focus_dimension];
     probs.set(`${pair.candidate_a}:${pair.candidate_b}`, value);
-    probs.set(`${pair.candidate_b}:${pair.candidate_a}`, 1 - value);
   });
 
   const section = createEl("div", "matrix-section");
-  section.append(createEl("h3", "", `Raw pairwise model output: ${prompt.dimension_label}`));
+  section.append(createEl("h3", "", `Pairwise model output: ${prompt.dimension_label}`));
   const grid = createEl("div", "matrix");
   grid.style.setProperty("--matrix-size", candidates.length + 1);
   grid.append(createEl("div", "matrix-cell matrix-head", "A beats B"));
@@ -188,8 +188,8 @@ function renderPairMatrix(prompt, ordered) {
         cell.classList.add("muted-cell");
       } else {
         const value = probs.get(`${rowId}:${colId}`);
-        cell.textContent = fmt(value);
-        if (value >= 0.5) cell.classList.add("win-cell");
+        cell.textContent = value === undefined ? "pending" : fmt(value);
+        if (value !== undefined && value >= 0.5) cell.classList.add("win-cell");
       }
       grid.append(cell);
     });
