@@ -1,6 +1,6 @@
-const DATA_URL = "data.json?v=20260603-clean-1";
+const DATA_URL = "data.json?v=20260603-precision-1";
 
-const fmt = (value, digits = 3) =>
+const fmt = (value, digits = 5) =>
   value === null || value === undefined || Number.isNaN(Number(value))
     ? "pending"
     : Number(value).toFixed(digits);
