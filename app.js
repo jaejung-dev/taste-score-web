@@ -1,4 +1,4 @@
-const DATA_URL = "data.json?v=20260603-pairwise-1";
+const DATA_URL = "data.json?v=20260603-scorecards-1";
 
 const fmt = (value, digits = 5) =>
   value === null || value === undefined || Number.isNaN(Number(value))
@@ -103,7 +103,43 @@ const IMSCORE_LABELS = {
 
 const IMSCORE_ORDER = ["hpsv21", "pickscore", "clipscore", "imagereward", "laion_aesthetic"];
 
-function renderCandidate(candidate, prompt) {
+function bestValues(prompt) {
+  const candidates = prompt.candidates || [];
+  const best = {
+    taste: Math.max(
+      ...candidates
+        .map((candidate) => focusScore(candidate, prompt))
+        .filter((value) => value !== undefined && value !== null),
+    ),
+    humanRank: Math.min(
+      ...candidates
+        .map((candidate) => candidate.human_mean_rank)
+        .filter((value) => value !== undefined && value !== null),
+    ),
+    imscore: {},
+  };
+
+  IMSCORE_ORDER.forEach((metric) => {
+    best.imscore[metric] = Math.max(
+      ...candidates
+        .map((candidate) => candidate.imscore_scores?.[metric])
+        .filter((value) => value !== undefined && value !== null),
+    );
+  });
+  return best;
+}
+
+function isBest(value, best, lowerIsBetter = false) {
+  if (value === undefined || value === null || !Number.isFinite(best)) return false;
+  const delta = Math.abs(Number(value) - Number(best));
+  return lowerIsBetter ? delta < 1e-9 : delta < 1e-9;
+}
+
+function bestBadge() {
+  return createEl("span", "best-badge", "Best");
+}
+
+function renderCandidate(candidate, prompt, best) {
   const card = createEl("article", "candidate");
   const imgWrap = createEl("div", "image-wrap");
   const img = document.createElement("img");
@@ -116,14 +152,29 @@ function renderCandidate(candidate, prompt) {
   const title = createEl("div", "candidate-title", candidate.label);
   meta.append(title);
 
+  meta.append(createEl("div", "score-section-label", "TASTE result"));
   const score = focusScore(candidate, prompt);
   const scoreGrid = createEl("div", "candidate-score-grid");
-  const tasteBox = createEl("div", "candidate-score-box taste-box");
+  const tasteBox = createEl(
+    "div",
+    `candidate-score-box taste-box ${isBest(score, best.taste) ? "best-score" : ""}`.trim(),
+  );
   tasteBox.append(createEl("span", "score-label", `TASTE ${prompt.dimension_label}`));
-  tasteBox.append(createEl("strong", "score-number", fmt(score)));
-  const humanBox = createEl("div", "candidate-score-box human-box");
+  const tasteValue = createEl("div", "score-value-line");
+  tasteValue.append(createEl("strong", "score-number", fmt(score)));
+  if (isBest(score, best.taste)) tasteValue.append(bestBadge());
+  tasteBox.append(tasteValue);
+  const humanBox = createEl(
+    "div",
+    `candidate-score-box human-box ${
+      isBest(candidate.human_mean_rank, best.humanRank, true) ? "best-score" : ""
+    }`.trim(),
+  );
   humanBox.append(createEl("span", "score-label", "Human mean rank"));
-  humanBox.append(createEl("strong", "score-number", fmt(candidate.human_mean_rank, 2)));
+  const humanValue = createEl("div", "score-value-line");
+  humanValue.append(createEl("strong", "score-number", fmt(candidate.human_mean_rank, 2)));
+  if (isBest(candidate.human_mean_rank, best.humanRank, true)) humanValue.append(bestBadge());
+  humanBox.append(humanValue);
   scoreGrid.append(tasteBox, humanBox);
   meta.append(scoreGrid);
 
@@ -136,12 +187,17 @@ function renderCandidate(candidate, prompt) {
 
   if (candidate.imscore_scores) {
     const imscore = createEl("div", "imscore-list");
+    imscore.append(createEl("div", "score-section-label", "Image/Text Scores"));
     IMSCORE_ORDER.forEach((metric) => {
       const value = candidate.imscore_scores[metric];
       if (value === undefined || value === null) return;
-      const row = createEl("div", "imscore-row");
+      const isWinner = isBest(value, best.imscore[metric]);
+      const row = createEl("div", `imscore-row ${isWinner ? "best-score" : ""}`.trim());
       row.append(createEl("span", "", IMSCORE_LABELS[metric] || metric));
-      row.append(createEl("strong", "", fmt(value)));
+      const valueWrap = createEl("div", "imscore-value");
+      valueWrap.append(createEl("strong", "", fmt(value)));
+      if (isWinner) valueWrap.append(bestBadge());
+      row.append(valueWrap);
       imscore.append(row);
     });
     if (imscore.childNodes.length) {
@@ -219,8 +275,9 @@ function renderPrompt(prompt) {
   head.append(title, promptText, stats);
 
   const sortedCandidates = orderedCandidates(prompt);
+  const best = bestValues(prompt);
   const candidates = createEl("div", "candidate-grid");
-  sortedCandidates.forEach((candidate) => candidates.append(renderCandidate(candidate, prompt)));
+  sortedCandidates.forEach((candidate) => candidates.append(renderCandidate(candidate, prompt, best)));
 
   section.append(head, candidates);
   const matrix = renderPairMatrix(prompt, sortedCandidates);
